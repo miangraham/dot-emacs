@@ -19,6 +19,13 @@
   (rename-frame "" "nodejs")
 )
 
+(defun use-aggro()
+  (interactive)
+  (desktop-change-dir "~/projects/aggrojs")
+  (cd "~/projects/aggrojs")
+  (rename-frame "" "aggro")
+)
+
 (defun use-home()
   (interactive)
   (desktop-change-dir "~")
