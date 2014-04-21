@@ -1,6 +1,5 @@
 (package-require-or-install 'iedit)
 (package-require-or-install 'magit)
-(package-require-or-install 'discover)
 (package-require-or-install 'projectile)
 (setenv "NODE_ENV" "development")
 
@@ -41,7 +40,6 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 (global-auto-revert-mode)
-(global-discover-mode 1)
 (setq projectile-indexing-method 'native)
 (setq projectile-enable-caching t)
 (projectile-global-mode)
