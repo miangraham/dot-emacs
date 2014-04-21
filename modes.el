@@ -1,5 +1,7 @@
 (package-require-or-install 'iedit)
 (package-require-or-install 'magit)
+(package-require-or-install 'discover)
+(package-require-or-install 'projectile)
 (setenv "NODE_ENV" "development")
 
 (package-require-or-install 'zenburn-theme)
@@ -38,9 +40,11 @@
 (setq visible-bell t)
 (fset 'yes-or-no-p 'y-or-n-p)
 
-(global-discover-mode 1)
-
 (global-auto-revert-mode)
+(global-discover-mode 1)
+(setq projectile-indexing-method 'native)
+(setq projectile-enable-caching t)
+(projectile-global-mode)
 
 (setq org-todo-keywords
   '((sequence "TODO" "PROG" "WAIT" "DONE")))
