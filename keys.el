@@ -1,3 +1,8 @@
+;(global-set-key [M-up] (lambda () (interactive) (scroll-down-line)))
+                                        ;(global-set-key [M-down] (lambda () (interactive) (scroll-up-line)))
+(package-require-or-install 'move-text)
+(move-text-default-bindings)
+
 (global-set-key "\C-x\C-k" 'kill-region)
 (global-set-key "\C-xg" 'goog)
 (global-set-key "\C-xp" 'phpref)
@@ -6,9 +11,16 @@
 (global-set-key "\C-x=" 'replace-last-sexp)
 (global-set-key "\C-ci" 'magit-status)
 
+(define-key global-map "\C-cc" 'org-capture)
+
 (require 'cl)
 (package-require-or-install 'ace-jump-mode)
 (global-set-key "\C-c " 'ace-jump-mode)
+
+(package-require-or-install 'ace-window)
+;(global-set-key "\M-p" 'ace-window)
+(global-set-key "\C-xo" 'ace-window)
+(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
 
 (setq select-active-regions nil)
 (setq mouse-drag-copy-region 't)

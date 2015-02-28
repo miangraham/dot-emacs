@@ -1,3 +1,5 @@
+
+
 ;; Indentation
 ;(setq indent-tabs-mode t)
 ;(setq-default indent-tabs-mode t)
@@ -5,53 +7,183 @@
 ;(setq-default tab-width 4)
 ;(setq-default c-basic-indent 2)
 
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 (setq-default c-basic-indent 2)
 (setq-default c-basic-offset 2)
-(setq-default tab-width 2)
+;(setq-default tab-width 4)
+;(setq-default default-tab-width 4)
+(setq default-tab-width 2)
 (setq-default indent-tabs-mode nil)
+;(setq-default indent-tabs-mode t)
 (setq-default sh-indentation 2)
 (setq-default sh-basic-offset 2)
-(setq-default js-indent-level 2)
+;(setq-default js-indent-level 2)
 
-(add-hook 'c-mode-hook (lambda () (c-set-offset 'substatement-open 0)))
-(add-hook 'csharp-mode-hook (lambda () (setq indent-tabs-mode 1)))
-(add-hook 'csharp-mode-hook (lambda () (setq tab-width 4)))
-(add-hook 'csharp-mode-hook (lambda () (setq c-basic-offset 4)))
-(add-hook 'csharp-mode-hook (lambda () (setq c-basic-indent 4)))
-(add-hook 'csharp-mode-hook (lambda () (setq tab-width 4)))
-(add-hook 'csharp-mode-hook (lambda () (c-set-offset 'substatement-open 0)))
-(add-hook 'csharp-mode-hook (lambda () (c-set-offset 'substatement-open 0)))
-(add-hook 'csharp-mode-hook (lambda () (local-set-key (kbd "{") 'self-insert-command)))
-;(add-hook 'c-mode-hook (lambda () (setq indent-tabs-mode nil)))
-;(add-hook 'c-mode-hook (lambda () (setq tab-width 2)))
-;(add-hook 'c-mode-hook (lambda () (setq c-basic-indent 2)))
-;(add-hook 'c-mode-hook (lambda () (setq c-basic-offset 2)))
 
-;(add-hook 'c++-mode-hook (lambda () (setq indent-tabs-mode nil)))
-;(add-hook 'c++-mode-hook (lambda () (setq tab-width 2)))
-;(add-hook 'c++-mode-hook (lambda () (setq c-basic-indent 2)))
-;(add-hook 'c++-mode-hook (lambda () (setq c-basic-offset 2)))
-
-;(add-hook 'sh-mode-hook (lambda () (setq sh-indentation 2)))
-;(add-hook 'sh-mode-hook (lambda () (setq sh-basic-offset 2)))
-
-;(add-hook 'js-mode-hook (lambda () (setq indent-tabs-mode nil)))
-;(add-hook 'js-mode-hook (lambda () (c-set-offset 'case-label '+)))
-;(add-hook 'js-mode-hook (lambda () (c-set-offset 'statement-case-open '++)))
-;(add-hook 'js-mode-hook (lambda () (c-set-offset 'statement-case-intro '++)))
-;(add-hook 'js-mode-hook (lambda () (setq tab-width 2)))
-;(add-hook 'js-mode-hook (lambda () (setq c-basic-indent 2)))
-;(add-hook 'js-mode-hook (lambda () (setq c-basic-offset 2)))
-;(add-hook 'js-mode-hook (lambda () (setq js-indent-level 2)))
+(add-hook 'emacs-lisp-mode-hook 'projectile-mode)
+(add-hook 'csharp-mode-hook 'projectile-mode)
+(add-hook 'org-mode-hook 'projectile-mode)
 
 (add-hook 'html-mode-hook (lambda () (local-set-key [tab] 'indent-for-tab-command)))
-;(add-hook 'html-mode-hook (lambda () (setq tab-width 2)))
-;(add-hook 'html-mode-hook (lambda () (setq indent-tabs-mode nil)))
+(add-hook 'html-mode-hook (lambda () (setq tab-width 2)))
+(add-hook 'html-mode-hook (lambda () (setq indent-tabs-mode 1)))
 
-(add-hook 'text-mode-hook
-  (function
-   (lambda ()
-     (setq tab-width 4)
-     (define-key text-mode-map "\C-i" 'self-insert-command)
-     )))
+;(add-hook 'text-mode-hook
+;  (function
+;   (lambda ()
+;     (setq tab-width 4)
+;     (define-key text-mode-map "\C-i" 'self-insert-command)
+;     )))
 
+(c-add-style "C#"
+ '("Java"
+   (c-basic-offset . 2)
+;   (c-basic-indent . 2)
+;	 (indent-tabs-mode . 1)
+;	 (default-tab-width . 2)
+;	 (tab-width . 2)
+   (c-comment-only-line-offset . (0 . 0))
+   (c-offsets-alist
+    . (
+       (access-label . -)
+       (arglist-close . c-lineup-arglist)
+       (arglist-cont . 0)
+       (arglist-cont-nonempty . c-lineup-arglist)
+       (arglist-intro . c-lineup-arglist-intro-after-paren)
+       (block-close . 0)
+       (block-open . 0)
+       (brace-entry-open . 0)
+       (brace-list-close . 0)
+       (brace-list-entry . 0)
+       (brace-list-intro . +)
+       (brace-list-open . +)
+       (c . c-lineup-C-comments)
+       (case-label . 0)
+       (catch-clause . 0)
+       (class-close . 0)
+       (class-open . 0)
+       (comment-intro . c-lineup-comment)
+       (cpp-macro . 0)
+       (cpp-macro-cont . c-lineup-dont-change)
+       (defun-block-intro . +)
+       (defun-close . 0)
+       (defun-open . 0)
+       (do-while-closure . 0)
+       (else-clause . 0)
+       (extern-lang-close . 0)
+       (extern-lang-open . 0)
+       (friend . 0)
+       (func-decl-cont . +)
+       (inclass . +)
+       (inexpr-class . +)
+       (inexpr-statement . 0)
+       (inextern-lang . +)
+       (inher-cont . c-lineup-multi-inher)
+       (inher-intro . +)
+       (inlambda . c-lineup-inexpr-block)
+       (inline-close . 0)
+       (inline-open . 0)
+       (innamespace . +)
+       (knr-argdecl . 0)
+       (knr-argdecl-intro . 5)
+       (label . 0)
+       (lambda-intro-cont . +)
+       (member-init-cont . c-lineup-multi-inher)
+       (member-init-intro . +)
+       (namespace-close . 0)
+       (namespace-open . 0)
+       (objc-method-args-cont . c-lineup-ObjC-method-args)
+       (objc-method-call-cont . c-lineup-ObjC-method-call)
+       (objc-method-intro . [0])
+       (statement . 0)
+       (statement-block-intro . +)
+       (statement-case-intro . +)
+       (statement-case-open . +)
+       (statement-cont . +)
+       (stream-op . c-lineup-streamop)
+       (string . c-lineup-dont-change)
+       (substatement . +)
+       (substatement-open . 0)
+       (template-args-cont c-lineup-template-args +)
+       (topmost-intro . 0)
+       (topmost-intro-cont . 0)
+       ))
+   ))
+
+(c-add-style "myC#Style"
+  '("C#"  ; this must be defined elsewhere
+  (c-basic-offset . 2)
+;  (c-basic-indent . 2)
+;	(indent-tabs-mode . 1)
+;	(default-tab-width . 2)
+;	(tab-width . 2)
+  (c-echo-syntactic-information-p . t)
+  (c-comment-only-line-offset . (0 . 0))
+  (c-offsets-alist . (
+    (c                     . c-lineup-C-comments)
+    (namespace-open        . 0)
+    (namespace-close       . 0)
+    (innamespace           . +)
+    (class-open            . 0)
+    (class-close           . 0)
+    (inclass               . +)
+    (block-open            . -)    ; eg, open a block under a function name or if stmt;
+                                   ; want this to be flush with prev line.
+    (arglist-cont          . +)
+    (substatement-open     . 0)  ; I think this is for a try {} or if{} or etc. why this is not block open, I don't know!
+    (defun-open            . 0)  ; method defn? (but no!)
+    (defun-block-intro     . +)  ;0 ; block within a function????
+    (inline-open           . 0)  ; eg, opening a function? ??
+    (statement-block-intro . +)  ; unknown what this is
+    (brace-list-open       . 0)  ; list open (like an enum, array initializer)
+    (brace-list-intro      . +)  ; first item in the list
+    (brace-list-entry      . 0)  ; subsequent items in the list
+    (brace-list-close      . 0)  ; list close
+    (statement-cont        . (dinoch-csharp-lineup-string-cont +))  ; align long strings
+    ))
+  ))
+
+(defun dinoch-csharp-lineup-string-cont (langelem)
+  "Like `c-lineup-string-cont' but works with csharp string continuations."
+  (save-excursion
+    (back-to-indentation)
+    (and (looking-at "@?\\s\"")
+         (let ((quote (if (equal (char-after) ?@)
+                          (char-after (1+ (point)))
+                        (char-after)))
+               pos)
+           (while (and (progn (c-backward-syntactic-ws)
+                              (when (eq (char-before) ?+)
+                                (backward-char)
+                                (c-backward-syntactic-ws))
+                              (eq (char-before) quote))
+                       (c-safe (c-backward-sexp) t)
+                       ;; uncomment this to lineup under the @
+                       ;;(progn (if (eq (char-before) ?@) (backward-char)) t)
+                       (/= (setq pos (point)) (c-point 'boi))))
+           (when pos
+             (goto-char pos)
+             (vector (current-column)))))))
+
+(defun dino-csharp-mode-fn ()
+  (cond (window-system
+         (turn-on-font-lock)
+         (c-set-style "myC#Style")
+				 (local-set-key (kbd "{") 'self-insert-command)
+;         (setq tab-width 2)
+;         (setq default-tab-width 2)
+;				 (setq indent-tabs-mode t)
+         )))
+
+(add-hook 'csharp-mode-hook 'dino-csharp-mode-fn)
+;(add-hook 'csharp-mode-hook 'git-gutter-mode)
+;(add-hook 'csharp-mode-hook (lambda () (setq indent-tabs-mode t)))
+;(add-hook 'csharp-mode-hook (lambda () (setq-default tab-width 2)))
+;(add-hook 'csharp-mode-hook (lambda () (setq tab-width 2)))
+;(add-hook 'csharp-mode-hook (lambda () (setq default-tab-width 2)))
+;(add-hook 'csharp-mode-hook (lambda () (setq c-basic-offset 2)))
+;(add-hook 'csharp-mode-hook (lambda () (setq c-basic-indent 2)))
+
+;(add-hook 'org-mode-hook (lambda () (auto-revert-mode 1)))
+;(add-hook 'org-mode-hook (eval (auto-revert-mode 1)))
