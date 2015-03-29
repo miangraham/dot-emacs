@@ -1,5 +1,5 @@
-(package-require-or-install 'fullframe)
-(package-require-or-install 'magit)
+(require-package 'fullframe)
+(require-package 'magit)
 
 (eval-after-load 'magit (fullframe magit-status magit-mode-quit-window))
 

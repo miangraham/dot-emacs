@@ -1,19 +1,22 @@
 (add-to-list 'load-path (expand-file-name "lisp/" user-emacs-directory))
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(load custom-file)
 
 (require 'init-packages)
+(require 'init-exec-path)
 
-(require 'init-custom-variables)
-(require 'init-custom-faces)
-
+;;(require 'init-powerline)
 (require 'init-ui)
 (require 'init-theme)
 
-;(require 'init-powerline)
+(require 'init-ace)
 (require 'init-magit)
+
 (load-library "~/.emacs.d/modes")
 (load-library "~/.emacs.d/hooks")
 (load-library "~/.emacs.d/defuns")
-(load-library "~/.emacs.d/keys")
+
+(require 'init-desktop)
 (require 'init-helm)
 (require 'init-projectile)
 
@@ -22,3 +25,5 @@
 (require 'init-javascript)
 (require 'init-java)
 (require 'init-csharp)
+
+(require 'init-global-keys)

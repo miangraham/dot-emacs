@@ -1,5 +1,5 @@
-(package-require-or-install 'projectile)
-(package-require-or-install 'helm-projectile)
+(require-package 'projectile)
+(require-package 'helm-projectile)
 (setq projectile-indexing-method 'native)
 (setq projectile-enable-caching t)
 (setq projectile-completion-system 'helm)

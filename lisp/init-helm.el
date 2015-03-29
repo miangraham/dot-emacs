@@ -1,5 +1,5 @@
-(package-require-or-install 'helm)
-(package-require-or-install 'helm-descbinds)
+(require-package 'helm)
+(require-package 'helm-descbinds)
 (require 'helm-config)
 (helm-mode 1)
 (helm-autoresize-mode t)

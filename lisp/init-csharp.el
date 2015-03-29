@@ -1,4 +1,4 @@
-(package-require-or-install 'flycheck)
+(require-package 'flycheck)
 
 (c-add-style "C#"
  '("Java"

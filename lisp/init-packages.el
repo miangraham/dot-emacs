@@ -5,7 +5,7 @@
 
 (package-initialize)
 
-(defun package-require-or-install(package-name)
+(defun require-package(package-name)
   (unless (require package-name nil 't)
     (unless package-archive-contents (package-refresh-contents))
     (package-install package-name)

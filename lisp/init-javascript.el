@@ -1,5 +1,5 @@
-(package-require-or-install 'flycheck)
-(package-require-or-install 'json-mode)
+(require-package 'flycheck)
+(require-package 'json-mode)
 
 (setq-default js-indent-level 2)
 

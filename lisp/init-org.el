@@ -1,4 +1,4 @@
-(package-require-or-install 'org-page)
+(require-package 'org-page)
 
 (setq org-modules '(org-habit))
 
