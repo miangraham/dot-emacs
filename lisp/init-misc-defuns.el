@@ -63,7 +63,7 @@
 (defun jsref(term)
   (interactive "sSearch term: ")
   (browse-url
-   (concat "http://www.google.com/search?btnI=I%27m+Feeling+Lucky&q=site%3Adeveloper.mozilla.org/en/JavaScript/Reference+"
+   (concat "http://www.google.com/search?btnI=I%27m+Feeling+Lucky&q=site%3Adeveloper.mozilla.org/en-US/docs/Web/JavaScript/Reference+"
 		   (replace-regexp-in-string " " "+" term)
 		   )
    )

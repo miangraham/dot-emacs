@@ -2,28 +2,19 @@
 (require-package 'frame-cmds)
 (require 'desktop)
 
-(desktop-save-mode 1)
-(setq desktop-restore-frames nil)
-
-(defun use-node()
-  (interactive)
-  (desktop-change-dir "~/projects/nodejs")
-  (cd "~/projects/nodejs")
-  (rename-frame "" "nodejs")
-)
-
-(defun use-aggro()
-  (interactive)
-  (desktop-change-dir "~/projects/aggrojs")
-  (cd "~/projects/aggrojs")
-  (rename-frame "" "aggro")
-)
+(desktop-save-mode 0)
+(setq desktop-globals-to-save nil
+      desktop-lazy-idle-delay 1
+      desktop-lazy-verbose nil
+      desktop-locals-to-save nil
+      desktop-restore-eager 5
+      desktop-restore-frames nil)
 
 (defun use-home()
   (interactive)
-  (desktop-change-dir "~")
-  (cd "~")
-  (rename-frame "" "~")
+  (desktop-change-dir "~/.emacs.d")
+  (cd "~/.emacs.d")
+  (rename-frame "" "emacs.d")
 )
 
 (defun use-scratch()
@@ -47,13 +38,6 @@
   (rename-frame "" "hw")
 )
 
-(defun use-web()
-  (interactive)
-  (desktop-change-dir "~/tmp/web/www/public")
-  (cd "~/tmp/web/www/public")
-  (rename-frame "" "web")
-)
-
 (defun use-los()
   (interactive)
   (desktop-change-dir "~/los")
@@ -68,39 +52,11 @@
   (rename-frame "" "losfuel")
 )
 
-(defun use-base()
-  (interactive)
-  (desktop-change-dir "~/projects/UnityBase")
-  (cd "~/projects/UnityBase")
-  (rename-frame "" "UnityBase")
-)
-
 (defun use-sdf()
   (interactive)
   (desktop-change-dir "~/projects/sdf_server")
   (cd "~/projects/sdf_server")
   (rename-frame "" "SDF")
-	)
-
-(defun use-lets()
-  (interactive)
-  (desktop-change-dir "~/lets")
-  (cd "~/lets")
-  (rename-frame "" "lets")
-)
-
-(defun use-ls()
-  (interactive)
-  (desktop-change-dir "~/letsserver")
-  (cd "~/letsserver")
-  (rename-frame "" "letsserver")
-)
-
-(defun use-hako()
-  (interactive)
-  (desktop-change-dir "~/trenta/UnityProject")
-  (cd "~/trenta/UnityProject")
-  (rename-frame "" "hakoniwa")
 )
 
 (defun use-auth()
@@ -110,7 +66,10 @@
   (rename-frame "" "auth")
 )
 
-(cd "~")
-(rename-frame "" "~")
+;(desktop-change-dir "~/.emacs.d")
+(cd "~/.emacs.d")
+(rename-frame "" "emacs.d")
+
+(desktop-save-mode 1)
 
 (provide 'init-desktop)

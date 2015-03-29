@@ -21,9 +21,9 @@
 ;; Coding
 (require 'init-edit-setup)
 (require 'init-prog-setup)
-(require 'init-javascript)
-(require 'init-java)
 (require 'init-csharp)
+(require 'init-java)
+(require 'init-javascript)
 
 ;; Personalization
 (require 'init-misc-defuns)
