@@ -11,4 +11,8 @@
 ;;(color-theme-sanityinc-tomorrow-night)
 ;;(moe-light)
 
+(set-fontset-font "fontset-default"
+                  'japanese-jisx0208
+                  '("Hiragino Kaku Gothic Pro" . "iso10646-1"))
+
 (provide 'init-theme)

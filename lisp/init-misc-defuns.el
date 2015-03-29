@@ -96,3 +96,5 @@
   (goto-char (point-min))
   (replace-regexp "}catch" "} catch")
 )
+
+(provide 'init-misc-defuns)
