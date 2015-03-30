@@ -1,9 +1,6 @@
-(setenv "PATH"
-  (concat
-   "/usr/local/bin" ":"
-   (getenv "PATH")
-  )
-)
-(setq exec-path (split-string (getenv "PATH") ":"))
+(require-package 'exec-path-from-shell)
+
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
 
 (provide 'init-exec-path)

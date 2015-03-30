@@ -16,6 +16,6 @@
 (add-hook 'prog-mode-hook 'turn-on-whitespace-cleanup-mode)
 (after-load 'whitespace-cleanup-mode (diminish 'whitespace-cleanup-mode))
 
-(add-hook 'prog-mode-hook (diminish 'abbrev-mode))
+(after-load 'abbrev (diminish 'abbrev-mode))
 
 (provide 'init-prog-setup)
