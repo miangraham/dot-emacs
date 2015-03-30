@@ -13,8 +13,8 @@
 (require 'init-ace)
 (require 'init-desktop)
 (require 'init-helm)
-(require 'init-org)
 (require 'init-magit)
+(require 'init-org)
 (require 'init-projectile)
 (require 'init-tramp)
 
