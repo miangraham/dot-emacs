@@ -1,4 +1,5 @@
 (require-package 'diminish)
+(require-package 'dtrt-indent)
 (require-package 'iedit)
 (require-package 'whitespace-cleanup-mode)
 
@@ -12,6 +13,8 @@
 (setq-default sh-indentation 2)
 (setq-default sh-basic-offset 2)
 (setq-default tags-file-name "TAGS")
+
+(dtrt-indent-mode)
 
 (add-hook 'prog-mode-hook 'turn-on-whitespace-cleanup-mode)
 (after-load 'whitespace-cleanup-mode (diminish 'whitespace-cleanup-mode))

@@ -1,8 +1,29 @@
+(require-package 'csharp-mode)
 (require-package 'flycheck)
 
-(c-add-style "C#"
- '("Java"
+(c-add-style "ianbase"
+ '(
    (c-basic-offset . 2)
+   (c-comment-only-line-offset 0 . 0)
+   (c-offsets-alist
+    (inline-open . 0)
+    (topmost-intro-cont . +)
+    (statement-block-intro . +)
+    (knr-argdecl-intro . 5)
+    (substatement-open . +)
+    (substatement-label . +)
+    (label . +)
+    (statement-case-open . +)
+    (statement-cont . +)
+    (arglist-intro . c-lineup-arglist-intro-after-paren)
+    (arglist-close . c-lineup-arglist)
+    (access-label . 0)
+    (inher-cont . c-lineup-java-inher)
+    (func-decl-cont . c-lineup-java-throws))))
+ 
+(c-add-style "C#"
+ '("ianbase"
+   ;;(c-basic-offset . 2)
 ;   (c-basic-indent . 2)
 ;	 (indent-tabs-mode . 1)
 ;	 (default-tab-width . 2)
@@ -77,7 +98,7 @@
 
 (c-add-style "myC#Style"
   '("C#"  ; this must be defined elsewhere
-  (c-basic-offset . 2)
+  ;;(c-basic-offset . 2)
 ;  (c-basic-indent . 2)
 ;	(indent-tabs-mode . 1)
 ;	(default-tab-width . 2)
