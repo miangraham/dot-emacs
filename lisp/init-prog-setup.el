@@ -1,5 +1,6 @@
 (require-package 'diminish)
 (require-package 'dtrt-indent)
+(require-package 'flycheck)
 (require-package 'iedit)
 (require-package 'whitespace-cleanup-mode)
 

@@ -24,6 +24,8 @@
 (require 'init-csharp)
 (require 'init-java)
 (require 'init-javascript)
+(require 'init-xml)
+(require 'init-yaml)
 
 ;; Personalization
 (require 'init-misc-defuns)
