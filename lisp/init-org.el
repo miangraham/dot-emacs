@@ -19,11 +19,18 @@
          (file "~/org/todo.org")
          "* TODO %^{Task}"
          :immediate-finish t)
+        ("n" "Note" entry
+         (file "~/org/notes.org")
+         "* %^{Note}"
+         :immediate-finish t)
+        ("j" "Journal" entry
+         (file+datetree "~/org/journal.org")
+         "* %?\nEntered on %U\n  %i\n  %a")
         ))
 
 ;;(setq org-habit-show-habits-only-for-today nil)
 (setq org-habit-graph-column 80)
-(setq org-habit-following-days 2)
+(setq org-habit-following-days 1)
 
 (setq org-agenda-files '("~/org"))
 

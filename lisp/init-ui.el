@@ -1,3 +1,5 @@
+(setq inhibit-splash-screen t)
+(setq initial-scratch-message nil)
 (setq mac-command-modifier 'meta)
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (setq cursor-type 'box)
