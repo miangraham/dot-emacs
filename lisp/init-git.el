@@ -8,4 +8,4 @@
 (after-load 'magit (fullframe magit-status magit-mode-quit-window))
 (after-load 'magit (diminish 'magit-auto-revert-mode))
 
-(provide 'init-magit)
+(provide 'init-git)

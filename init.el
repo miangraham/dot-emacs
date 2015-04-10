@@ -12,8 +12,8 @@
 ;; Tools
 (require 'init-ace)
 (require 'init-desktop)
+(require 'init-git)
 (require 'init-helm)
-(require 'init-magit)
 (require 'init-org)
 (require 'init-projectile)
 (require 'init-tramp)
