@@ -1,5 +1,6 @@
 (require-package 'hydra)
 (require-package 'move-text)
+(require-package 'wiki-summary)
 
 (move-text-default-bindings)
 ;;(global-set-key [M-up] (lambda () (interactive) (scroll-down-line)))
@@ -13,7 +14,21 @@
 (defhydra hydra-reference (global-map "\C-cr")
   "reference"
   ("g" goog "google")
-  ("j" jsref "javascript"))
+  ("j" jsref "javascript")
+  ("w" wiki-summary "wikipedia summary")
+  )
+
+;; (global-unset-key "\C-x\C-0")
+;; (global-unset-key "\C-x\C--")
+;; (global-unset-key "\C-x\C-=")
+;; (global-unset-key "\C-x\C-+")
+
+;; (defhydra hydra-textscale (global-map "\C-x\C-0")
+;;   "textscale"
+;;   ("=" global-text-scale-increase "increase")
+;;   ("-" global-text-scale-decrease "decrease")
+;;   ("0" global-text-scale-reset "reset")
+;; )
 
 (setq select-active-regions nil)
 (setq mouse-drag-copy-region 't)

@@ -1,6 +1,7 @@
 (require-package 'diminish)
 (require-package 'fullframe)
 (require-package 'magit)
+(require-package 'git-timemachine)
 
 (global-set-key "\C-ci" 'magit-status)
 

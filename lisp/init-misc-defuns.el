@@ -9,41 +9,24 @@
  (goto-char (point-min))
  (while (search-forward "\r" nil t) (replace-match "")))
 
-(defun pres-display ()
+(defun global-text-scale-increase ()
   (interactive)
-  ;; (if dim-braces-p
-	;;   (dim-braces)
-	;; )
-  (set-face-attribute 'default nil :height 320)
+  (set-face-attribute 'default nil :height (+ (face-attribute 'default :height) 20))
 )
 
-(defun pres-mid ()
+(defun global-text-scale-decrease ()
   (interactive)
-  ;; (if dim-braces-p
-	;;   (dim-braces)
-	;; )
-  (set-face-attribute 'default nil :height 240)
-)
+  (set-face-attribute 'default nil :height (- (face-attribute 'default :height) 20))
+  )
 
-(defun pres-small ()
+(defun global-text-scale-reset ()
   (interactive)
-  ;; (if dim-braces-p
-	;;   (dim-braces)
-	;; )
-  (set-face-attribute 'default nil :height 180)
-)
-
-(defun pres-done ()
-  (interactive)
-  ;; (if (not dim-braces-p)
-	;;   (dim-braces)
-	;; )
   (set-face-attribute 'default nil :height 150)
-)
-(pres-done)
+  )
+(global-text-scale-reset)
 
 (defun goog(term)
-  (interactive "sSearch term: ")
+  (interactive "sGoogle search: ")
   (browse-url
    (concat "http://www.google.com/search?q="
 		   (replace-regexp-in-string " " "+" term)
@@ -51,23 +34,14 @@
    )
 )
 
-(defun phpref(term)
-  (interactive "sSearch term: ")
-  (browse-url
-   (concat "http://www.google.com/search?btnI=I%27m+Feeling+Lucky&q=site%3Aphp.net+"
-		   (replace-regexp-in-string " " "+" term)
-		   )
-   )
-)
-
 (defun jsref(term)
-  (interactive "sSearch term: ")
+  (interactive "sJavascript search: ")
   (browse-url
    (concat "http://www.google.com/search?btnI=I%27m+Feeling+Lucky&q=site%3Adeveloper.mozilla.org/en-US/docs/Web/JavaScript/Reference+"
 		   (replace-regexp-in-string " " "+" term)
 		   )
    )
-)
+  )
 
 (defun copy-whole-buffer()
   (interactive)

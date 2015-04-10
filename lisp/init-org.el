@@ -28,9 +28,10 @@
          "* %?\nEntered on %U\n  %i\n  %a")
         ))
 
-;;(setq org-habit-show-habits-only-for-today nil)
+(setq org-habit-show-habits-only-for-today nil)
 (setq org-habit-graph-column 80)
 (setq org-habit-following-days 1)
+(setq org-agenda-span 2)
 
 (setq org-agenda-files '("~/org"))
 
