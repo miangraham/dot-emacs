@@ -13,7 +13,6 @@
 (set-process-query-on-exit-flag (get-process "Omni-Server") nil)
 (add-to-list 'desktop-clear-preserve-buffers "\\*Omni-Server\\*")
 
-;; Tell company-mode about omnisharp
 (after-load 'company
   (add-to-list 'company-backends 'company-omnisharp))
 
@@ -21,5 +20,12 @@
 (add-hook 'csharp-mode-hook 'flycheck-mode)
 (add-hook 'csharp-mode-hook 'omnisharp-mode)
 (add-hook 'csharp-mode-hook 'projectile-mode)
+
+(defun setup-omnisharp-keys ()
+  (local-set-key "\C-cor" 'omnisharp-find-usages)
+  (local-set-key "\C-cod" 'omnisharp-go-to-definition)
+  )
+
+(add-hook 'omnisharp-mode-hook 'setup-omnisharp-keys)
 
 (provide 'init-csharp)

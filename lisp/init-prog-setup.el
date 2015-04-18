@@ -4,14 +4,15 @@
 (require-package 'iedit)
 (require-package 'whitespace-cleanup-mode)
 
-(setq-default c-basic-indent 2)
-(setq-default c-basic-offset 2)
+(setq-default c-basic-indent 2
+              c-basic-offset 2
+              indent-tabs-mode nil ;;t
+              sh-indentation 2
+              sh-basic-offset 2
+              tags-file-name "TAGS")
 (setq default-tab-width 2)
-(setq-default indent-tabs-mode nil)
-;(setq-default indent-tabs-mode t)
-(setq-default sh-indentation 2)
-(setq-default sh-basic-offset 2)
-(setq-default tags-file-name "TAGS")
+
+(setq flycheck-idle-change-delay 10)
 
 (dtrt-indent-mode)
 
