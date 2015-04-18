@@ -9,10 +9,11 @@
 (unless (get-process "Omni-Server")
   (omnisharp-start-omnisharp-server (expand-file-name "/Users/ian/authtest/authtest.sln")))
 (set-process-query-on-exit-flag (get-process "Omni-Server") nil)
+(add-to-list 'desktop-clear-preserve-buffers "\\*Omni-Server\\*")
 
 ;; Tell company-mode about omnisharp
-(eval-after-load 'company
-  '(add-to-list 'company-backends 'company-omnisharp))
+(after-load 'company
+  (add-to-list 'company-backends 'company-omnisharp))
 
 (add-hook 'csharp-mode-hook 'company-mode)
 (add-hook 'csharp-mode-hook 'flycheck-mode)

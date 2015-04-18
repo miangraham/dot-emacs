@@ -9,8 +9,6 @@
       desktop-locals-to-save nil
       desktop-restore-eager 5
       desktop-restore-frames nil
-      desktop-clear-preserve-buffers (quote
-                                      ("\\*scratch\\*" "\\*Messages\\*" "\\*server\\*" "\\*tramp/.+\\*" "\\*Warnings\\*" "\\*Omni-Server\\*"))
       )
 
 (defun use-home()
