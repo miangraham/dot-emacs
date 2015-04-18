@@ -97,12 +97,12 @@
 
 (c-add-style "myC#Style"
   '("C#"  ; this must be defined elsewhere
-  ;;(c-basic-offset . 2)
-;  (c-basic-indent . 2)
-;	(indent-tabs-mode . 1)
-;	(default-tab-width . 2)
-;	(tab-width . 2)
-  (c-echo-syntactic-information-p . t)
+    ;; (c-basic-offset . 2)
+    ;; (c-basic-indent . 2)
+    ;; (indent-tabs-mode . 1)
+    ;; (default-tab-width . 2)
+    ;; (tab-width . 2)
+    ;; (c-echo-syntactic-information-p . t)
   (c-comment-only-line-offset . (0 . 0))
   (c-offsets-alist . (
     (c                     . c-lineup-C-comments)
