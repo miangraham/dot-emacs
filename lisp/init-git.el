@@ -1,7 +1,11 @@
 (require-package 'diminish)
 (require-package 'fullframe)
 (require-package 'magit)
+(require-package 'git-link)
 (require-package 'git-timemachine)
+
+(setq vc-handled-backends (quote (Git RCS CVS SVN SCCS Hg Mtn Arch)))
+(setq magit-last-seen-setup-instructions "1.4.0")
 
 (global-set-key "\C-ci" 'magit-status)
 

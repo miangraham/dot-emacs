@@ -8,7 +8,10 @@
       desktop-lazy-verbose nil
       desktop-locals-to-save nil
       desktop-restore-eager 5
-      desktop-restore-frames nil)
+      desktop-restore-frames nil
+      desktop-clear-preserve-buffers (quote
+                                      ("\\*scratch\\*" "\\*Messages\\*" "\\*server\\*" "\\*tramp/.+\\*" "\\*Warnings\\*" "\\*Omni-Server\\*"))
+      )
 
 (defun use-home()
   (interactive)
@@ -64,9 +67,16 @@
   (desktop-change-dir "~/tmp/auth")
   (cd "~/tmp/auth")
   (rename-frame "" "auth")
+  )
+
+(defun use-authtest()
+  (interactive)
+  (desktop-change-dir "~/authtest")
+  (cd "~/authtest")
+  (rename-frame "" "authtest")
 )
 
-;(desktop-change-dir "~/.emacs.d")
+;;(desktop-change-dir "~/.emacs.d")
 (cd "~/.emacs.d")
 (rename-frame "" "emacs.d")
 

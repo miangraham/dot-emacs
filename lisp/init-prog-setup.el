@@ -4,8 +4,6 @@
 (require-package 'iedit)
 (require-package 'whitespace-cleanup-mode)
 
-(setq vc-handled-backends (quote (Git RCS CVS SVN SCCS Hg Mtn Arch)))
-
 (setq-default c-basic-indent 2)
 (setq-default c-basic-offset 2)
 (setq default-tab-width 2)
