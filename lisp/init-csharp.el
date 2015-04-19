@@ -28,10 +28,13 @@
   (unless (get-process "Omni-Server")
     (omnisharp-start-omnisharp-server (getenv "OMNISHARP_SOLUTION")))
 
-  ;; Keep server across desktops, don't freak out on exit
+  ;; Keep single server across desktops, don't freak out on exit.
+  ;; Works great for only one C# desktop and rapid switching.
+  ;; Won't work for multiple C# projects.
   (add-to-list 'desktop-clear-preserve-buffers "\\*Omni-Server\\*")
   (set-process-query-on-exit-flag (get-process "Omni-Server") nil)
 
+  ;; Not sure why omnisharp doesn't register its own company-backend
   (after-load 'company
     (add-to-list 'company-backends 'company-omnisharp))
 
@@ -42,8 +45,8 @@
 
 (defun setup-omnisharp-keys ()
   (local-set-key "\C-cob" 'omnisharp-build-in-emacs)
-  (local-set-key "\C-cor" 'omnisharp-helm-find-usages)
   (local-set-key "\C-cod" 'omnisharp-go-to-definition)
+  (local-set-key "\C-cor" 'omnisharp-helm-find-usages)
   (local-set-key "\C-coR" 'omnisharp-rename))
 
 ;; Bail on omnisharp if we couldn't get the server info

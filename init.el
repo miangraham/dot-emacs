@@ -22,6 +22,7 @@
 (require 'init-edit-setup)
 (require 'init-prog-setup)
 (require 'init-csharp)
+(require 'init-elisp)
 (require 'init-java)
 (require 'init-javascript)
 (require 'init-xml)
