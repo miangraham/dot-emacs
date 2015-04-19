@@ -5,26 +5,48 @@
 
 (require 'init-csharp-style)
 
-;; OmniSharp server sub-process wrangling
-;; External prereq: Clone and build https://github.com/OmniSharp/omnisharp-server
-(setq omnisharp-server-executable-path (expand-file-name "/Users/ian/dev/OmniSharpServer/OmniSharp/bin/Debug/OmniSharp.exe"))
-(unless (get-process "Omni-Server")
-  (omnisharp-start-omnisharp-server (expand-file-name "/Users/ian/authtest/authtest.sln")))
-(set-process-query-on-exit-flag (get-process "Omni-Server") nil)
-(add-to-list 'desktop-clear-preserve-buffers "\\*Omni-Server\\*")
-
-(after-load 'company
-  (add-to-list 'company-backends 'company-omnisharp))
-
-(add-hook 'csharp-mode-hook 'company-mode-on)
-(add-hook 'csharp-mode-hook 'flycheck-mode-on-safe)
-(add-hook 'csharp-mode-hook 'omnisharp-mode)
 (add-hook 'csharp-mode-hook 'projectile-mode)
 
-(defun setup-omnisharp-keys ()
-  (local-set-key "\C-cor" 'omnisharp-find-usages)
-  (local-set-key "\C-cod" 'omnisharp-go-to-definition))
+;; OmniSharp setup follows. External server prereqs:
+;; 1. Clone and build https://github.com/OmniSharp/omnisharp-server
+;; 2. export OMNISHARP_EXECUTABLE=/path/to/OmniSharp.exe
+;; 3. export OMNISHARP_SOLUTION=/path/to/myproject.sln
 
-(add-hook 'omnisharp-mode-hook 'setup-omnisharp-keys)
+;; Check whether the server vars are configured
+(and (memq window-system '(mac ns))
+     (exec-path-from-shell-copy-env "OMNISHARP_EXECUTABLE")
+     (exec-path-from-shell-copy-env "OMNISHARP_SOLUTION"))
+(setq omnisharp-server-available
+      (and
+       (getenv "OMNISHARP_EXECUTABLE")
+       (getenv "OMNISHARP_SOLUTION")
+       t))
+
+(defun setup-omnisharp ()
+  ;; Start server
+  (setq omnisharp-server-executable-path (getenv "OMNISHARP_EXECUTABLE"))
+  (unless (get-process "Omni-Server")
+    (omnisharp-start-omnisharp-server (getenv "OMNISHARP_SOLUTION")))
+
+  ;; Keep server across desktops, don't freak out on exit
+  (add-to-list 'desktop-clear-preserve-buffers "\\*Omni-Server\\*")
+  (set-process-query-on-exit-flag (get-process "Omni-Server") nil)
+
+  (after-load 'company
+    (add-to-list 'company-backends 'company-omnisharp))
+
+  (add-hook 'csharp-mode-hook 'omnisharp-mode)
+  (add-hook 'omnisharp-mode-hook 'company-mode-on)
+  (add-hook 'omnisharp-mode-hook 'flycheck-mode-on-safe)
+  (add-hook 'omnisharp-mode-hook 'setup-omnisharp-keys))
+
+(defun setup-omnisharp-keys ()
+  (local-set-key "\C-cob" 'omnisharp-build-in-emacs)
+  (local-set-key "\C-cor" 'omnisharp-helm-find-usages)
+  (local-set-key "\C-cod" 'omnisharp-go-to-definition)
+  (local-set-key "\C-coR" 'omnisharp-rename))
+
+;; Bail on omnisharp if we couldn't get the server info
+(if omnisharp-server-available (setup-omnisharp))
 
 (provide 'init-csharp)

@@ -4,6 +4,7 @@
 
 (move-text-default-bindings)
 
+(global-unset-key "\C-z")
 (global-set-key "\C-x\C-k" 'kill-region)
 (global-set-key "\C-xw" 'copy-whole-buffer)
 (global-set-key "\C-x=" 'replace-last-sexp)
