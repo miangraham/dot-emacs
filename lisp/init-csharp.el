@@ -12,15 +12,15 @@
 ;; 2. export OMNISHARP_EXECUTABLE=/path/to/OmniSharp.exe
 ;; 3. export OMNISHARP_SOLUTION=/path/to/myproject.sln
 
-;; Check whether the server vars are configured
-(and (memq window-system '(mac ns))
-     (exec-path-from-shell-copy-env "OMNISHARP_EXECUTABLE")
-     (exec-path-from-shell-copy-env "OMNISHARP_SOLUTION"))
-(setq omnisharp-server-available
-      (and
-       (getenv "OMNISHARP_EXECUTABLE")
-       (getenv "OMNISHARP_SOLUTION")
-       t))
+(defun is-omnisharp-configured ()
+  ;; Check whether required env vars are present
+  (when (memq window-system '(mac ns))
+    (exec-path-from-shell-copy-env "OMNISHARP_EXECUTABLE")
+    (exec-path-from-shell-copy-env "OMNISHARP_SOLUTION"))
+  (and
+   (getenv "OMNISHARP_EXECUTABLE")
+   (getenv "OMNISHARP_SOLUTION")
+   t))
 
 (defun setup-omnisharp ()
   ;; Start server
@@ -50,6 +50,6 @@
   (local-set-key "\C-coR" 'omnisharp-rename))
 
 ;; Bail on omnisharp if we couldn't get the server info
-(if omnisharp-server-available (setup-omnisharp))
+(when (is-omnisharp-configured) (setup-omnisharp))
 
 (provide 'init-csharp)
