@@ -3,10 +3,6 @@
 
 (defun create-java-tags ()
   (interactive)
-;;  (interactive "DDirectory: ")
-  (shell-command
-;;     (format "ctags -f %s -e -R %s" path-to-ctags (directory-file-name dir-name)))
-     (format "ctags -e -R --language-force=java --exclude=*.class ."))
-  )
+  (shell-command (format "ctags -e -R --language-force=java --exclude=*.class .")))
 
 (provide 'init-java)

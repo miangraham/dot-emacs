@@ -8,73 +8,62 @@
       desktop-lazy-verbose nil
       desktop-locals-to-save nil
       desktop-restore-eager 5
-      desktop-restore-frames nil
-      )
+      desktop-restore-frames nil)
 
 (defun use-home()
   (interactive)
   (desktop-change-dir "~/.emacs.d")
   (cd "~/.emacs.d")
-  (rename-frame "" "emacs.d")
-)
+  (rename-frame "" "emacs.d"))
 
 (defun use-scratch()
   (interactive)
   (desktop-change-dir "~/tmp")
   (cd "~/tmp")
-  (rename-frame "" "scratch")
-)
+  (rename-frame "" "scratch"))
 
 (defun use-walker()
   (interactive)
   (desktop-change-dir "~/walker")
   (cd "~/walker")
-  (rename-frame "" "walker")
-)
+  (rename-frame "" "walker"))
 
 (defun use-hw()
   (interactive)
   (desktop-change-dir "~/hw")
   (cd "~/hw")
-  (rename-frame "" "hw")
-)
+  (rename-frame "" "hw"))
 
 (defun use-los()
   (interactive)
   (desktop-change-dir "~/los")
   (cd "~/los")
-  (rename-frame "" "los")
-)
+  (rename-frame "" "los"))
 
 (defun use-fuel()
   (interactive)
   (desktop-change-dir "~/losfuel")
   (cd "~/losfuel")
-  (rename-frame "" "losfuel")
-)
+  (rename-frame "" "losfuel"))
 
 (defun use-sdf()
   (interactive)
   (desktop-change-dir "~/projects/sdf_server")
   (cd "~/projects/sdf_server")
-  (rename-frame "" "SDF")
-)
+  (rename-frame "" "SDF"))
 
 (defun use-auth()
   (interactive)
   (desktop-change-dir "~/tmp/auth")
   (cd "~/tmp/auth")
-  (rename-frame "" "auth")
-  )
+  (rename-frame "" "auth"))
 
 (defun use-authtest()
   (interactive)
   (desktop-change-dir "~/authtest")
   (cd "~/authtest")
-  (rename-frame "" "authtest")
-)
+  (rename-frame "" "authtest"))
 
-;;(desktop-change-dir "~/.emacs.d")
 (cd "~/.emacs.d")
 (rename-frame "" "emacs.d")
 

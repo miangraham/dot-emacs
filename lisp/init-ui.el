@@ -1,14 +1,14 @@
-(setq inhibit-splash-screen t)
-(setq initial-scratch-message nil)
-(setq mac-command-modifier 'meta)
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
-(setq cursor-type 'box)
+(setq cursor-type 'box
+      inhibit-splash-screen t
+      initial-scratch-message nil
+      mac-command-modifier 'meta
+      scroll-bar-width 0
+      visible-bell t)
+(fset 'yes-or-no-p 'y-or-n-p)
 (blink-cursor-mode -1)
 (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-(unless (display-graphic-p) (menu-bar-mode -1))
-(setq scroll-bar-width 0)
 (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-(setq visible-bell t)
-(fset 'yes-or-no-p 'y-or-n-p)
+(unless (display-graphic-p) (menu-bar-mode -1))
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 (provide 'init-ui)

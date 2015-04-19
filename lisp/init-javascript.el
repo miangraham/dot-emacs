@@ -5,8 +5,7 @@
 
 (setq-default js-indent-level 2)
 
-(flycheck-def-config-file-var flycheck-jscs javascript-jscs ".jscsrc"
-  :safe #'stringp)
+(flycheck-def-config-file-var flycheck-jscs javascript-jscs ".jscsrc" :safe #'stringp)
 (flycheck-define-checker javascript-jscs
   "A JavaScript code style checker.
 See URL `https://github.com/mdevils/node-jscs'."
@@ -16,8 +15,7 @@ See URL `https://github.com/mdevils/node-jscs'."
   :error-parser flycheck-parse-checkstyle
   :modes (js-mode js2-mode js3-mode)
   :predicate (lambda () (string= (file-name-extension (buffer-file-name)) "js"))
-  :next-checkers (javascript-jshint)
-  )
+  :next-checkers (javascript-jshint))
 
 (add-to-list 'flycheck-checkers 'javascript-jscs)
 

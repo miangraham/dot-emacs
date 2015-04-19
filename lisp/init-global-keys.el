@@ -23,14 +23,13 @@
   "textscale"
   ("=" global-text-scale-increase "increase")
   ("-" global-text-scale-decrease "decrease")
-  ("0" global-text-scale-reset "reset")
-)
+  ("0" global-text-scale-reset "reset"))
 
 ;; Mouse/region behavior
-(setq select-active-regions nil)
-(setq mouse-drag-copy-region 't)
-(setq x-select-enable-clipboard nil)
-(setq x-select-enable-primary 't)
+(setq mouse-drag-copy-region 't
+      select-active-regions nil
+      x-select-enable-clipboard nil
+      x-select-enable-primary 't)
 (global-set-key (kbd "<mouse-2>") 'mouse-yank-at-click)
 
 (provide 'init-global-keys)
