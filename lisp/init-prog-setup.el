@@ -1,7 +1,9 @@
+(require-package 'aggressive-indent)
 (require-package 'diminish)
 (require-package 'dtrt-indent)
 (require-package 'flycheck)
 (require-package 'iedit)
+(require-package 'rainbow-delimiters)
 (require-package 'whitespace-cleanup-mode)
 
 (setq-default c-basic-indent 2
@@ -14,6 +16,8 @@
 
 (setq flycheck-idle-change-delay 10)
 
+(setq dtrt-indent-verbosity 0)
+(after-load 'dtrt-indent (delete 'dtrt-indent-mode-line-info global-mode-string))
 (dtrt-indent-mode)
 
 (add-hook 'prog-mode-hook 'turn-on-whitespace-cleanup-mode)

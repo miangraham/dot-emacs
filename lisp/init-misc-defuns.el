@@ -5,9 +5,9 @@
     (insert (format "%s" value))))
 
 (defun undosify ()
- (interactive)
- (goto-char (point-min))
- (while (search-forward "\r" nil t) (replace-match "")))
+  (interactive)
+  (goto-char (point-min))
+  (while (search-forward "\r" nil t) (replace-match "")))
 
 (defun global-text-scale-increase ()
   (interactive)
@@ -26,13 +26,13 @@
   (interactive "sGoogle search: ")
   (browse-url
    (concat "http://www.google.com/search?q="
-		   (replace-regexp-in-string " " "+" term))))
+           (replace-regexp-in-string " " "+" term))))
 
 (defun jsref(term)
   (interactive "sJavascript search: ")
   (browse-url
    (concat "http://www.google.com/search?btnI=I%27m+Feeling+Lucky&q=site%3Adeveloper.mozilla.org/en-US/docs/Web/JavaScript/Reference+"
-		   (replace-regexp-in-string " " "+" term))))
+           (replace-regexp-in-string " " "+" term))))
 
 (defun copy-whole-buffer()
   (interactive)
