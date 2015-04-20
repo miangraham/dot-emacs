@@ -9,6 +9,7 @@
       desktop-locals-to-save nil
       desktop-restore-eager 5
       desktop-restore-frames nil)
+(add-to-list 'desktop-modes-not-to-save 'fundamental-mode)
 
 (defun use-home()
   (interactive)
@@ -60,6 +61,7 @@
 
 (defun use-authtest()
   (interactive)
+  (use-omnisharp-solution "/Users/ian/authtest/authtest.sln")
   (desktop-change-dir "~/authtest")
   (cd "~/authtest")
   (rename-frame "" "authtest"))
