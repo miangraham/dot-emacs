@@ -30,6 +30,9 @@
       org-habit-graph-column 80
       org-habit-show-habits-only-for-today nil)
 
+(after-load 'org (fullframe org-agenda-list org-agenda-quit))
+(run-with-idle-timer 300 t 'org-agenda-list)
+
 (add-hook 'org-mode-hook 'projectile-mode)
 
 (global-set-key (kbd "C-c a") 'org-agenda)

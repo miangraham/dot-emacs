@@ -59,7 +59,7 @@
   (cd "~/tmp/auth")
   (rename-frame "" "auth"))
 
-(defun use-authtest()
+(defun use-cliauth()
   (interactive)
   (use-omnisharp-solution "/Users/ian/authtest/authtest.sln")
   (desktop-change-dir "~/authtest")
