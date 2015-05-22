@@ -5,6 +5,7 @@
 (require-package 'iedit)
 (require-package 'rainbow-delimiters)
 (require-package 'whitespace-cleanup-mode)
+(require-package 'yasnippet)
 
 (setq-default c-basic-indent 2
               c-basic-offset 2
@@ -22,6 +23,11 @@
 
 (add-hook 'prog-mode-hook 'turn-on-whitespace-cleanup-mode)
 (after-load 'whitespace-cleanup-mode (diminish 'whitespace-cleanup-mode))
+
+(add-hook 'prog-mode-hook 'yas-minor-mode-on)
+(define-key yas-minor-mode-map (kbd "<tab>") nil)
+(define-key yas-minor-mode-map (kbd "TAB") nil)
+(define-key yas-minor-mode-map (kbd "C-c y") 'yas-expand)
 
 (after-load 'abbrev (diminish 'abbrev-mode))
 

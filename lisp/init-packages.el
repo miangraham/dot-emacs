@@ -3,7 +3,8 @@
                          ("melpa" . "http://melpa.milkbox.net/packages/")
                          ("gnu" . "http://elpa.gnu.org/packages/")))
 (setq package-pinned-packages '(("org" . "org")
-                                ("magit" . "melpa")))
+                                ("magit" . "melpa")
+                                ("yasnippet" . "melpa")))
 (package-initialize)
 
 (defun require-package(package-name)

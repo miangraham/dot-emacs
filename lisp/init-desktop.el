@@ -66,6 +66,14 @@
   (cd "~/authtest")
   (rename-frame "" "authtest"))
 
+(defun use-muv()
+  (interactive)
+  (desktop-change-dir "~/muvluv")
+  (cd "~/muvluv")
+  (rename-frame "" "muvluv"))
+
+
+
 (cd "~/.emacs.d")
 (rename-frame "" "emacs.d")
 

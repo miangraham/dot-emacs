@@ -5,4 +5,6 @@
 (setq backup-directory-alist `(("." . "~/.emacs.d/backup")))
 (global-auto-revert-mode)
 
+(setq default-input-method 'japanese)
+
 (provide 'init-edit-setup)
