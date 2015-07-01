@@ -1,6 +1,6 @@
-(require-package 'zenburn-theme)
-
-(load-theme 'zenburn t)
+(when window-system
+  (require-package 'zenburn-theme)
+  (load-theme 'zenburn t))
 ;; (color-theme-cobalt)
 
 (when (fboundp 'set-fontset-font)

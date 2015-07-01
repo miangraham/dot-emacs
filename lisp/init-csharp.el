@@ -23,7 +23,7 @@
       (omnisharp--find-and-cache-omnisharp-server-executable-path)))
 
 (defun init-omnisharp ()
-  (add-to-list 'desktop-clear-preserve-buffers "\\*Omni-Server\\*")
+;;  (add-to-list 'desktop-clear-preserve-buffers "\\*Omni-Server\\*")
 
   ;; Not sure why omnisharp doesn't register its own company-backend
   (after-load 'company

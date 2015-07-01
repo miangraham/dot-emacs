@@ -67,5 +67,6 @@
 ;;    (split-window-below)
 ;;    (jump-to-mu4e-inbox)))
 
-(mu4e~start)
+(when window-system
+  (mu4e~start))
 (provide 'init-mail)
