@@ -19,8 +19,9 @@
   (local-set-key "\C-cos" 'omnisharp-helm-find-symbols))
 
 (defun is-omnisharp-server-configured ()
-  (or omnisharp-server-executable-path
-      (omnisharp--find-and-cache-omnisharp-server-executable-path)))
+  (and (string= system-name "toki")
+       (or omnisharp-server-executable-path
+           (omnisharp--find-and-cache-omnisharp-server-executable-path))))
 
 (defun init-omnisharp ()
 ;;  (add-to-list 'desktop-clear-preserve-buffers "\\*Omni-Server\\*")
