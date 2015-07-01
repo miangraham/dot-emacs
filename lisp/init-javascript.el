@@ -1,8 +1,6 @@
 (require-package 'flycheck)
 (require-package 'json-mode)
 
-(exec-path-from-shell-copy-env "NODE_ENV")
-
 (setq-default js-indent-level 2)
 
 (flycheck-def-config-file-var flycheck-jscs javascript-jscs ".jscsrc" :safe #'stringp)
@@ -15,9 +13,16 @@ See URL `https://github.com/mdevils/node-jscs'."
   :error-parser flycheck-parse-checkstyle
   :modes (js-mode js2-mode js3-mode)
   :predicate (lambda () (string= (file-name-extension (buffer-file-name)) "js"))
-  :next-checkers (javascript-jshint))
+  ;; :next-checkers (javascript-jshint)
+  )
 
-(add-to-list 'flycheck-checkers 'javascript-jscs)
+;; (add-to-list 'flycheck-checkers 'javascript-jscs)
+
+;;(add-hook 'js-mode-hook (lambda () (setq flycheck-disabled-checkers '(javascript-eslint javascript-gjslint javascript-jscs javascript-standard))))
+
+(setq-default flycheck-disabled-checkers '(javascript-eslint javascript-gjslint javascript-standard))
+
+(add-hook 'flycheck-before-syntax-check-hook 'flycheck-clear)
 
 (add-hook 'js-mode-hook 'projectile-mode)
 (add-hook 'js-mode-hook 'flycheck-mode)

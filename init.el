@@ -1,7 +1,11 @@
 ;; Bootstrap
 (add-to-list 'load-path (expand-file-name "lisp/" user-emacs-directory))
+
+(require 'init-startup-profile)
+
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file)
+
 (require 'init-packages)
 (require 'init-exec-path)
 
@@ -32,3 +36,8 @@
 ;; Personalization
 (require 'init-misc-defuns)
 (require 'init-global-keys)
+
+(add-hook 'after-init-hook
+          (lambda ()
+            (message "init completed in %.2fms"
+                     (sanityinc/time-subtract-millis after-init-time before-init-time))))

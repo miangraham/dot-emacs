@@ -1,3 +1,5 @@
+(require-package 'calfw)
+(require 'calfw-org)
 (setq org-modules '(org-habit))
 
 (after-load 'org (org-load-modules-maybe t))
@@ -15,6 +17,14 @@
          (file "~/org/todo.org")
          "* TODO %^{Task}"
          :immediate-finish t)
+        ("s" "Scheduled Task" entry
+         (file "~/org/todo.org")
+         "* TODO %^{Task}\n  SCHEDULED: %^t"
+         ;;%<%Y-%m-%d %H:%M>
+         ;;:END:
+         ;;%?
+         ;;"
+         :immediate-finish t)
         ("n" "Note" entry
          (file "~/org/notes.org")
          "* %^{Note}"
@@ -31,7 +41,15 @@
       org-habit-show-habits-only-for-today nil)
 
 (after-load 'org (fullframe org-agenda-list org-agenda-quit))
-(run-with-idle-timer 300 t 'org-agenda-list)
+(run-with-idle-timer
+ 600 t
+ (lambda ()
+   (delete-other-windows)
+   (org-agenda-list)
+   (split-window-below)
+   (jump-to-mu4e-inbox)
+   ))
+;; 'org-agenda-list)
 
 (add-hook 'org-mode-hook 'projectile-mode)
 

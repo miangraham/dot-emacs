@@ -4,7 +4,8 @@
                          ("gnu" . "http://elpa.gnu.org/packages/")))
 (setq package-pinned-packages '(("org" . "org")
                                 ("magit" . "melpa")
-                                ("yasnippet" . "melpa")))
+                                ("yasnippet" . "melpa")
+                                ("minimap" . "melpa")))
 (package-initialize)
 
 (defun require-package(package-name)

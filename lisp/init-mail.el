@@ -38,12 +38,34 @@
                             (:subject))
       mu4e-use-fancy-chars nil
       mu4e-attachment-dir  "~/Downloads"
-      mu4e-update-interval 60
+      mu4e-update-interval 300
       mu4e-hide-index-messages t
+      mu4e-split-view nil
       )
 
 ;;(run-with-idle-timer 600 t 'mu4e-update-mail-and-index t)
 
-(global-set-key (kbd "C-c m") (lambda () (interactive) (mu4e~headers-jump-to-maildir "/inbox")))
+;;; WHYYYYYYYY
+;;(after-load 'mu4e
+;; (fullframe jump-to-mu4e-inbox mu4e~headers-quit-buffer)
+
+(advice-add 'mu4e~headers-quit-buffer :after
+            (lambda ()
+              (run-at-time
+               0.1 nil
+               'bury-buffer)))
+
+(defun jump-to-mu4e-inbox ()
+  (interactive)
+  (mu4e~headers-jump-to-maildir "/inbox"))
+(global-set-key (kbd "C-c m") 'jump-to-mu4e-inbox)
+
+;; (run-with-idle-timer
+;;  600 t
+;;  (lambda ()
+;;    (delete-other-windows)
+;;    (split-window-below)
+;;    (jump-to-mu4e-inbox)))
+
 (mu4e~start)
 (provide 'init-mail)

@@ -11,6 +11,13 @@
 ;; 1. Clone and build https://github.com/OmniSharp/omnisharp-server
 ;; 2. ln -s /path/to/built/OmniSharp.exe /something/in/exec/path/OmniSharp
 
+(defun init-omnisharp-keys ()
+  (local-set-key "\C-cob" 'omnisharp-build-in-emacs)
+  (local-set-key "\C-cod" 'omnisharp-go-to-definition)
+  (local-set-key "\C-cor" 'omnisharp-helm-find-usages)
+  (local-set-key "\C-coR" 'omnisharp-rename)
+  (local-set-key "\C-cos" 'omnisharp-helm-find-symbols))
+
 (defun is-omnisharp-server-configured ()
   (or omnisharp-server-executable-path
       (omnisharp--find-and-cache-omnisharp-server-executable-path)))
@@ -27,15 +34,10 @@
   (add-hook 'omnisharp-mode-hook 'flycheck-mode-on-safe)
   (add-hook 'omnisharp-mode-hook 'init-omnisharp-keys))
 
-(defun init-omnisharp-keys ()
-  (local-set-key "\C-cob" 'omnisharp-build-in-emacs)
-  (local-set-key "\C-cod" 'omnisharp-go-to-definition)
-  (local-set-key "\C-cor" 'omnisharp-helm-find-usages)
-  (local-set-key "\C-coR" 'omnisharp-rename))
-
 (setq current-omnisharp-solution nil)
 
 (defun switch-omnisharp-solution (new-solution)
+  (setq omnisharp-debug t)
   (setq debug-on-error t)
   (setq current-omnisharp-solution new-solution)
   (when (get-process "Omni-Server")
@@ -54,7 +56,8 @@
   (message "Waiting for omnisharp server...")
   (sleep-for 10)
   (while (not (omnisharp--check-ready-status-worker))
-    (sleep-for 1)))
+    (sleep-for 1))
+  )
 
 (defun use-omnisharp-solution (solution)
   (unless (equal solution current-omnisharp-solution) (switch-omnisharp-solution solution)))

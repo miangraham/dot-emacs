@@ -41,11 +41,11 @@
   (cd "~/los")
   (rename-frame "" "los"))
 
-(defun use-fuel()
+(defun use-mg()
   (interactive)
-  (desktop-change-dir "~/losfuel")
-  (cd "~/losfuel")
-  (rename-frame "" "losfuel"))
+  (desktop-change-dir "~/losmg")
+  (cd "~/losmg")
+  (rename-frame "" "losmg"))
 
 (defun use-sdf()
   (interactive)
