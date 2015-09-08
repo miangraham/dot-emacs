@@ -1,5 +1,6 @@
 (require-package 'calfw)
 (require 'calfw-org)
+(require-package 'sunshine)
 (setq org-modules '(org-habit))
 
 (after-load 'org (org-load-modules-maybe t))
@@ -40,7 +41,18 @@
       org-habit-graph-column 80
       org-habit-show-habits-only-for-today nil)
 
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '(
+   (sh . t)
+   (python . t)
+   (ditaa . t)
+   (dot . t)
+   (sqlite . t)
+   ))
+
 (after-load 'org (fullframe org-agenda-list org-agenda-quit))
+
 (run-with-idle-timer
  600 t
  (lambda ()
@@ -49,11 +61,16 @@
    (split-window-below)
    (jump-to-mu4e-inbox)
    ))
+
 ;; 'org-agenda-list)
+
+(setq sunshine-location "Tokyo,Japan")
+(setq sunshine-units 'metric)
 
 (add-hook 'org-mode-hook 'projectile-mode)
 
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'org-capture)
+(global-set-key (kbd "C-c w") 'sunshine-forecast)
 
 (provide 'init-org)

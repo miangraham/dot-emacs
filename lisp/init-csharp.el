@@ -1,7 +1,7 @@
 (require-package 'company)
 (require-package 'csharp-mode)
 (require-package 'flycheck)
-(require-package 'omnisharp)
+;; (require-package 'omnisharp)
 
 (require 'init-csharp-style)
 
@@ -19,9 +19,10 @@
   (local-set-key "\C-cos" 'omnisharp-helm-find-symbols))
 
 (defun is-omnisharp-server-configured ()
-  (and (string= system-name "toki")
-       (or omnisharp-server-executable-path
-           (omnisharp--find-and-cache-omnisharp-server-executable-path))))
+  ;; (and (string= system-name "toki")
+  ;;      (or omnisharp-server-executable-path
+  ;;          (omnisharp--find-and-cache-omnisharp-server-executable-path))))
+  nil)
 
 (defun init-omnisharp ()
 ;;  (add-to-list 'desktop-clear-preserve-buffers "\\*Omni-Server\\*")

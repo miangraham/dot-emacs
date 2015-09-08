@@ -2,13 +2,18 @@
 (require-package 'wiki-summary)
 (require-package 'totd)
 (require-package 'define-word)
+(require-package 'which-key)
 
 ;; Editing
 (global-unset-key "\C-z")
 (global-set-key "\C-x\C-k" 'kill-region)
 (global-set-key "\C-xw" 'copy-whole-buffer)
 (global-set-key "\C-x=" 'replace-last-sexp)
-(global-set-key "\C-c\C-c" 'comment-or-uncomment-region)
+;; (global-set-key "\C-c\C-c" 'comment-or-uncomment-region)
+(global-unset-key "\C-c\C-c")
+(global-set-key "\C-c\C-c" 'comment-dwim-2)
+(global-unset-key "\M-;")
+(global-set-key "\M-;" 'comment-dwim-2)
 (global-set-key "\M-j" '(lambda () (interactive) (join-line -1)))
 (global-set-key (kbd "<S-backspace>") '(lambda () (interactive) (kill-line 0)))
 
@@ -28,5 +33,7 @@
   ("=" global-text-scale-increase "increase")
   ("-" global-text-scale-decrease "decrease")
   ("0" global-text-scale-reset "reset"))
+
+(which-key-mode)
 
 (provide 'init-global-keys)

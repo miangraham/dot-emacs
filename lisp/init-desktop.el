@@ -64,7 +64,7 @@
 
   (defun use-cliauth()
     (interactive)
-    (use-omnisharp-solution "/Users/ian/authtest/authtest.sln")
+    ;; (use-omnisharp-solution "/Users/ian/authtest/authtest.sln")
     (desktop-change-dir "~/authtest")
     (cd "~/authtest")
     (rename-frame "" "authtest"))
@@ -75,7 +75,17 @@
     (cd "~/muvluv")
     (rename-frame "" "muvluv"))
 
+  (defun use-koa()
+    (interactive)
+    (desktop-change-dir "~/koaauth")
+    (cd "~/koaauth")
+    (rename-frame "" "koaauth"))
 
+  (defun use-parse()
+    (interactive)
+    (desktop-change-dir "~/parsetest")
+    (cd "~/parsetest")
+    (rename-frame "" "parsetest"))
 
   (cd "~/.emacs.d")
   (rename-frame "" "emacs.d")
