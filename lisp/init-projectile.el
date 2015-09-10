@@ -4,7 +4,8 @@
 (setq projectile-completion-system 'helm
       projectile-enable-caching t
       projectile-indexing-method 'native
-      projectile-switch-project-action 'helm-projectile-find-file)
+      projectile-switch-project-action 'helm-projectile-find-file
+      projectile-mode-line '(:eval (format " P[%s]" (projectile-project-name))))
 
 (helm-projectile-on)
 

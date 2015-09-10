@@ -34,6 +34,7 @@
   ("-" global-text-scale-decrease "decrease")
   ("0" global-text-scale-reset "reset"))
 
+(after-load 'which-key (diminish 'which-key-mode))
 (which-key-mode)
 
 (provide 'init-global-keys)

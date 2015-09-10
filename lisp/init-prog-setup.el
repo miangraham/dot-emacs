@@ -29,6 +29,7 @@
 (dtrt-indent-mode)
 
 (add-hook 'prog-mode-hook 'ws-butler-mode)
+(after-load 'ws-butler (diminish 'ws-butler-mode))
 
 (add-hook 'prog-mode-hook 'yas-minor-mode-on)
 (define-key yas-minor-mode-map (kbd "<tab>") nil)

@@ -5,7 +5,9 @@
 (setq package-pinned-packages '(("org" . "org")
                                 ("magit" . "melpa")
                                 ("yasnippet" . "melpa")
-                                ("minimap" . "melpa")))
+                                ("minimap" . "melpa")
+                                ("js2-mode" . "melpa")
+                                ))
 (package-initialize)
 
 (defun require-package(package-name)
