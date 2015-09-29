@@ -87,6 +87,12 @@
     (cd "~/parsetest")
     (rename-frame "" "parsetest"))
 
+  (defun use-social()
+    (interactive)
+    (desktop-change-dir "~/socialtest")
+    (cd "~/socialtest")
+    (rename-frame "" "socialtest"))
+
   (cd "~/.emacs.d")
   (rename-frame "" "emacs.d")
 

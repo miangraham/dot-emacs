@@ -22,6 +22,8 @@
       web-mode-code-indent-offset 2
       web-mode-markup-indent-offset 2)
 
+(after-load 'aggressive-indent (diminish 'aggressive-indent-mode))
+
 (setq flycheck-idle-change-delay 10)
 
 (setq dtrt-indent-verbosity 0)

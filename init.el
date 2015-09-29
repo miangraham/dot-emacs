@@ -1,6 +1,7 @@
 ;; Bootstrap
 (add-to-list 'load-path (expand-file-name "lisp/" user-emacs-directory))
 
+(setq gc-cons-threshold 100000000)
 (require 'init-startup-profile)
 
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))

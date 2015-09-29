@@ -28,4 +28,9 @@
       shift-select-mode nil)
 (global-set-key (kbd "<mouse-2>") 'mouse-yank-at-click)
 
+(require-package 'anzu)
+(setq anzu-cons-mode-line-p nil)
+(after-load 'anzu (diminish 'anzu-mode))
+(global-anzu-mode +1)
+
 (provide 'init-edit-setup)
