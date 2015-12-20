@@ -21,5 +21,6 @@
 (add-to-list 'projectile-globally-ignored-directories "node_modules")
 
 (add-hook 'emacs-lisp-mode-hook 'projectile-mode)
+(add-hook 'objc-mode-hook 'projectile-mode)
 
 (provide 'init-projectile)

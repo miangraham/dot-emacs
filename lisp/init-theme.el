@@ -15,7 +15,8 @@ ADDITIONAL-SEGMENTS are inserted on the right, between `global' and
 `buffer-position'."
   (spaceline-install
 
-   '(((((workspace-number window-number) :separator "|")
+   '(((((workspace-number window-number)
+        :separator "|")
        buffer-modified
        )
       :face highlight-face)

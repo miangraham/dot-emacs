@@ -1,5 +1,6 @@
 ;; Bootstrap
 (add-to-list 'load-path (expand-file-name "lisp/" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "site-lisp/" user-emacs-directory))
 
 (setq gc-cons-threshold 100000000)
 (require 'init-startup-profile)
@@ -17,6 +18,7 @@
 ;; Tools
 (require 'init-ace)
 (require 'init-desktop)
+(require 'init-feeds)
 (require 'init-git)
 (require 'init-helm)
 (require 'init-mail)

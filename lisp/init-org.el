@@ -2,7 +2,6 @@
 (require 'calfw-org)
 (require-package 'sunshine)
 (setq org-modules '(org-habit))
-
 (after-load 'org (org-load-modules-maybe t))
 
 (setq org-default-notes-file "~/org/notes.org"
@@ -11,31 +10,27 @@
       org-todo-keyword-faces '(("TODO" . 'org-todo)
                                ("PROG" . "yellow")
                                ("WAIT" . "yellow")
-                               ("DONE" . 'org-done)))
+                               ("DONE" . 'org-done))
+      org-tags-column -100
 
-(setq org-capture-templates
-      '(("t" "Task" entry
-         (file "~/org/todo.org")
-         "* TODO %^{Task}"
-         :immediate-finish t)
-        ("s" "Scheduled Task" entry
-         (file "~/org/todo.org")
-         "* TODO %^{Task}\n  SCHEDULED: %^t"
-         ;;%<%Y-%m-%d %H:%M>
-         ;;:END:
-         ;;%?
-         ;;"
-         :immediate-finish t)
-        ("n" "Note" entry
-         (file "~/org/notes.org")
-         "* %^{Note}"
-         :immediate-finish t)
-        ("j" "Journal" entry
-         (file+datetree "~/org/journal.org")
-         "* %?\nEntered on %U\n  %i\n  %a")
-        ))
+      org-capture-templates '(("t" "Task" entry
+                               (file "~/org/todo.org")
+                               "* TODO %^{Task}"
+                               :immediate-finish t)
+                              ("s" "Scheduled Task" entry
+                               (file "~/org/todo.org")
+                               "* TODO %^{Task}\n  SCHEDULED: %^t"
+                               :immediate-finish t)
+                              ("n" "Note" entry
+                               (file "~/org/notes.org")
+                               "* %^{Note}"
+                               :immediate-finish t)
+                              ("j" "Journal" entry
+                               (file+datetree "~/org/journal.org")
+                               "* %?\nEntered on %U\n  %i\n  %a")
+                              )
 
-(setq org-agenda-files '("~/org")
+      org-agenda-files '("~/org")
       org-agenda-span 2
       org-habit-following-days 1
       org-habit-graph-column 80
@@ -61,8 +56,6 @@
    (split-window-below)
    (jump-to-mu4e-inbox)
    ))
-
-;; 'org-agenda-list)
 
 (setq sunshine-location "Tokyo,Japan")
 (setq sunshine-units 'metric)

@@ -3,7 +3,8 @@
       initial-scratch-message nil
       mac-command-modifier 'meta
       scroll-bar-width 0
-      visible-bell t)
+      ;;visible-bell t
+      ring-bell-function 'ignore)
 (fset 'yes-or-no-p 'y-or-n-p)
 (blink-cursor-mode -1)
 (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))

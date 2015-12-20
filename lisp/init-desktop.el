@@ -12,6 +12,10 @@
         desktop-restore-eager 5
         desktop-restore-frames nil)
   (add-to-list 'desktop-modes-not-to-save 'fundamental-mode)
+  (add-to-list 'desktop-modes-not-to-save 'elfeed-search)
+  (add-to-list 'desktop-modes-not-to-save 'org-agenda)
+  (add-to-list 'desktop-modes-not-to-save 'mu4e-headers)
+  (add-to-list 'desktop-modes-not-to-save 'magit)
   (add-to-list 'desktop-clear-preserve-buffers "\\*Omni-Server\\*")
 
   (defun use-home()
@@ -40,9 +44,9 @@
 
   (defun use-los()
     (interactive)
-    (desktop-change-dir "~/los")
-    (cd "~/los")
-    (rename-frame "" "los"))
+    (desktop-change-dir "~/losios")
+    (cd "~/losios")
+    (rename-frame "" "losios"))
 
   (defun use-mg()
     (interactive)
@@ -92,6 +96,30 @@
     (desktop-change-dir "~/socialtest")
     (cd "~/socialtest")
     (rename-frame "" "socialtest"))
+
+  (defun use-steer()
+    (interactive)
+    (desktop-change-dir "~/steering")
+    (cd "~/steering")
+    (rename-frame "" "steering"))
+
+  (defun use-bb()
+    (interactive)
+    (desktop-change-dir "~/blockerblocker")
+    (cd "~/blockerblocker")
+    (rename-frame "" "blockerblocker"))
+
+  (defun use-pre()
+    (interactive)
+    (desktop-change-dir "~/prereg")
+    (cd "~/prereg")
+    (rename-frame "" "prereg"))
+
+  (defun use-nba()
+    (interactive)
+    (desktop-change-dir "~/nba")
+    (cd "~/nba")
+    (rename-frame "" "nba"))
 
   (cd "~/.emacs.d")
   (rename-frame "" "emacs.d")
