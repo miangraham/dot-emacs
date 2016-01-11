@@ -3,12 +3,12 @@
 
 (require 'youtube-dl-mode)
 (setq youtube-dl-directory "~/Downloads"
-      youtube-dl-arguments '("--no-mtime" "--restrict-filenames" "--all-subs"))
-
+      youtube-dl-arguments '("--no-mtime" "--restrict-filenames" "--all-subs" "--embed-subs"))
 
 (setq url-queue-timeout 15
       url-queue-parallel-processes 1
-      elfeed-search-title-max-width 120)
+      elfeed-search-title-max-width 110)
+
 (setq-default elfeed-search-filter "@1-week-ago +unread ")
 
 (setq rmh-elfeed-org-files (list "~/org/feeds.org"))
@@ -41,16 +41,45 @@
       (elfeed-search-update-entry entry)
       (unless (use-region-p) (forward-line)))))
 
+(define-key elfeed-search-mode-map "h"
+  (lambda ()
+    (interactive)
+    (elfeed-search-set-filter (default-value 'elfeed-search-filter))))
+
+(define-key elfeed-search-mode-map "j"
+  (lambda ()
+    (interactive)
+    (cl-macrolet ((re (re rep str) `(replace-regexp-in-string ,re ,rep ,str)))
+      (elfeed-search-set-filter
+       (cond
+        ((string-match-p "-jp" elfeed-search-filter)
+         (re " *-jp" " +jp" elfeed-search-filter))
+        ((string-match-p "\\+jp" elfeed-search-filter)
+         (re " *\\+jp" " -jp" elfeed-search-filter))
+        ((concat elfeed-search-filter "-jp")))))))
+
+(define-key elfeed-search-mode-map "u"
+  (lambda ()
+    (interactive)
+    (cl-macrolet ((re (re rep str) `(replace-regexp-in-string ,re ,rep ,str)))
+      (elfeed-search-set-filter
+       (cond
+        ((string-match-p "-unread" elfeed-search-filter)
+         (re " *-unread" " " elfeed-search-filter))
+        ((string-match-p "\\+unread" elfeed-search-filter)
+         (re " *\\+unread" " " elfeed-search-filter))
+        ((concat elfeed-search-filter "+unread")))))))
+
+(define-key elfeed-show-mode-map "d" 'elfeed-show-youtube-dl)
+(define-key elfeed-search-mode-map "d" 'elfeed-search-youtube-dl)
+
+(global-set-key (kbd "C-c n") 'elfeed)
+
 (run-with-idle-timer
  ;; 1237 t
  307 t
  (lambda ()
    (elfeed-update)
    ))
-
-(define-key elfeed-show-mode-map "d" 'elfeed-show-youtube-dl)
-(define-key elfeed-search-mode-map "d" 'elfeed-search-youtube-dl)
-
-(global-set-key (kbd "C-c f") 'elfeed)
 
 (provide 'init-feeds)

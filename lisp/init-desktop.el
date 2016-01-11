@@ -11,8 +11,8 @@
         desktop-locals-to-save nil
         desktop-restore-eager 5
         desktop-restore-frames nil)
+  (add-to-list 'desktop-modes-not-to-save 'elfeed-search-mode)
   (add-to-list 'desktop-modes-not-to-save 'fundamental-mode)
-  (add-to-list 'desktop-modes-not-to-save 'elfeed-search)
   (add-to-list 'desktop-modes-not-to-save 'org-agenda)
   (add-to-list 'desktop-modes-not-to-save 'mu4e-headers)
   (add-to-list 'desktop-modes-not-to-save 'magit)

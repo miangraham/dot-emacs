@@ -18,10 +18,8 @@
 ;; Tools
 (require 'init-ace)
 (require 'init-desktop)
-(require 'init-feeds)
 (require 'init-git)
 (require 'init-helm)
-(require 'init-mail)
 (require 'init-org)
 (require 'init-projectile)
 (require 'init-tramp)
@@ -35,6 +33,11 @@
 (require 'init-javascript)
 (require 'init-xml)
 (require 'init-yaml)
+
+;; GUI Only
+(when (display-graphic-p)
+  (require 'init-feeds)
+  (require 'init-mail))
 
 ;; Personalization
 (require 'init-misc-defuns)
