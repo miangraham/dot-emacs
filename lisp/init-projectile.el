@@ -1,13 +1,9 @@
 (require-package 'projectile)
-(require-package 'helm-projectile)
 
-(setq projectile-completion-system 'helm
+(setq projectile-completion-system 'ivy
       projectile-enable-caching t
       projectile-indexing-method 'native
-      projectile-switch-project-action 'helm-projectile-find-file
       projectile-mode-line '(:eval (format " P[%s]" (projectile-project-name))))
-
-(helm-projectile-on)
 
 (add-to-list 'projectile-globally-ignored-files "*.cache")
 (add-to-list 'projectile-globally-ignored-files "*.class")
