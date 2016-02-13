@@ -48,13 +48,19 @@
 
 (after-load 'org (fullframe org-agenda-list org-agenda-quit))
 
+;; (run-with-idle-timer
+;;  600 t
+;;  (lambda ()
+;;    (delete-other-windows)
+;;    (org-agenda-list)
+;;    (split-window-below)
+;;    (jump-to-mu4e-inbox)
+;;    ))
 (run-with-idle-timer
- 600 t
+ 3000 t
  (lambda ()
    (delete-other-windows)
    (org-agenda-list)
-   (split-window-below)
-   (jump-to-mu4e-inbox)
    ))
 
 (setq sunshine-location "Tokyo,Japan")

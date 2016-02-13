@@ -2,6 +2,7 @@
 (require-package 'comment-dwim-2)
 (require-package 'diminish)
 (require-package 'dtrt-indent)
+(require-package 'editorconfig)
 (require-package 'flycheck)
 (require-package 'iedit)
 (require-package 'rainbow-delimiters)
@@ -32,6 +33,8 @@
 
 (add-hook 'prog-mode-hook 'ws-butler-mode)
 (after-load 'ws-butler (diminish 'ws-butler-mode))
+
+(editorconfig-mode 1)
 
 (add-hook 'prog-mode-hook 'yas-minor-mode-on)
 (define-key yas-minor-mode-map (kbd "<tab>") nil)

@@ -9,16 +9,11 @@
       url-queue-parallel-processes 1
       elfeed-search-title-max-width 110)
 
-(setq-default elfeed-search-filter "@1-week-ago +unread ")
+(setq-default elfeed-search-filter "@1-week-ago +unread -jp ")
 
 (setq rmh-elfeed-org-files (list "~/org/feeds.org"))
 (elfeed-org)
 
-;; Mark all YouTube entries
-;; (after-load 'elfeed-db
-;;   (add-hook 'elfeed-new-entry-hook
-;;             (elfeed-make-tagger :feed-url "youtube\\.com"
-;;                                 :add 'video)))
 (defadvice elfeed (after configure-elfeed activate)
   (add-hook 'elfeed-new-entry-hook
             (elfeed-make-tagger :feed-url "youtube\\.com"
@@ -75,11 +70,11 @@
 
 (global-set-key (kbd "C-c n") 'elfeed)
 
-(run-with-idle-timer
- ;; 1237 t
- 307 t
- (lambda ()
-   (elfeed-update)
-   ))
+;; (run-with-idle-timer
+;;  ;; 1237 t
+;;  307 t
+;;  (lambda ()
+;;    (elfeed-update)
+;;    ))
 
 (provide 'init-feeds)

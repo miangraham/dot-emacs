@@ -121,6 +121,18 @@
     (cd "~/nba")
     (rename-frame "" "nba"))
 
+  (defun use-jb()
+    (interactive)
+    (desktop-change-dir "~/jbdb")
+    (cd "~/jbdb")
+    (rename-frame "" "jb"))
+
+  (defun use-load()
+    (interactive)
+    (desktop-change-dir "~/loadscreendemo")
+    (cd "~/loadscreendemo")
+    (rename-frame "" "loadscreendemo"))
+
   (cd "~/.emacs.d")
   (rename-frame "" "emacs.d")
 
