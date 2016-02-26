@@ -1,3 +1,4 @@
+(require-package 'diminish)
 (require-package 'dired-details)
 ;; (setq dired-use-ls-dired nil
 ;;       dired-omit-files (concat dired-omit-files "\\|^\\..+$"))
@@ -8,6 +9,8 @@
 
 (setq auto-save-default nil)
 (setq backup-directory-alist `(("." . "~/.emacs.d/backup")))
+
+(diminish 'auto-revert-mode)
 (global-auto-revert-mode)
 
 (setq default-input-method 'japanese)

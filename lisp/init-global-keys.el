@@ -9,7 +9,6 @@
 (global-set-key "\C-x\C-k" 'kill-region)
 (global-set-key "\C-xw" 'copy-whole-buffer)
 (global-set-key "\C-x=" 'replace-last-sexp)
-;; (global-set-key "\C-c\C-c" 'comment-or-uncomment-region)
 (global-unset-key "\C-c\C-c")
 (global-set-key "\C-c\C-c" 'comment-dwim-2)
 (global-unset-key "\M-;")

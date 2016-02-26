@@ -19,4 +19,6 @@
 (add-hook 'emacs-lisp-mode-hook 'projectile-mode)
 (add-hook 'objc-mode-hook 'projectile-mode)
 
+(projectile-global-mode)
+
 (provide 'init-projectile)

@@ -1,4 +1,5 @@
-(when (string= system-name "toki")
+(when (or (string= system-name "toki.local")
+          (string= system-name "toki"))
   (add-to-list 'load-path (expand-file-name "site-lisp/mu4e" user-emacs-directory))
   (require 'mu4e)
 
@@ -19,8 +20,8 @@
   (setq user-mail-address "ian@ijin.net"
         user-full-name "M. Ian Graham"
         smtpmail-mail-address "ian@ijin.net"
-        smtpmail-smtp-server "smtp.1and1.com"
-        smtpmail-default-smtp-server "smtp.1and1.com"
+        smtpmail-smtp-server "smtp.googlemail.com"
+        smtpmail-default-smtp-server "smtp.googlemail.com"
         smtpmail-stream-type 'starttls
         smtpmail-smtp-service 587
         smtpmail-smtp-user "ian@ijin.net"
