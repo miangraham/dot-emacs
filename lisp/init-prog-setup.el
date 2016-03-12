@@ -1,3 +1,4 @@
+(declare-function 'require-package "init-packages" nil)
 (require-package 'aggressive-indent)
 (require-package 'comment-dwim-2)
 (require-package 'diminish)
@@ -25,7 +26,12 @@
 
 (after-load 'aggressive-indent (diminish 'aggressive-indent-mode))
 
-(setq flycheck-idle-change-delay 10)
+(setq-default flycheck-disabled-checkers '(javascript-jshint
+                                           javascript-gjslint
+                                           javascript-standard
+                                           emacs-lisp-checkdoc))
+(setq flycheck-idle-change-delay 5)
+(global-flycheck-mode)
 
 (setq dtrt-indent-verbosity 0)
 (after-load 'dtrt-indent (delete 'dtrt-indent-mode-line-info global-mode-string))

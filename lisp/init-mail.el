@@ -17,14 +17,14 @@
           ("/trash"  . ?t)
           ("/all"  . ?a)))
 
-  (setq user-mail-address "ian@ijin.net"
+  (setq user-mail-address (getenv "MAIL_ADDRESS")
         user-full-name "M. Ian Graham"
-        smtpmail-mail-address "ian@ijin.net"
+        smtpmail-mail-address (getenv "MAIL_ADDRESS")
         smtpmail-smtp-server "smtp.googlemail.com"
         smtpmail-default-smtp-server "smtp.googlemail.com"
         smtpmail-stream-type 'starttls
         smtpmail-smtp-service 587
-        smtpmail-smtp-user "ian@ijin.net"
+        smtpmail-smtp-user (getenv "MAIL_ADDRESS")
         message-send-mail-function 'smtpmail-send-it
         message-kill-buffer-on-exit t
         mu4e-compose-signature nil

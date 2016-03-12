@@ -19,6 +19,7 @@
 (require 'init-ace)
 (require 'init-git)
 (require 'init-ivy)
+(require 'init-ledger)
 (require 'init-org)
 (require 'init-projectile)
 (require 'init-tramp)

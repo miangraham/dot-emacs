@@ -1,3 +1,4 @@
+(declare-function 'require-package "init-packages" ('package-name) nil)
 (require-package 'flycheck)
 (require-package 'json-mode)
 
@@ -15,12 +16,7 @@ See URL `https://github.com/mdevils/node-jscs'."
   :predicate (lambda () (string= (file-name-extension (buffer-file-name)) "js"))
   )
 
-;; (add-to-list 'flycheck-checkers 'javascript-jscs)
-
-;;(add-hook 'js-mode-hook (lambda () (setq flycheck-disabled-checkers '(javascript-eslint javascript-gjslint javascript-jscs javascript-standard))))
-
-(setq-default flycheck-disabled-checkers '(javascript-jshint javascript-gjslint javascript-standard))
-;;(setq-default flycheck-disabled-checkers '(javascript-eslint javascript-gjslint javascript-standard))
+;; (setq-default flycheck-disabled-checkers '(javascript-jshint javascript-gjslint javascript-standard))
 
 (add-hook 'flycheck-before-syntax-check-hook 'flycheck-clear)
 

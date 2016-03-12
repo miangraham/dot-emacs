@@ -1,3 +1,4 @@
+(declare-function 'require-package "init-packages.el")
 (require-package 'aggressive-indent)
 (require-package 'rainbow-delimiters)
 (require-package 'smartparens)
