@@ -1,4 +1,4 @@
-(declare-function 'require-package "init-packages" ('package-name) nil)
+(require 'init-packages)
 (require-package 'flycheck)
 (require-package 'json-mode)
 

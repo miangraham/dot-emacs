@@ -1,3 +1,8 @@
+(require 'init-packages)
+(require-package 'spaceline)
+(require 'spaceline)
+(require 'spaceline-config)
+
 (when window-system
   (require-package 'zenburn-theme)
   (load-theme 'zenburn t))
@@ -48,8 +53,7 @@ ADDITIONAL-SEGMENTS are inserted on the right, between `global' and
      hud)))
 
 (setq ns-use-srgb-colorspace nil)
-(require-package 'spaceline)
-(require 'spaceline-config)
+
 (setq powerline-height 28)
 ;; (setq powerline-default-separator 'zigzag)
 (setq powerline-default-separator 'butt)

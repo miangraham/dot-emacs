@@ -1,3 +1,4 @@
+(require 'init-packages)
 (require-package 'yaml-mode)
 
 (add-hook 'yaml-mode-hook 'projectile-mode)

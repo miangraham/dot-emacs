@@ -1,4 +1,4 @@
-(declare-function 'require-package "init-packages" nil)
+(require 'init-packages)
 (require-package 'aggressive-indent)
 (require-package 'comment-dwim-2)
 (require-package 'diminish)
@@ -10,6 +10,11 @@
 (require-package 'web-mode)
 (require-package 'ws-butler)
 (require-package 'yasnippet)
+(require 'comment-dwim-2)
+(require 'dtrt-indent)
+(require 'flycheck)
+(require 'web-mode)
+(require 'yasnippet)
 
 (setq-default c-basic-indent 2
               c-basic-offset 2
@@ -25,6 +30,8 @@
       web-mode-markup-indent-offset 2)
 
 (after-load 'aggressive-indent (diminish 'aggressive-indent-mode))
+
+(setq-default flycheck-emacs-lisp-load-path 'inherit)
 
 (setq-default flycheck-disabled-checkers '(javascript-jshint
                                            javascript-gjslint

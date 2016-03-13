@@ -1,8 +1,6 @@
+(require 'init-packages)
 (require-package 'diminish)
 (require-package 'dired-details)
-;; (setq dired-use-ls-dired nil
-;;       dired-omit-files (concat dired-omit-files "\\|^\\..+$"))
-;; (setq-default dired-omit-files-p t)
 
 (require-package 'move-text)
 (move-text-default-bindings)
@@ -27,11 +25,12 @@
 (setq mouse-drag-copy-region 't
       select-active-regions nil
       x-select-enable-clipboard nil
-      x-select-enable-primary 't
+;;      x-select-enable-primary 't
       shift-select-mode nil)
 (global-set-key (kbd "<mouse-2>") 'mouse-yank-at-click)
 
 (require-package 'anzu)
+(require 'anzu)
 (setq anzu-cons-mode-line-p nil)
 (after-load 'anzu (diminish 'anzu-mode))
 (global-anzu-mode +1)

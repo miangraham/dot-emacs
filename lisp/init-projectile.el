@@ -1,4 +1,6 @@
+(require 'init-packages)
 (require-package 'projectile)
+(require 'projectile)
 
 (setq projectile-completion-system 'ivy
       projectile-enable-caching t

@@ -1,8 +1,10 @@
-(setq package-enable-at-startup nil)
-(setq package-archives '(("org" . "http://orgmode.org/elpa/")
+(require 'package)
+
+(setq package-enable-at-startup nil
+      package-archives '(("org" . "http://orgmode.org/elpa/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")
-                         ("gnu" . "http://elpa.gnu.org/packages/")))
-(setq package-pinned-packages '(("org" . "org")
+                         ("gnu" . "http://elpa.gnu.org/packages/"))
+      package-pinned-packages '(("org" . "org")
                                 ("magit" . "melpa")
                                 ("yasnippet" . "melpa")
                                 ("minimap" . "melpa")

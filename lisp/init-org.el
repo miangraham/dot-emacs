@@ -1,6 +1,8 @@
+(require 'init-packages)
 (require-package 'calfw)
 (require 'calfw-org)
-(require-package 'sunshine)
+(require 'org-habit)
+
 (setq org-modules '(org-habit))
 (after-load 'org (org-load-modules-maybe t))
 
@@ -48,14 +50,6 @@
 
 (after-load 'org (fullframe org-agenda-list org-agenda-quit))
 
-;; (run-with-idle-timer
-;;  600 t
-;;  (lambda ()
-;;    (delete-other-windows)
-;;    (org-agenda-list)
-;;    (split-window-below)
-;;    (jump-to-mu4e-inbox)
-;;    ))
 (run-with-idle-timer
  3000 t
  (lambda ()
@@ -63,13 +57,9 @@
    (org-agenda-list)
    ))
 
-(setq sunshine-location "Tokyo,Japan")
-(setq sunshine-units 'metric)
-
 (add-hook 'org-mode-hook 'projectile-mode)
 
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'org-capture)
-(global-set-key (kbd "C-c w") 'sunshine-forecast)
 
 (provide 'init-org)

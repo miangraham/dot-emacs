@@ -1,5 +1,8 @@
+(require 'init-packages)
 (require-package 'elfeed)
 (require-package 'elfeed-org)
+(require 'elfeed)
+(require 'elfeed-org)
 
 (require 'youtube-dl-mode)
 (setq youtube-dl-directory "~/Downloads"
@@ -18,6 +21,10 @@
   (add-hook 'elfeed-new-entry-hook
             (elfeed-make-tagger :feed-url "youtube\\.com"
                                 :add 'video)))
+
+(defadvice elfeed-search-update (before configure-elfeed-search-update activate)
+  (let ((feed (elfeed-db-get-feed "http://www.theonion.com/feeds/rss")))
+    (setf (elfeed-feed-title feed) "The Onion")))
 
 (defun elfeed-show-youtube-dl ()
   "Download the current entry with youtube-dl."

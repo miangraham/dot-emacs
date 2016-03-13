@@ -1,3 +1,5 @@
+(require 'init-packages)
+(require 'init-misc-defuns)
 (require-package 'hydra)
 (require-package 'wiki-summary)
 (require-package 'totd)
