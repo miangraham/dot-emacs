@@ -20,7 +20,4 @@ See URL `https://github.com/mdevils/node-jscs'."
 
 (add-hook 'flycheck-before-syntax-check-hook 'flycheck-clear)
 
-(add-hook 'js-mode-hook 'projectile-mode)
-(add-hook 'js-mode-hook 'flycheck-mode)
-
 (provide 'init-javascript)

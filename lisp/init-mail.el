@@ -30,12 +30,13 @@
         message-kill-buffer-on-exit t
         mu4e-compose-signature nil
         mu4e-compose-signature-auto-include nil
+        mu4e-change-filenames-when-moving t
         mu4e-use-fancy-chars nil
         mu4e-attachment-dir  "~/Downloads"
         mu4e-update-interval 300
         mu4e-hide-index-messages t
         mu4e-split-view nil
-        mu4e-get-mail-command "offlineimap"
+        mu4e-get-mail-command "mbsync gmail"
         mu4e-html2text-command "textutil -stdin -format html -convert txt -stdout"
         mu4e-headers-show-threads nil
         mu4e-headers-date-format "%Y/%m/%d"
