@@ -33,7 +33,7 @@
                               )
 
       org-agenda-files '("~/org")
-      org-agenda-span 2
+      org-agenda-span 14
       org-habit-following-days 1
       org-habit-graph-column 80
       org-habit-show-habits-only-for-today nil)

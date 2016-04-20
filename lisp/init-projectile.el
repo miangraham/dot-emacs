@@ -21,6 +21,11 @@
 (add-hook 'emacs-lisp-mode-hook 'projectile-mode)
 (add-hook 'objc-mode-hook 'projectile-mode)
 
+(add-hook 'find-file-hook
+          (lambda ()
+            (when (file-remote-p default-directory)
+              (setq-local projectile-mode-line "Projectile"))))
+
 (projectile-global-mode)
 
 (provide 'init-projectile)

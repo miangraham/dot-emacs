@@ -16,7 +16,8 @@
 (global-unset-key "\M-;")
 (global-set-key "\M-;" 'comment-dwim-2)
 (global-set-key "\M-j" '(lambda () (interactive) (join-line -1)))
-(global-set-key (kbd "<S-backspace>") '(lambda () (interactive) (kill-line 0)))
+;; (global-set-key (kbd "<S-backspace>") '(lambda () (interactive) (kill-line 0)))
+(global-unset-key (kbd "<S-backspace>"))
 
 ;; Reference commands
 (global-set-key "\C-crg" 'goog)
