@@ -7,6 +7,7 @@
       projectile-indexing-method 'native
       projectile-mode-line '(:eval (format " P[%s]" (projectile-project-name))))
 
+(add-to-list 'projectile-globally-ignored-files ".DS_Store")
 (add-to-list 'projectile-globally-ignored-files "*.cache")
 (add-to-list 'projectile-globally-ignored-files "*.class")
 (add-to-list 'projectile-globally-ignored-files "*.elc")

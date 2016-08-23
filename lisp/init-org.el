@@ -33,7 +33,7 @@
                               )
 
       org-agenda-files '("~/org")
-      org-agenda-span 14
+      org-agenda-span 8
       org-habit-following-days 1
       org-habit-graph-column 80
       org-habit-show-habits-only-for-today nil)
@@ -46,6 +46,7 @@
    (ditaa . t)
    (dot . t)
    (sqlite . t)
+   (ruby . t)
    ))
 
 (after-load 'org (fullframe org-agenda-list org-agenda-quit))

@@ -2,7 +2,6 @@
 (require-package 'aggressive-indent)
 (require-package 'comment-dwim-2)
 (require-package 'diminish)
-(require-package 'dtrt-indent)
 (require-package 'editorconfig)
 (require-package 'flycheck)
 (require-package 'iedit)
@@ -11,7 +10,6 @@
 (require-package 'ws-butler)
 (require-package 'yasnippet)
 (require 'comment-dwim-2)
-(require 'dtrt-indent)
 (require 'flycheck)
 (require 'web-mode)
 (require 'yasnippet)
@@ -40,9 +38,14 @@
 (setq flycheck-idle-change-delay 5)
 (global-flycheck-mode)
 
+
+(add-hook 'find-file-hook (lambda () (dtrt-indent-mode 1))) ; Re-enable dtrt
+(require-package 'dtrt-indent)
+(require 'dtrt-indent)
 (setq dtrt-indent-verbosity 0)
 (after-load 'dtrt-indent (delete 'dtrt-indent-mode-line-info global-mode-string))
-(dtrt-indent-mode)
+(after-load 'dtrt-indent (add-hook 'find-file-hook (lambda () (when (equal major-mode 'fundamental-mode) (dtrt-indent-mode 0))))) ; Disable dtrt for fundamental-mode files to fix elfeed perf
+(dtrt-indent-mode 1)
 
 (add-hook 'prog-mode-hook 'ws-butler-mode)
 (after-load 'ws-butler (diminish 'ws-butler-mode))
