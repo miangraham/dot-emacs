@@ -2,7 +2,7 @@
 
 (c-add-style "ianbase"
              '(
-               (c-basic-offset . 2)
+               (c-basic-offset . 4)
                (c-comment-only-line-offset 0 . 0)
                (c-offsets-alist
                 (inline-open . 0)

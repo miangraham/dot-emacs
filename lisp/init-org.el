@@ -7,14 +7,19 @@
 (after-load 'org (org-load-modules-maybe t))
 
 (setq org-default-notes-file "~/org/notes.org"
+      org-agenda-files '("~/org")
+      org-agenda-span 8
       org-log-done 'time
+      org-habit-following-days 1
+      org-habit-graph-column 80
+      org-habit-show-habits-only-for-today nil
+      org-tags-column -100
+      org-hide-leading-stars t
       org-todo-keywords '((sequence "TODO" "PROG" "DONE"))
       org-todo-keyword-faces '(("TODO" . 'org-todo)
                                ("PROG" . "yellow")
                                ("WAIT" . "yellow")
                                ("DONE" . 'org-done))
-      org-tags-column -100
-
       org-capture-templates '(("t" "Task" entry
                                (file "~/org/todo.org")
                                "* TODO %^{Task}"
@@ -30,13 +35,7 @@
                               ("j" "Journal" entry
                                (file+datetree "~/org/journal.org")
                                "* %?\nEntered on %U\n  %i\n  %a")
-                              )
-
-      org-agenda-files '("~/org")
-      org-agenda-span 8
-      org-habit-following-days 1
-      org-habit-graph-column 80
-      org-habit-show-habits-only-for-today nil)
+                              ))
 
 (org-babel-do-load-languages
  'org-babel-load-languages

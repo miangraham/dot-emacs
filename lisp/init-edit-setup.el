@@ -2,8 +2,11 @@
 (require-package 'diminish)
 (require-package 'dired-details)
 
-(require-package 'move-text)
-(move-text-default-bindings)
+(require-package 'move-dup)
+(global-set-key (kbd "M-<up>") 'md/move-lines-up)
+(global-set-key (kbd "M-<down>") 'md/move-lines-down)
+(global-set-key (kbd "C-M-<up>") 'md/duplicate-up)
+(global-set-key (kbd "C-M-<down>") 'md/duplicate-down)
 
 (setq auto-save-default nil)
 (setq backup-directory-alist `(("." . "~/.emacs.d/backup")))
@@ -24,8 +27,8 @@
 ;; Mouse/region behavior
 (setq mouse-drag-copy-region 't
       select-active-regions nil
-      x-select-enable-clipboard nil
-;;      x-select-enable-primary 't
+      select-enable-clipboard 't
+      ;;      x-select-enable-primary 't
       shift-select-mode nil)
 (global-set-key (kbd "<mouse-2>") 'mouse-yank-at-click)
 
