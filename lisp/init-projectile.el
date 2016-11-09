@@ -1,6 +1,8 @@
 (require 'init-packages)
 (require-package 'projectile)
 (require 'projectile)
+(require-package 'counsel-projectile)
+(require 'counsel-projectile)
 
 (setq projectile-completion-system 'ivy
       projectile-enable-caching t
@@ -28,5 +30,7 @@
               (setq-local projectile-mode-line "Projectile"))))
 
 (projectile-global-mode)
+
+(counsel-projectile-on)
 
 (provide 'init-projectile)

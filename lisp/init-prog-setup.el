@@ -51,6 +51,7 @@
 (after-load 'ws-butler (diminish 'ws-butler-mode))
 
 (editorconfig-mode 1)
+(diminish 'editorconfig-mode)
 
 (add-hook 'prog-mode-hook 'yas-minor-mode-on)
 (define-key yas-minor-mode-map (kbd "<tab>") nil)

@@ -1,10 +1,10 @@
 (require 'init-packages)
 (require-package 'smartparens)
 (require 'smartparens)
-(require-package 'swiper)
+(require-package 'ivy)
 (require 'ivy)
 
-(after-load 'swiper (diminish 'ivy-mode))
+(after-load 'ivy (diminish 'ivy-mode))
 (ivy-mode 1)
 
 (setq ivy-use-virtual-buffers t

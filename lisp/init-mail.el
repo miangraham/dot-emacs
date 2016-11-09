@@ -1,8 +1,8 @@
 (add-to-list 'load-path (expand-file-name "site-lisp/mu4e" user-emacs-directory))
 (require 'mu4e)
 
-(when (or (string= system-name "toki.local")
-          (string= system-name "toki"))
+(when (or (string= (system-name) "toki.local")
+          (string= (system-name) "toki"))
 
   (setq mu4e-maildir "~/Mail"
         mu4e-drafts-folder "/drafts"
