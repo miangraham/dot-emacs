@@ -34,9 +34,4 @@
    (concat "http://www.google.com/search?btnI=I%27m+Feeling+Lucky&q=site%3Adeveloper.mozilla.org/en-US/docs/Web/JavaScript/Reference+"
            (replace-regexp-in-string " " "+" term))))
 
-(defun copy-whole-buffer()
-  (interactive)
-  (mark-whole-buffer)
-  (copy-region-as-kill (region-beginning) (region-end)))
-
 (provide 'init-misc-defuns)

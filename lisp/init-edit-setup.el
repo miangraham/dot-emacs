@@ -23,6 +23,7 @@
 (prefer-coding-system 'utf-8)
 
 (set-default 'sentence-end-double-space nil)
+(put 'erase-buffer 'disabled nil)
 
 ;; Mouse/region behavior
 (setq mouse-drag-copy-region 't

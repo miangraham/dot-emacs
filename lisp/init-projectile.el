@@ -1,4 +1,5 @@
 (require 'init-packages)
+(require-package 'ag)
 (require-package 'projectile)
 (require 'projectile)
 (require-package 'counsel-projectile)

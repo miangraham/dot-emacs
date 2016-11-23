@@ -31,6 +31,7 @@
 (require 'init-prog-setup)
 (require 'init-csharp)
 (require 'init-elisp)
+(require 'init-haskell)
 (require 'init-java)
 (require 'init-javascript)
 (require 'init-xml)
@@ -44,4 +45,3 @@
 ;; Personalization
 (require 'init-misc-defuns)
 (require 'init-global-keys)
-

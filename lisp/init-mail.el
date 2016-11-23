@@ -64,6 +64,13 @@
     (mu4e~headers-jump-to-maildir "/inbox"))
   (global-set-key (kbd "C-c m") 'jump-to-mu4e-inbox)
 
+  (defun my-mu4e-mark-execute-all-no-confirm ()
+    "Execute all marks without confirmation."
+    (interactive)
+    (mu4e-mark-execute-all 'no-confirm))
+
+  (define-key mu4e-headers-mode-map "x" #'my-mu4e-mark-execute-all-no-confirm)
+
   ;; (run-with-idle-timer
   ;;  600 t
   ;;  (lambda ()
