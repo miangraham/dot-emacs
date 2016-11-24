@@ -1,87 +1,78 @@
-(require 'init-packages)
-(require-package 'elfeed)
-(require-package 'elfeed-org)
-(require 'elfeed)
-(require 'elfeed-org)
-
 (require 'youtube-dl-mode)
-(setq youtube-dl-directory "~/Downloads"
-      youtube-dl-arguments '("--no-mtime" "--restrict-filenames" "--all-subs" "--embed-subs"))
 
-(setq url-queue-timeout 15
-      url-queue-parallel-processes 1
-      elfeed-search-title-max-width 110)
+(use-package elfeed
+  :if (display-graphic-p)
+  :bind ("C-c n". elfeed)
+  :config
+  (use-package elfeed-org
+    :config
+    (setq rmh-elfeed-org-files (list "~/org/feeds.org"))
+    (elfeed-org))
 
-(setq-default elfeed-search-filter "@1-week-ago +unread -jp ")
+  (setq-default elfeed-search-filter "@1-week-ago +unread -jp ")
 
-(setq rmh-elfeed-org-files (list "~/org/feeds.org"))
-(elfeed-org)
+  (setq youtube-dl-directory "~/Downloads"
+        youtube-dl-arguments '("--no-mtime" "--restrict-filenames" "--all-subs" "--embed-subs")
+        url-queue-timeout 15
+        url-queue-parallel-processes 1
+        elfeed-search-title-max-width 110)
 
-(defadvice elfeed (after configure-elfeed activate)
-  (add-hook 'elfeed-new-entry-hook
-            (elfeed-make-tagger :feed-url "youtube\\.com"
-                                :add 'video)))
+  (defadvice elfeed (after configure-elfeed activate)
+    (add-hook 'elfeed-new-entry-hook
+              (elfeed-make-tagger :feed-url "youtube\\.com"
+                                  :add 'video)))
 
-(defadvice elfeed-search-update (before configure-elfeed-search-update activate)
-  (let ((feed (elfeed-db-get-feed "http://www.theonion.com/feeds/rss")))
-    (setf (elfeed-feed-title feed) "The Onion")))
+  (defadvice elfeed-search-update (before configure-elfeed-search-update activate)
+    (let ((feed (elfeed-db-get-feed "http://www.theonion.com/feeds/rss")))
+      (setf (elfeed-feed-title feed) "The Onion")))
 
-(defun elfeed-show-youtube-dl ()
-  "Download the current entry with youtube-dl."
-  (interactive)
-  (pop-to-buffer (youtube-dl-download (elfeed-entry-link elfeed-show-entry))))
+  (define-key elfeed-search-mode-map "h"
+    (lambda ()
+      (interactive)
+      (elfeed-search-set-filter (default-value 'elfeed-search-filter))))
 
-(defun elfeed-search-youtube-dl ()
-  "Download the current entry with youtube-dl."
-  (interactive)
-  (let ((entries (elfeed-search-selected)))
-    (dolist (entry entries)
-      (if (null (youtube-dl-download (elfeed-entry-link entry)))
-          (message "Entry is not a YouTube link!")
-        (message "Downloading %s" (elfeed-entry-title entry)))
-      (elfeed-untag entry 'unread)
-      (elfeed-search-update-entry entry)
-      (unless (use-region-p) (forward-line)))))
+  (define-key elfeed-search-mode-map "j"
+    (lambda ()
+      (interactive)
+      (cl-macrolet ((re (re rep str) `(replace-regexp-in-string ,re ,rep ,str)))
+        (elfeed-search-set-filter
+         (cond
+          ((string-match-p "-jp" elfeed-search-filter)
+           (re " *-jp" " +jp" elfeed-search-filter))
+          ((string-match-p "\\+jp" elfeed-search-filter)
+           (re " *\\+jp" " -jp" elfeed-search-filter))
+          ((concat elfeed-search-filter "-jp")))))))
 
-(define-key elfeed-search-mode-map "h"
-  (lambda ()
+  (define-key elfeed-search-mode-map "u"
+    (lambda ()
+      (interactive)
+      (cl-macrolet ((re (re rep str) `(replace-regexp-in-string ,re ,rep ,str)))
+        (elfeed-search-set-filter
+         (cond
+          ((string-match-p "-unread" elfeed-search-filter)
+           (re " *-unread" " " elfeed-search-filter))
+          ((string-match-p "\\+unread" elfeed-search-filter)
+           (re " *\\+unread" " " elfeed-search-filter))
+          ((concat elfeed-search-filter "+unread")))))))
+
+  (defun elfeed-show-youtube-dl ()
+    "Download the current entry with youtube-dl."
     (interactive)
-    (elfeed-search-set-filter (default-value 'elfeed-search-filter))))
+    (pop-to-buffer (youtube-dl-download (elfeed-entry-link elfeed-show-entry))))
 
-(define-key elfeed-search-mode-map "j"
-  (lambda ()
+  (defun elfeed-search-youtube-dl ()
+    "Download the current entry with youtube-dl."
     (interactive)
-    (cl-macrolet ((re (re rep str) `(replace-regexp-in-string ,re ,rep ,str)))
-      (elfeed-search-set-filter
-       (cond
-        ((string-match-p "-jp" elfeed-search-filter)
-         (re " *-jp" " +jp" elfeed-search-filter))
-        ((string-match-p "\\+jp" elfeed-search-filter)
-         (re " *\\+jp" " -jp" elfeed-search-filter))
-        ((concat elfeed-search-filter "-jp")))))))
+    (let ((entries (elfeed-search-selected)))
+      (dolist (entry entries)
+        (if (null (youtube-dl-download (elfeed-entry-link entry)))
+            (message "Entry is not a YouTube link!")
+          (message "Downloading %s" (elfeed-entry-title entry)))
+        (elfeed-untag entry 'unread)
+        (elfeed-search-update-entry entry)
+        (unless (use-region-p) (forward-line)))))
 
-(define-key elfeed-search-mode-map "u"
-  (lambda ()
-    (interactive)
-    (cl-macrolet ((re (re rep str) `(replace-regexp-in-string ,re ,rep ,str)))
-      (elfeed-search-set-filter
-       (cond
-        ((string-match-p "-unread" elfeed-search-filter)
-         (re " *-unread" " " elfeed-search-filter))
-        ((string-match-p "\\+unread" elfeed-search-filter)
-         (re " *\\+unread" " " elfeed-search-filter))
-        ((concat elfeed-search-filter "+unread")))))))
-
-(define-key elfeed-show-mode-map "d" 'elfeed-show-youtube-dl)
-(define-key elfeed-search-mode-map "d" 'elfeed-search-youtube-dl)
-
-(global-set-key (kbd "C-c n") 'elfeed)
-
-;; (run-with-idle-timer
-;;  ;; 1237 t
-;;  307 t
-;;  (lambda ()
-;;    (elfeed-update)
-;;    ))
+  (define-key elfeed-show-mode-map "d" 'elfeed-show-youtube-dl)
+  (define-key elfeed-search-mode-map "d" 'elfeed-search-youtube-dl))
 
 (provide 'init-feeds)

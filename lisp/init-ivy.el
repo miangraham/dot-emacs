@@ -1,15 +1,15 @@
-(require 'init-packages)
-(require-package 'smartparens)
-(require 'smartparens)
-(require-package 'ivy)
-(require 'ivy)
+(use-package smartparens
+  :defer 60
+  :functions sp-wrap--can-wrap-p)
 
-(after-load 'ivy (diminish 'ivy-mode))
-(ivy-mode 1)
-
-(setq ivy-use-virtual-buffers t
-      ivy-height 10
-      ivy-display-style 'fancy
-      ivy-count-format "(%d/%d) ")
+(use-package ivy
+  :defer 1
+  :diminish ivy-mode
+  :config
+  (setq ivy-use-virtual-buffers t
+        ivy-height 10
+        ivy-display-style 'fancy
+        ivy-count-format "(%d/%d) ")
+  (ivy-mode 1))
 
 (provide 'init-ivy)

@@ -1,7 +1,7 @@
-(require 'init-packages)
-(require-package 'yaml-mode)
-
-(add-hook 'yaml-mode-hook 'projectile-mode)
-(add-hook 'yaml-mode-hook 'flycheck-mode)
+(use-package yaml-mode
+  :mode (("\\.yml?\\'" . yaml-mode)
+         ("\\.yaml?\\'" . yaml-mode))
+  :config
+  (add-hook 'yaml-mode-hook 'flycheck-mode))
 
 (provide 'init-yaml)

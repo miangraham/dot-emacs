@@ -1,19 +1,19 @@
-(require 'init-packages)
+(setq vc-handled-backends (quote (Git SVN CVS Hg)))
 
 (when window-system
-  (require-package 'diminish)
-  (require-package 'fullframe)
-  (require-package 'magit)
-  (require-package 'git-link)
-  (require-package 'git-timemachine)
-  (require 'magit)
-  (declare-function magit-mode-quit-window 'magit)
+  (use-package git-link
+    :defer 10)
 
-  (setq vc-handled-backends (quote (Git SVN CVS Hg)))
-  (defvar magit-last-seen-setup-instructions "1.4.0")
+  (use-package git-timemachine
+    :defer 10)
 
-  (global-set-key "\C-ci" 'magit-status)
-
-  (after-load 'magit (fullframe magit-status magit-mode-quit-window)))
+  (use-package magit
+    :bind ("C-c i" . magit-status)
+    :functions magit-mode-quit-window
+    :init
+    (setq magit-auto-revert-mode nil)
+    :config
+    (use-package fullframe
+      :config (fullframe magit-status magit-mode-quit-window))))
 
 (provide 'init-git)

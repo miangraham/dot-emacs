@@ -1,8 +1,12 @@
 ;; Bootstrap
 ;;(package-initialize)
 
-(add-to-list 'load-path (expand-file-name "lisp/" user-emacs-directory))
-(add-to-list 'load-path (expand-file-name "site-lisp/" user-emacs-directory))
+(eval-and-compile
+  (add-to-list 'load-path (expand-file-name "lisp/" user-emacs-directory))
+  (add-to-list 'load-path (expand-file-name "site-lisp/" user-emacs-directory))
+  (let ((default-directory "/usr/local/share/emacs/site-lisp/"))
+    (normal-top-level-add-subdirs-to-load-path))
+  )
 
 (setq gc-cons-threshold 100000000)
 (require 'init-startup-profile)
@@ -10,12 +14,17 @@
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file)
 
-(require 'init-packages)
+(eval-and-compile
+  (require 'init-packages)
+  (defvar use-package-verbose t)
+  (require 'use-package)
+  (setq use-package-always-ensure t))
+
 (require 'init-exec-path)
 
 ;; Visuals
-(require 'init-ui)
 (require 'init-theme)
+(require 'init-ui)
 
 ;; Tools
 (require 'init-ace)
@@ -38,9 +47,8 @@
 (require 'init-yaml)
 
 ;; GUI Only
-(when (display-graphic-p)
-  (require 'init-feeds)
-  (require 'init-mail))
+(require 'init-feeds)
+(require 'init-mail)
 
 ;; Personalization
 (require 'init-misc-defuns)

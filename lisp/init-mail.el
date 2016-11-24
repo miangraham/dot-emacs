@@ -1,16 +1,28 @@
-(add-to-list 'load-path (expand-file-name "site-lisp/mu4e" user-emacs-directory))
-(require 'mu4e)
+;; (eval-and-compile
+;;   (require 'use-package))
+;;   (add-to-list 'load-path (expand-file-name "site-lisp/mu4e" user-emacs-directory))
+;;   (defvar use-package-verbose t)
+;;   (setq use-package-always-ensure t))
 
-(when (or (string= (system-name) "toki.local")
-          (string= (system-name) "toki"))
+;; (when (or (string= (system-name) "toki.local")
+;;           (string= (system-name) "toki"))
 
+(defun jump-to-mu4e-inbox ()
+  (interactive)
+  (mu4e~headers-jump-to-maildir "/inbox"))
+
+(use-package mu4e
+  :ensure nil
+  ;; :if (or (string= (system-name) "toki.local")
+  ;;         (string= (system-name) "toki"))
+  :if (display-graphic-p)
+  :bind ("C-c m" . mu4e~headers-jump-to-maildir)
+  :config
   (setq mu4e-maildir "~/Mail"
         mu4e-drafts-folder "/drafts"
         mu4e-sent-folder "/sent"
         mu4e-trash-folder "/trash"
         mu4e-refile-folder "/all")
-
-  ;;(setq mu4e-sent-messages-behavior 'delete)
 
   (setq mu4e-maildir-shortcuts
         '(("/inbox"  . ?i)
@@ -59,10 +71,10 @@
                  0.1 nil
                  'bury-buffer)))
 
-  (defun jump-to-mu4e-inbox ()
-    (interactive)
-    (mu4e~headers-jump-to-maildir "/inbox"))
-  (global-set-key (kbd "C-c m") 'jump-to-mu4e-inbox)
+  ;; (defun jump-to-mu4e-inbox ()
+  ;;   (interactive)
+  ;;   (mu4e~headers-jump-to-maildir "/inbox"))
+  ;; (global-set-key (kbd "C-c m") 'jump-to-mu4e-inbox)
 
   (defun my-mu4e-mark-execute-all-no-confirm ()
     "Execute all marks without confirmation."

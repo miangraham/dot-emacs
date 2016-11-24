@@ -1,11 +1,14 @@
-(require 'init-packages)
-(require-package 'aggressive-indent)
-(require-package 'rainbow-delimiters)
-(require-package 'smartparens)
-(require 'smartparens-config)
+(use-package aggressive-indent
+  :commands aggressive-indent-mode
+  :diminish aggressive-indent-mode
+  :init (add-hook 'emacs-lisp-mode-hook 'aggressive-indent-mode))
 
-(add-hook 'emacs-lisp-mode-hook 'aggressive-indent-mode)
-(add-hook 'emacs-lisp-mode-hook 'projectile-mode)
-(add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode-enable)
+(use-package smartparens
+  :commands smartparens-mode
+  :diminish smartparens-mode
+  :init
+  (add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
+  :config
+  (require 'smartparens-config))
 
 (provide 'init-elisp)

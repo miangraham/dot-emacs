@@ -1,19 +1,3 @@
-(require 'init-packages)
-(require-package 'aggressive-indent)
-(require-package 'comment-dwim-2)
-(require-package 'diminish)
-(require-package 'editorconfig)
-(require-package 'flycheck)
-(require-package 'iedit)
-(require-package 'rainbow-delimiters)
-(require-package 'web-mode)
-(require-package 'ws-butler)
-(require-package 'yasnippet)
-(require 'comment-dwim-2)
-(require 'flycheck)
-(require 'web-mode)
-(require 'yasnippet)
-
 (setq-default c-basic-indent 2
               c-basic-offset 2
               default-tab-width 2
@@ -22,44 +6,46 @@
               sh-basic-offset 2
               tags-file-name "TAGS")
 
-(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-(setq web-mode-css-indent-offset 2
-      web-mode-code-indent-offset 2
-      web-mode-markup-indent-offset 2)
+(use-package editorconfig
+  :diminish editorconfig-mode
+  :config (editorconfig-mode 1))
 
-(after-load 'aggressive-indent (diminish 'aggressive-indent-mode))
+(use-package flycheck
+  :commands flycheck-mode
+  :init
+  (add-hook 'prog-mode-hook 'flycheck-mode)
+  :config
+  (setq-default flycheck-emacs-lisp-load-path 'inherit
+                flycheck-disabled-checkers '(javascript-jshint
+                                             javascript-gjslint
+                                             javascript-standard
+                                             emacs-lisp-checkdoc))
+  (setq flycheck-idle-change-delay 5))
 
-(setq-default flycheck-emacs-lisp-load-path 'inherit)
+(use-package rainbow-delimiters
+  :config (add-hook 'prog-mode-hook 'rainbow-delimiters-mode-enable))
 
-(setq-default flycheck-disabled-checkers '(javascript-jshint
-                                           javascript-gjslint
-                                           javascript-standard
-                                           emacs-lisp-checkdoc))
-(setq flycheck-idle-change-delay 5)
-(global-flycheck-mode)
+(use-package web-mode
+  :mode ("\\.html?\\'" . web-mode)
+  :config
+  (setq web-mode-css-indent-offset 2
+        web-mode-code-indent-offset 2
+        web-mode-markup-indent-offset 2))
 
+(use-package ws-butler
+  :commands ws-butler-mode
+  :diminish ws-butler-mode
+  :init
+  (add-hook 'prog-mode-hook 'ws-butler-mode))
 
-(add-hook 'find-file-hook (lambda () (dtrt-indent-mode 1))) ; Re-enable dtrt
-(require-package 'dtrt-indent)
-(require 'dtrt-indent)
-(setq dtrt-indent-verbosity 0)
-(after-load 'dtrt-indent (delete 'dtrt-indent-mode-line-info global-mode-string))
-(after-load 'dtrt-indent (add-hook 'find-file-hook (lambda () (when (equal major-mode 'fundamental-mode) (dtrt-indent-mode 0))))) ; Disable dtrt for fundamental-mode files to fix elfeed perf
-(dtrt-indent-mode 1)
-
-(add-hook 'prog-mode-hook 'ws-butler-mode)
-(after-load 'ws-butler (diminish 'ws-butler-mode))
-
-(editorconfig-mode 1)
-(diminish 'editorconfig-mode)
-
-(add-hook 'prog-mode-hook 'yas-minor-mode-on)
-(define-key yas-minor-mode-map (kbd "<tab>") nil)
-(define-key yas-minor-mode-map (kbd "TAB") nil)
-(define-key yas-minor-mode-map (kbd "C-c y") 'yas-expand)
-
-(after-load 'abbrev (diminish 'abbrev-mode))
-
-(setq comment-dwim-2--inline-comment-behavior 'reindent-comment)
+(use-package yasnippet
+  :commands yas-minor-mode-on
+  :diminish yas-minor-mode
+  :init
+  (add-hook 'prog-mode-hook 'yas-minor-mode-on)
+  :config
+  (define-key yas-minor-mode-map (kbd "<tab>") nil)
+  (define-key yas-minor-mode-map (kbd "TAB") nil)
+  (define-key yas-minor-mode-map (kbd "C-c y") 'yas-expand))
 
 (provide 'init-prog-setup)

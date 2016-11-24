@@ -1,10 +1,6 @@
-(require 'init-packages)
-(require-package 'company)
-(require-package 'csharp-mode)
-(require-package 'flycheck)
-;; (require-package 'omnisharp)
-
-(require 'init-csharp-style)
+(use-package csharp-mode
+  :mode ("\\.cs\\'" . csharp-mode)
+  :config (require 'init-csharp-style))
 
 ;; OmniSharp setup follows. External server prereqs:
 ;; 1. Clone and build https://github.com/OmniSharp/omnisharp-server

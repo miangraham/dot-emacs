@@ -1,65 +1,67 @@
-(require 'init-packages)
-(require-package 'calfw)
-(require 'calfw-org)
-(require 'org-habit)
+(use-package org
+  :bind
+  (("C-c a".  org-agenda)
+   ("C-c c" . org-capture))
 
-(setq org-modules '(org-habit))
-(after-load 'org (org-load-modules-maybe t))
+  :defines
+  (org-capture-templates
+   org-habit-following-days
+   org-habit-graph-column
+   org-habit-show-habits-only-for-today)
 
-(setq org-default-notes-file "~/org/notes.org"
-      org-agenda-files '("~/org")
-      org-agenda-span 8
-      org-log-done 'time
-      org-habit-following-days 1
-      org-habit-graph-column 80
-      org-habit-show-habits-only-for-today nil
-      org-tags-column -100
-      org-hide-leading-stars t
-      org-todo-keywords '((sequence "TODO" "PROG" "DONE"))
-      org-todo-keyword-faces '(("TODO" . 'org-todo)
-                               ("PROG" . "yellow")
-                               ("WAIT" . "yellow")
-                               ("DONE" . 'org-done))
-      org-capture-templates '(("t" "Task" entry
-                               (file "~/org/todo.org")
-                               "* TODO %^{Task}"
-                               :immediate-finish t)
-                              ("s" "Scheduled Task" entry
-                               (file "~/org/todo.org")
-                               "* TODO %^{Task}\n  SCHEDULED: %^t"
-                               :immediate-finish t)
-                              ("n" "Note" entry
-                               (file "~/org/notes.org")
-                               "* %^{Note}"
-                               :immediate-finish t)
-                              ("j" "Journal" entry
-                               (file+datetree "~/org/journal.org")
-                               "* %?\nEntered on %U\n  %i\n  %a")
-                              ))
+  :functions
+  (org-load-modules-maybe
+   org-agenda-quit)
 
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '(
-   (sh . t)
-   (python . t)
-   (ditaa . t)
-   (dot . t)
-   (sqlite . t)
-   (ruby . t)
-   ))
+  :config
+  (setq org-modules '(org-agenda org-capture org-habit))
+  (org-load-modules-maybe t)
+  (fullframe org-agenda-list org-agenda-quit)
+  (setq org-default-notes-file "~/org/notes.org"
+        org-agenda-files '("~/org")
+        org-agenda-span 8
+        org-log-done 'time
+        org-habit-following-days 1
+        org-habit-graph-column 80
+        org-habit-show-habits-only-for-today nil
+        org-tags-column -100
+        org-hide-leading-stars t
+        org-todo-keywords '((sequence "TODO" "PROG" "DONE"))
+        org-todo-keyword-faces '(("TODO" . 'org-todo)
+                                 ("PROG" . "yellow")
+                                 ("WAIT" . "yellow")
+                                 ("DONE" . 'org-done))
+        org-capture-templates '(("t" "Task" entry
+                                 (file "~/org/todo.org")
+                                 "* TODO %^{Task}"
+                                 :immediate-finish t)
+                                ("s" "Scheduled Task" entry
+                                 (file "~/org/todo.org")
+                                 "* TODO %^{Task}\n  SCHEDULED: %^t"
+                                 :immediate-finish t)
+                                ("n" "Note" entry
+                                 (file "~/org/notes.org")
+                                 "* %^{Note}"
+                                 :immediate-finish t)
+                                ("j" "Journal" entry
+                                 (file+datetree "~/org/journal.org")
+                                 "* %?\nEntered on %U\n  %i\n  %a")
+                                ))
 
-(after-load 'org (fullframe org-agenda-list org-agenda-quit))
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '(
+     (sh . t)
+     (python . t)
+     (ditaa . t)
+     (dot . t)
+     (sqlite . t)
+     (ruby . t)
+     ))
 
-(run-with-idle-timer
- 3000 t
- (lambda ()
-   (delete-other-windows)
-   (org-agenda-list)
-   ))
-
-(add-hook 'org-mode-hook 'projectile-mode)
-
-(global-set-key (kbd "C-c a") 'org-agenda)
-(global-set-key (kbd "C-c c") 'org-capture)
+  (use-package calfw
+    :defer 10
+    :config (require 'calfw-org))
+  )
 
 (provide 'init-org)
