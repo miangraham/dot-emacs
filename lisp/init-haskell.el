@@ -1,11 +1,7 @@
-(require 'init-packages)
-(require-package 'haskell-mode)
-(require 'haskell-mode)
-
-(setq haskell-process-type 'stack-ghci
-      ;; haskell-tags-on-save t
-      )
-
-(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+(use-package haskell-mode
+  :init
+  (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+  :config
+  (setq haskell-process-type 'stack-ghci))
 
 (provide 'init-haskell)

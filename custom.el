@@ -9,7 +9,7 @@
  '(magit-merge-arguments (quote ("--ff-only")))
  '(package-selected-packages
    (quote
-    (org json-mode magit-gh-pulls counsel-projectile ag haskell-mode ivy nginx-mode move-dup csharp-mode ztree zenburn-theme yaml-mode ws-butler wiki-summary which-key web-mode twittering-mode totd sunshine spaceline smartparens rust-mode rainbow-delimiters php-mode org-toodledo org-projectile names minimap markdown-mode magit ledger-mode kotlin-mode js2-mode java-snippets iedit hydra git-timemachine git-link fullframe frame-cmds flycheck exec-path-from-shell esup elfeed-org editorconfig-core editorconfig dtrt-indent dired-details diminish define-word dash-at-point company comment-dwim-2 calfw auto-complete anzu aggressive-indent ace-window ace-jump-mode)))
+    (haskell-mode use-package org json-mode magit-gh-pulls counsel-projectile ag ivy nginx-mode move-dup csharp-mode ztree zenburn-theme yaml-mode ws-butler wiki-summary which-key web-mode twittering-mode totd sunshine spaceline smartparens rust-mode rainbow-delimiters php-mode org-toodledo org-projectile names minimap markdown-mode magit ledger-mode kotlin-mode js2-mode java-snippets iedit hydra git-timemachine git-link fullframe frame-cmds flycheck exec-path-from-shell esup elfeed-org editorconfig-core editorconfig dtrt-indent dired-details diminish define-word dash-at-point company comment-dwim-2 calfw auto-complete anzu aggressive-indent ace-window ace-jump-mode)))
  '(safe-local-variable-values
    (quote
     ((dtrt-indent-mode)
