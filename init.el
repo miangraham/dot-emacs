@@ -8,7 +8,6 @@
     (normal-top-level-add-subdirs-to-load-path))
   )
 
-(setq gc-cons-threshold 100000000)
 (require 'init-startup-profile)
 
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
@@ -16,7 +15,6 @@
 
 (eval-and-compile
   (require 'init-packages)
-  (defvar use-package-verbose t)
   (require 'use-package)
   (setq use-package-always-ensure t))
 

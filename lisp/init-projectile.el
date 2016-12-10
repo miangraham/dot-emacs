@@ -28,8 +28,6 @@
 
   (projectile-mode)
 
-  (use-package counsel-projectile
-    :config (counsel-projectile-on))
   (use-package ag))
 
 (provide 'init-projectile)

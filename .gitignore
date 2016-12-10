@@ -4,6 +4,7 @@
 /bookmarks
 /elpa
 /eshell
+/flycheck_init.el
 /kkcrc
 /network-security.data
 projectile*

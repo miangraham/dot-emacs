@@ -34,4 +34,7 @@
    (concat "http://www.google.com/search?btnI=I%27m+Feeling+Lucky&q=site%3Adeveloper.mozilla.org/en-US/docs/Web/JavaScript/Reference+"
            (replace-regexp-in-string " " "+" term))))
 
+(defun display-startup-echo-area-message ()
+  (message nil))
+
 (provide 'init-misc-defuns)
