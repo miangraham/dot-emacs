@@ -13,6 +13,8 @@
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file)
 
+(load (expand-file-name "private-data.el" user-emacs-directory))
+
 (eval-and-compile
   (require 'init-packages)
   (require 'use-package)

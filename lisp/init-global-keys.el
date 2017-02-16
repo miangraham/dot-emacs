@@ -11,6 +11,7 @@
 (global-set-key "\M-;" 'comment-or-uncomment-region)
 (global-set-key "\M-j" '(lambda () (interactive) (join-line -1)))
 (global-unset-key (kbd "<S-backspace>"))
+(global-set-key "\C-xk" 'kill-this-buffer)
 
 ;; Reference commands
 (global-set-key "\C-crg" 'goog)

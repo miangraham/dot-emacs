@@ -7,6 +7,7 @@
 /flycheck_init.el
 /kkcrc
 /network-security.data
+/private-data.el
 projectile*
 /recentf
 /request
