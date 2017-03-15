@@ -26,7 +26,7 @@
         org-habit-show-habits-only-for-today nil
         org-tags-column -100
         org-hide-leading-stars t
-        org-todo-keywords '((sequence "TODO" "PROG" "DONE"))
+        org-todo-keywords '((sequence "TODO" "DONE"))
         org-todo-keyword-faces '(("TODO" . 'org-todo)
                                  ("PROG" . "yellow")
                                  ("WAIT" . "yellow")
