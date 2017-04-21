@@ -9,7 +9,7 @@
  '(magit-merge-arguments (quote ("--ff-only")))
  '(package-selected-packages
    (quote
-    (org-board groovy-mode highlight-indent-guides better-shell stopwatch mode-icons youtube-dl-mode inityaml lisp/init-yaml init-yaml init-ivy mu4e/mu4e mu4e haskell-mode use-package org json-mode ag ivy nginx-mode move-dup csharp-mode ztree zenburn-theme yaml-mode ws-butler wiki-summary which-key web-mode totd sunshine spaceline smartparens rust-mode rainbow-delimiters php-mode org-projectile names markdown-mode magit ledger-mode kotlin-mode js2-mode java-snippets iedit hydra git-timemachine git-link fullframe frame-cmds flycheck exec-path-from-shell esup elfeed-org editorconfig-core editorconfig dtrt-indent dired-details diminish define-word dash-at-point calfw auto-complete anzu aggressive-indent ace-window ace-jump-mode)))
+    (go-mode tide fsharp-mode typescript-mode dumb-jump org-board groovy-mode highlight-indent-guides better-shell stopwatch mode-icons youtube-dl-mode inityaml lisp/init-yaml init-yaml init-ivy mu4e/mu4e mu4e haskell-mode use-package org json-mode ag ivy nginx-mode move-dup csharp-mode ztree zenburn-theme yaml-mode ws-butler wiki-summary which-key web-mode totd sunshine spaceline smartparens rust-mode rainbow-delimiters php-mode org-projectile names markdown-mode magit ledger-mode kotlin-mode js2-mode java-snippets iedit hydra git-timemachine git-link fullframe frame-cmds flycheck exec-path-from-shell esup elfeed-org editorconfig-core editorconfig dtrt-indent dired-details diminish define-word dash-at-point calfw auto-complete anzu aggressive-indent ace-window ace-jump-mode)))
  '(safe-local-variable-values
    (quote
     ((dtrt-indent-mode)
@@ -22,6 +22,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 150 :width normal :foundry "nil" :family "Monaco"))))
+ '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 170 :width normal :foundry "nil" :family "Iosevka"))))
  '(js2-function-call ((t (:foreground "#8CD0D3"))))
  '(js2-object-property ((t (:foreground "#DCDCCC")))))

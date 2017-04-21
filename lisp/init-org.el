@@ -1,6 +1,6 @@
 (use-package org
   :bind
-  (("C-c a".  org-agenda)
+  (("C-c a" . org-agenda)
    ("C-c c" . org-capture))
 
   :defines
@@ -59,9 +59,13 @@
      (ruby . t)
      ))
 
+  ;; (add-to-list 'org-src-lang-modes '("js" . "js2"))
+
+  (use-package org-board
+    :config (global-set-key (kbd "C-c b") org-board-keymap))
+
   (use-package calfw
     :defer 10
     :config (require 'calfw-org))
   )
-
 (provide 'init-org)

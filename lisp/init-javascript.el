@@ -5,6 +5,17 @@
                 js2-mode-show-parse-errors nil
                 js2-mode-show-strict-warnings nil)
 
+  (use-package prettier-js
+    :ensure nil
+    :config
+    (setq prettier-target-mode "js2-mode")
+    (setq prettier-args '("--single-quote"
+                          "--tab-width" "4"
+                          "--bracket-spacing" "false"
+                          "--print-width" "120"))
+    ;; (add-hook 'js2-mode-hook (lambda () (add-hook 'before-save-hook 'prettier-before-save)))
+    )
+
   (use-package flycheck
     :config
     (defun use-eslint-from-node-modules ()
@@ -22,7 +33,6 @@
 
 (use-package json-mode
   :mode (("\\.json?\\'" . json-mode)))
-
 
 ;; (flycheck-def-config-file-var flycheck-jscs javascript-jscs ".jscsrc" :safe #'stringp)
 ;; (flycheck-define-checker javascript-jscs

@@ -43,6 +43,7 @@
 (require 'init-haskell)
 (require 'init-java)
 (require 'init-javascript)
+(require 'init-typescript)
 (require 'init-xml)
 (require 'init-yaml)
 

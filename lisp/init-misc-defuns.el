@@ -19,7 +19,7 @@
 
 (defun global-text-scale-reset ()
   (interactive)
-  (set-face-attribute 'default nil :height 150))
+  (set-face-attribute 'default nil :height 170))
 (global-text-scale-reset)
 
 (defun goog(term)
