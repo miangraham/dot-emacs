@@ -12,6 +12,7 @@
   (mu4e~headers-jump-to-maildir "/inbox"))
 
 (use-package mu4e
+  ;; :disabled 't
   :ensure nil
   ;; :if (or (string= (system-name) "toki.local")
   ;;         (string= (system-name) "toki"))
