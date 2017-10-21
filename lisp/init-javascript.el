@@ -8,12 +8,12 @@
   (use-package prettier-js
     :ensure nil
     :config
-    (setq prettier-target-mode "js2-mode")
-    (setq prettier-args '("--single-quote"
-                          "--tab-width" "4"
-                          "--bracket-spacing" "false"
-                          "--print-width" "120"))
-    ;; (add-hook 'js2-mode-hook (lambda () (add-hook 'before-save-hook 'prettier-before-save)))
+    ;; (setq prettier-target-mode "js2-mode")
+    (setq prettier-js-args '("--single-quote"
+                             "--tab-width" "4"
+                             "--bracket-spacing" "false"
+                             "--print-width" "100"))
+    (add-hook 'js2-mode-hook 'prettier-js-mode)
     )
 
   (use-package flycheck

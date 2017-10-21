@@ -3,6 +3,9 @@
   :demand
   :config (load-theme 'zenburn t))
 
+(when (display-graphic-p)
+  (set-frame-font "Iosevka"))
+
 (when (fboundp 'set-fontset-font)
   (set-fontset-font "fontset-default"
                     'japanese-jisx0208

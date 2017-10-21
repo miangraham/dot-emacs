@@ -3,7 +3,6 @@
   :functions sp-wrap--can-wrap-p)
 
 (use-package ivy
-  :defer 1
   :diminish ivy-mode
   :config
   (setq ivy-use-virtual-buffers t

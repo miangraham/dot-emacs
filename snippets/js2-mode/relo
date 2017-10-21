@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: relo
+# key: relo
+# --
+const _ = require('lodash');

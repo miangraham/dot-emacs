@@ -64,8 +64,5 @@
   (use-package org-board
     :config (global-set-key (kbd "C-c b") org-board-keymap))
 
-  (use-package calfw
-    :defer 10
-    :config (require 'calfw-org))
   )
 (provide 'init-org)

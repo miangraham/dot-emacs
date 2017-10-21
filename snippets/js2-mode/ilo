@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: ilo
+# key: ilo
+# --
+import _ from 'lodash';

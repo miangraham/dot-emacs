@@ -24,7 +24,8 @@
   (add-hook 'find-file-hook
             (lambda ()
               (when (file-remote-p default-directory)
-                (setq-local projectile-mode-line "Projectile"))))
+                (setq-local projectile-mode-line "Projectile")
+                (projectile-mode 0))))
 
   (projectile-mode)
 
