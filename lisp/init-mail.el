@@ -52,6 +52,7 @@
         mu4e-get-mail-command "mbsync gmail"
         mu4e-html2text-command "textutil -stdin -format html -convert txt -stdout"
         mu4e-headers-show-threads nil
+        mu4e-headers-include-related nil
         mu4e-headers-date-format "%Y/%m/%d"
         mu4e-headers-fields '((:human-date . 12)
                               ;;(:flags . 6)

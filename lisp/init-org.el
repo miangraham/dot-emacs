@@ -20,6 +20,7 @@
   (setq org-default-notes-file "~/org/notes.org"
         org-agenda-files '("~/org")
         org-agenda-span 8
+        org-agenda-skip-scheduled-if-done t
         org-log-done 'time
         org-habit-following-days 1
         org-habit-graph-column 80
