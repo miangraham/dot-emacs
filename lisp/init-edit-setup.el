@@ -22,7 +22,8 @@
       locale-coding-system 'utf-8
       mouse-drag-copy-region 't
       select-active-regions nil
-      select-enable-clipboard 't
+      select-enable-primary t
+      select-enable-clipboard t
       shift-select-mode nil)
 
 (set-language-environment "UTF-8")

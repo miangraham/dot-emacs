@@ -14,7 +14,7 @@
    org-agenda-quit)
 
   :config
-  (setq org-modules '(org-agenda org-capture org-habit))
+  (setq org-modules '(org-agenda org-capture org-habit ox-latex))
   (org-load-modules-maybe t)
   (fullframe org-agenda-list org-agenda-quit)
   (setq org-default-notes-file "~/org/notes.org"
@@ -48,6 +48,23 @@
                                  (file+datetree "~/org/journal.org")
                                  "* %?\nEntered on %U\n  %i\n  %a")
                                 ))
+
+  ;; (add-to-list 'org-latex-classes
+  ;;              '("scrartcl"
+  ;;                "\\documentclass{scrartcl}"
+  ;;                ("\\section{%s}" . "\\section*{%s}")
+  ;;                ("\\subsection{%s}" . "\\subsection*{%s}")
+  ;;                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+  ;;                ("\\paragraph{%s}" . "\\paragraph*{%s}")
+  ;;                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+  (add-to-list 'org-latex-classes
+               '("beamer"
+                 "\\documentclass{beamer}"
+                 ("\\section{%s}" . "\\section*{%s}")
+                 ("\\subsection{%s}" . "\\subsection*{%s}")
+                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
   (org-babel-do-load-languages
    'org-babel-load-languages

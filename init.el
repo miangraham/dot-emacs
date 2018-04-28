@@ -47,9 +47,11 @@
 (require 'init-xml)
 (require 'init-yaml)
 
-;; GUI Only
+;; Other clients
 (require 'init-feeds)
-(require 'init-mail)
+(when (or (string= (system-name) "toki.local")
+          (string= (system-name) "toki"))
+  (require 'init-mail))
 
 ;; Personalization
 (require 'init-misc-defuns)
