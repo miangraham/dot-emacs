@@ -1,4 +1,4 @@
-(let ((value (concat "/Users/ian/.nvm/versions/node/v8.8.1/bin:/usr/local/share/npm/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin" (getenv "PATH"))))
+(let ((value (concat "~/.npm/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin" (getenv "PATH"))))
   (setenv "PATH" value)
   (defvar eshell-path-env)
   (setq eshell-path-env value
