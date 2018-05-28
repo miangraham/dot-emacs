@@ -11,4 +11,10 @@
 (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (unless (display-graphic-p) (menu-bar-mode -1))
 
+(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+;; (add-to-list 'default-frame-alist '(ns-appearance . dark))
+;; (add-to-list 'default-frame-alist '(ns-appearance . 'nil))
+(setq ns-use-proxy-icon nil)
+;; (setq frame-title-format nil)
+
 (provide 'init-ui)

@@ -57,30 +57,30 @@
   ;;                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
   ;;                ("\\paragraph{%s}" . "\\paragraph*{%s}")
   ;;                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
-  (add-to-list 'org-latex-classes
-               '("beamer"
-                 "\\documentclass{beamer}"
-                 ("\\section{%s}" . "\\section*{%s}")
-                 ("\\subsection{%s}" . "\\subsection*{%s}")
-                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
-                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+  ;; (add-to-list 'org-latex-classes
+  ;;              '("beamer"
+  ;;                "\\documentclass{beamer}"
+  ;;                ("\\section{%s}" . "\\section*{%s}")
+  ;;                ("\\subsection{%s}" . "\\subsection*{%s}")
+  ;;                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+  ;;                ("\\paragraph{%s}" . "\\paragraph*{%s}")
+  ;;                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   '(
-     (sh . t)
-     (python . t)
-     (ditaa . t)
-     (dot . t)
-     (sqlite . t)
-     (ruby . t)
-     ))
+  ;; (org-babel-do-load-languages
+  ;;  'org-babel-load-languages
+  ;;  '(
+  ;;    (sh . t)
+  ;;    (python . t)
+  ;;    (ditaa . t)
+  ;;    (dot . t)
+  ;;    (sqlite . t)
+  ;;    (ruby . t)
+  ;;    ))
 
   ;; (add-to-list 'org-src-lang-modes '("js" . "js2"))
 
-  (use-package org-board
-    :config (global-set-key (kbd "C-c b") org-board-keymap))
+  ;; (use-package org-board
+  ;;   :config (global-set-key (kbd "C-c b") org-board-keymap))
 
   )
 (provide 'init-org)
