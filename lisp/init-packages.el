@@ -8,7 +8,7 @@
                                 ("minimap" . "melpa")
                                 ("js2-mode" . "melpa")))
 
-;; (package-initialize)
+(package-initialize)
 
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
