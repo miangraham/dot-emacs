@@ -56,6 +56,8 @@
      (:map org-tree-slide-mode-map
            ("<left>" . org-tree-slide-move-previous-tree)
            ("<right>" . org-tree-slide-move-next-tree)))
+    :init
+    (add-hook 'org-tree-slide-mode-hook 'org-bullets-mode)
     ))
 
 ;; (org-babel-do-load-languages
