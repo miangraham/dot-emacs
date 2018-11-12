@@ -19,7 +19,7 @@
   :if (display-graphic-p)
   :bind ("C-c m" . mu4e~headers-jump-to-maildir)
   :config
-  (setq mu4e-maildir "~/Mail"
+  (setq mu4e-maildir "~/.mbsync"
         mu4e-drafts-folder "/drafts"
         mu4e-sent-folder "/sent"
         mu4e-trash-folder "/trash"
@@ -50,7 +50,7 @@
         mu4e-hide-index-messages t
         mu4e-split-view nil
         mu4e-get-mail-command "mbsync gmail"
-        mu4e-html2text-command "textutil -stdin -format html -convert txt -stdout"
+        ;; mu4e-html2text-command "textutil -stdin -format html -convert txt -stdout"
         mu4e-headers-show-threads nil
         mu4e-headers-include-related nil
         mu4e-headers-date-format "%Y/%m/%d"

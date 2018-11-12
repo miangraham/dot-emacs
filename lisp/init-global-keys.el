@@ -12,6 +12,7 @@
 (global-set-key "\M-j" '(lambda () (interactive) (join-line -1)))
 (global-unset-key (kbd "<S-backspace>"))
 (global-set-key "\C-xk" 'kill-this-buffer)
+(global-set-key "\C-c/" 'nocomments-mode)
 
 ;; Reference commands
 (global-set-key "\C-crg" 'goog)
@@ -29,7 +30,7 @@
 (global-unset-key (kbd "C-x C-+"))
 (use-package hydra
   :config
-  (defhydra hydra-textscale (global-map "C-x C-0")
+  (defhydra hydra-textscale (global-map "C-c 0")
     "textscale"
     ("=" global-text-scale-increase "increase")
     ("-" global-text-scale-decrease "decrease")

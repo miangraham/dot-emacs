@@ -12,7 +12,7 @@
     ;;                          "--tab-width" "2"
     ;;                          "--bracket-spacing" "false"
     ;;                          "--print-width" "100"))
-    (add-hook 'js2-mode-hook 'prettier-js-mode)
+    ;; (add-hook 'js2-mode-hook 'prettier-js-mode)
     )
 
   (use-package flycheck
