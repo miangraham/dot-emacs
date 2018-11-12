@@ -4,7 +4,9 @@
    ("C-c c" . org-capture))
 
   :defines
-  (org-capture-templates
+  (org-agenda-skip-scheduled-if-done
+   org-agenda-span
+   org-capture-templates
    org-habit-following-days
    org-habit-graph-column
    org-habit-show-habits-only-for-today)
@@ -48,39 +50,25 @@
                                  (file+datetree "~/org/journal.org")
                                  "* %?\nEntered on %U\n  %i\n  %a")
                                 ))
+  (use-package org-tree-slide
+    :bind
+    (("C-c z" . org-tree-slide-mode)
+     (:map org-tree-slide-mode-map
+           ("<left>" . org-tree-slide-move-previous-tree)
+           ("<right>" . org-tree-slide-move-next-tree)))
+    ))
 
-  ;; (add-to-list 'org-latex-classes
-  ;;              '("scrartcl"
-  ;;                "\\documentclass{scrartcl}"
-  ;;                ("\\section{%s}" . "\\section*{%s}")
-  ;;                ("\\subsection{%s}" . "\\subsection*{%s}")
-  ;;                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-  ;;                ("\\paragraph{%s}" . "\\paragraph*{%s}")
-  ;;                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
-  ;; (add-to-list 'org-latex-classes
-  ;;              '("beamer"
-  ;;                "\\documentclass{beamer}"
-  ;;                ("\\section{%s}" . "\\section*{%s}")
-  ;;                ("\\subsection{%s}" . "\\subsection*{%s}")
-  ;;                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-  ;;                ("\\paragraph{%s}" . "\\paragraph*{%s}")
-  ;;                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+;; (org-babel-do-load-languages
+;;  'org-babel-load-languages
+;;  '(
+;;    (sh . t)
+;;    (python . t)
+;;    (ditaa . t)
+;;    (dot . t)
+;;    (sqlite . t)
+;;    (ruby . t)
+;;    ))
 
-  ;; (org-babel-do-load-languages
-  ;;  'org-babel-load-languages
-  ;;  '(
-  ;;    (sh . t)
-  ;;    (python . t)
-  ;;    (ditaa . t)
-  ;;    (dot . t)
-  ;;    (sqlite . t)
-  ;;    (ruby . t)
-  ;;    ))
+;; (add-to-list 'org-src-lang-modes '("js" . "js2"))
 
-  ;; (add-to-list 'org-src-lang-modes '("js" . "js2"))
-
-  ;; (use-package org-board
-  ;;   :config (global-set-key (kbd "C-c b") org-board-keymap))
-
-  )
 (provide 'init-org)
