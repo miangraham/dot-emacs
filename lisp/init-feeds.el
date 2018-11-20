@@ -11,7 +11,7 @@
 
   (setq-default elfeed-search-filter "@1-week-ago +unread -jp ")
 
-  (setq youtube-dl-directory "~/downloads"
+  (setq youtube-dl-directory (if (file-directory-p "~/Downloads") "~/Downloads" "~/downloads")
         youtube-dl-arguments '("--no-mtime" "--restrict-filenames" "--all-subs" "--embed-subs")
         url-queue-timeout 15
         url-queue-parallel-processes 1

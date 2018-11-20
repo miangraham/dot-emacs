@@ -1,6 +1,10 @@
 (require 'init-misc-defuns)
 ;; (use-package totd)
 
+;; Package installation
+(use-package paradox
+  :bind ("C-c l" . paradox-list-packages))
+
 ;; Editing
 (global-unset-key "\C-z")
 (global-set-key "\C-x\C-k" 'kill-region)

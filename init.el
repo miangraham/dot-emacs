@@ -4,7 +4,7 @@
 (eval-and-compile
   (add-to-list 'load-path (expand-file-name "lisp/" user-emacs-directory))
   (add-to-list 'load-path (expand-file-name "site-lisp/" user-emacs-directory))
-  (let ((default-directory "/usr/share/emacs/site-lisp/"))
+  (let ((default-directory (if (file-directory-p "/usr/local/share/emacs/site-lisp/") "/usr/local/share/emacs/site-lisp/" "/usr/share/emacs/site-lisp/")))
     (normal-top-level-add-subdirs-to-load-path))
   )
 
@@ -57,6 +57,3 @@
 ;; Personalization
 (require 'init-misc-defuns)
 (require 'init-global-keys)
-
-(load-file (let ((coding-system-for-read 'utf-8))
-                (shell-command-to-string "agda-mode locate")))

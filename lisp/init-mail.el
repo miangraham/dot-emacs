@@ -19,7 +19,7 @@
   :if (display-graphic-p)
   :bind ("C-c m" . mu4e~headers-jump-to-maildir)
   :config
-  (setq mu4e-maildir "~/.mbsync"
+  (setq mu4e-maildir (if (file-directory-p "~/Mail") "~/Mail" "~/.mbsync")
         mu4e-drafts-folder "/drafts"
         mu4e-sent-folder "/sent"
         mu4e-trash-folder "/trash"
@@ -45,7 +45,7 @@
         mu4e-compose-signature-auto-include nil
         mu4e-change-filenames-when-moving t
         mu4e-use-fancy-chars nil
-        mu4e-attachment-dir  "~/Downloads"
+        mu4e-attachment-dir (if (file-directory-p "~/Downloads") "~/Downloads" "~/downloads")
         mu4e-update-interval 300
         mu4e-hide-index-messages t
         mu4e-split-view nil
