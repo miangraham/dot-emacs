@@ -58,6 +58,13 @@
            ("<right>" . org-tree-slide-move-next-tree)))
     :init
     (add-hook 'org-tree-slide-mode-hook 'org-bullets-mode)
+    )
+
+  (use-package org-randomnote
+    :bind
+    (("C-c r r" . org-randomnote))
+    :config
+    (setq org-randomnote-candidates '("~/org/journal.org" "~/org/notes.org"))
     ))
 
 ;; (org-babel-do-load-languages
