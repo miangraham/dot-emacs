@@ -50,8 +50,8 @@
 
 ;; Other clients
 (require 'init-feeds)
-(when (or (string= (system-name) "toki.local")
-          (string= (system-name) "toki"))
+(when (or (string= (system-name) "maho.local")
+          (string= (system-name) "maho"))
   (require 'init-mail))
 
 ;; Personalization

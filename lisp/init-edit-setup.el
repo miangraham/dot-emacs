@@ -1,5 +1,5 @@
-(use-package dired-details
-  :defer 5)
+;; (use-package dired-details
+;;   :defer 5)
 
 (use-package move-dup
   :bind (("M-<up>" . md/move-lines-up)
