@@ -2,11 +2,11 @@
   :mode ("\\.purs?\\'" . purescript-mode)
   :config
   (add-hook 'purescript-mode-hook 'ps-hook)
-  ;; (add-hook 'purescript-mode-hook 'turn-on-purescript-indent)
+  ;; (add-hook 'purescript-mode-hook 'turn-on-purescript-indentation)
   )
 
 (defun ps-hook ()
-  (turn-on-purescript-simple-indent)
+  (turn-on-purescript-simple-indentation)
   (define-key purescript-mode-map (kbd "C-<right>")
     (lambda ()
       (interactive)
