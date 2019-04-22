@@ -5,7 +5,8 @@
 
 (when (display-graphic-p)
   (set-face-font 'default "Fantasque Sans Mono")
-  (set-frame-font "Fantasque Sans Mono"))
+  (set-frame-font "Fantasque Sans Mono")
+  (set-fontset-font t 'japanese-jisx0208 (font-spec :family "Noto Sans CJK JP Bold")))
 
 ;; (when (display-graphic-p)
 ;;   (set-frame-font "Iosevka"))
@@ -16,7 +17,7 @@
 ;;                     '("Hiragino Kaku Gothic Pro" . "iso10646-1")))
 
 ;; (set-fontset-font t 'japanese-jisx0208 (font-spec :family "IPAExGothic"))
-(set-fontset-font t 'japanese-jisx0208 (font-spec :family "Noto Sans CJK JP Bold"))
+;; (set-fontset-font t 'japanese-jisx0208 (font-spec :family "Noto Sans CJK JP Bold"))
 
 ;; (set-fontset-font t 'japanese-jisx0208 (font-spec :family "IPAゴシック"))
 

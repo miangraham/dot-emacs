@@ -50,6 +50,10 @@
                                  (file+datetree "~/org/journal.org")
                                  "* %?\nEntered on %U\n  %i\n  %a")
                                 ))
+  (setq org-refile-targets '((org-agenda-files :maxlevel . 3)))
+  (setq org-refile-use-outline-path 'file)
+  (setq org-outline-path-complete-in-steps nil)
+
   (use-package org-tree-slide
     :bind
     (("C-c z" . org-tree-slide-mode)

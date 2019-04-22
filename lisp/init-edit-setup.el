@@ -7,9 +7,12 @@
          ("C-M-<up>" . md/duplicate-up)
          ("C-M-<down>" . md/duplicate-down)))
 
-(use-package autorevert
-  :diminish auto-revert-mode
-  :config (global-auto-revert-mode))
+(require 'autorevert)
+(global-auto-revert-mode)
+
+;; (use-package autorevert
+;;   :diminish auto-revert-mode
+;;   :config (global-auto-revert-mode))
 
 (use-package anzu
   :diminish anzu-mode
