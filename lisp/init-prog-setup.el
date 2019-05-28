@@ -48,4 +48,13 @@
   (define-key yas-minor-mode-map (kbd "TAB") nil)
   (define-key yas-minor-mode-map (kbd "C-c y") 'yas-expand))
 
+(use-package lsp-mode
+  :commands lsp
+  :config
+  (require 'lsp-clients)
+  (setq lsp-prefer-flymake nil)
+  )
+
+(use-package lsp-ui)
+
 (provide 'init-prog-setup)
