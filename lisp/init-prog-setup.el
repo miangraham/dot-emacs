@@ -55,6 +55,12 @@
   (setq lsp-prefer-flymake nil)
   )
 
-(use-package lsp-ui)
+;; (use-package lsp-ui)
+
+;; (use-package company
+;;   :config
+;;   (use-package company-lsp
+;;     :config
+;;     (push 'company-lsp company-backends)))
 
 (provide 'init-prog-setup)

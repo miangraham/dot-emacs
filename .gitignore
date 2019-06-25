@@ -1,6 +1,7 @@
 .org-id-locations
 .lsp*
 .sx
+forge-database.sqlite
 /auto-save-list
 /bookmarks
 /elpa
