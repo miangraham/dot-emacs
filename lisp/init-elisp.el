@@ -11,4 +11,11 @@
   :config
   (require 'smartparens-config))
 
+(defun replace-last-sexp ()
+  (interactive)
+  (let ((value (eval (elisp--preceding-sexp))))
+    (kill-sexp -1)
+    (insert (format "%s" value))))
+(global-set-key "\C-ce" 'replace-last-sexp)
+
 (provide 'init-elisp)

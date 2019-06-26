@@ -1,6 +1,4 @@
 ;; Bootstrap
-;;(package-initialize)
-
 (eval-and-compile
   (add-to-list 'load-path (expand-file-name "lisp/" user-emacs-directory))
   (add-to-list 'load-path (expand-file-name "site-lisp/" user-emacs-directory))
@@ -13,6 +11,7 @@
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file)
 
+;; gitignored
 (load (expand-file-name "private-data.el" user-emacs-directory))
 
 (eval-and-compile
@@ -54,7 +53,3 @@
 (when (or (string= (system-name) "maho.local")
           (string= (system-name) "maho"))
   (require 'init-mail))
-
-;; Personalization
-(require 'init-misc-defuns)
-(require 'init-global-keys)

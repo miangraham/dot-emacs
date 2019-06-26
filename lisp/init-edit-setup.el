@@ -1,23 +1,26 @@
-;; (use-package dired-details
-;;   :defer 5)
-
 (use-package move-dup
-  :bind (("M-<up>" . md/move-lines-up)
-         ("M-<down>" . md/move-lines-down)
-         ("C-M-<up>" . md/duplicate-up)
-         ("C-M-<down>" . md/duplicate-down)))
+  :bind (("M-<up>" . md-move-lines-up)
+         ("M-<down>" . md-move-lines-down)
+         ("C-M-<up>" . md-duplicate-up)
+         ("C-M-<down>" . md-duplicate-down)))
 
 (require 'autorevert)
 (global-auto-revert-mode)
-
-;; (use-package autorevert
-;;   :diminish auto-revert-mode
-;;   :config (global-auto-revert-mode))
 
 (use-package anzu
   :diminish anzu-mode
   :config
   (global-anzu-mode))
+
+(use-package which-key
+  :diminish which-key-mode
+  :config
+  (which-key-mode))
+
+(defun undosify ()
+  (interactive)
+  (goto-char (point-min))
+  (while (search-forward "\r" nil t) (replace-match "")))
 
 (setq auto-save-default nil
       backup-directory-alist `(("." . "~/.emacs.d/backup"))
@@ -40,6 +43,48 @@
 
 (put 'erase-buffer 'disabled nil)
 
+;; Dumb defaults
+(global-unset-key "\C-z")
+(global-unset-key "\C-c\C-c")
+(global-unset-key (kbd "<S-backspace>"))
+(global-unset-key "\M-;")
+
+;; Keys
 (global-set-key (kbd "<mouse-2>") 'mouse-yank-at-click)
+(global-set-key "\C-x\C-k" 'kill-region)
+(global-set-key "\M-;" 'comment-or-uncomment-region)
+(global-set-key "\C-xk" 'kill-this-buffer)
+(global-set-key "\M-j" '(lambda () (interactive) (join-line -1)))
+
+;; Global text scale
+(defun global-text-scale-increase ()
+  (interactive)
+  (set-face-attribute 'default nil :height (+ (face-attribute 'default :height) 20)))
+
+(defun global-text-scale-decrease ()
+  (interactive)
+  (set-face-attribute 'default nil :height (- (face-attribute 'default :height) 20)))
+
+(defun global-text-scale-reset ()
+  (interactive)
+  (set-face-attribute 'default nil :height 170))
+
+(global-text-scale-reset)
+(global-unset-key (kbd "C-x C-0"))
+(global-unset-key (kbd "C-x C--"))
+(global-unset-key (kbd "C-x C-="))
+(global-unset-key (kbd "C-x C-+"))
+(use-package hydra
+  :commands (hydra--call-interactively-remap-maybe
+             hydra-default-pre
+             hydra-keyboard-quit
+             hydra-show-hint
+             hydra-set-transient-map)
+  :config
+  (defhydra hydra-textscale (global-map "C-c 0")
+    "textscale"
+    ("=" global-text-scale-increase "increase")
+    ("-" global-text-scale-decrease "decrease")
+    ("0" global-text-scale-reset "reset")))
 
 (provide 'init-edit-setup)
