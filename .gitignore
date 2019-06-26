@@ -3,6 +3,7 @@
 .sx
 forge-database.sqlite
 /auto-save-list
+/backup
 /bookmarks
 /elpa
 /eshell
