@@ -8,6 +8,6 @@
   (set-frame-font "Fantasque Sans Mono")
   (set-fontset-font t 'japanese-jisx0208 (font-spec :family "Noto Sans CJK JP Bold")))
 
-(setq ns-use-srgb-colorspace nil)
+;; (setq ns-use-srgb-colorspace nil)
 
 (provide 'init-theme)
