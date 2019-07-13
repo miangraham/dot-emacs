@@ -67,7 +67,7 @@
 
 (defun global-text-scale-reset ()
   (interactive)
-  (set-face-attribute 'default nil :height 170))
+  (set-face-attribute 'default nil :height 130))
 
 (global-text-scale-reset)
 (global-unset-key (kbd "C-x C-0"))
