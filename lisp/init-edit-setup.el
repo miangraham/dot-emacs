@@ -67,7 +67,7 @@
 
 (defun global-text-scale-reset ()
   (interactive)
-  (set-face-attribute 'default nil :height 130))
+  (set-face-attribute 'default nil :height (if (string= (system-name) "nanachi") 130 170)))
 
 (global-text-scale-reset)
 (global-unset-key (kbd "C-x C-0"))
