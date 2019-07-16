@@ -4,4 +4,6 @@
   (setq eshell-path-env value
         exec-path (append (parse-colon-path value) (list exec-directory))))
 
+(cd "~")
+
 (provide 'init-exec-path)
