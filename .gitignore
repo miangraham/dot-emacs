@@ -5,6 +5,7 @@ forge-database.sqlite
 /auto-save-list
 /backup
 /bookmarks
+/.cache
 /elpa
 /eshell
 /flycheck_init.el

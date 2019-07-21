@@ -11,6 +11,8 @@
   :config
   (require 'smartparens-config))
 
+(diminish 'eldoc-mode)
+
 (defun replace-last-sexp ()
   (interactive)
   (let ((value (eval (elisp--preceding-sexp))))
