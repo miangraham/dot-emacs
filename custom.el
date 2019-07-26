@@ -23,11 +23,11 @@
      (dtrt-indent-explicit-offset . t)
      (dtrt-indent-explicit-offset . 0))))
 
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(js2-function-call ((t (:foreground "#8CD0D3"))))
- '(js2-object-property ((t (:foreground "#DCDCCC"))))
- '(org-tree-slide-header-overlay-face ((t (:background "dark slate gray" :foreground "white" :weight bold)))))
+;; (custom-set-faces
+;; custom-set-faces was added by Custom.
+;; If you edit it by hand, you could mess it up, so be careful.
+;; Your init file should contain only one such instance.
+;; If there is more than one, they won't work right.
+;; '(js2-function-call ((t (:foreground "#8CD0D3"))))
+;; '(js2-object-property ((t (:foreground "#DCDCCC"))))
+;; '(org-tree-slide-header-overlay-face ((t (:background "dark slate gray" :foreground "white" :weight bold)))))

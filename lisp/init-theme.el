@@ -12,7 +12,11 @@
 (use-package doom-themes
   :if (display-graphic-p)
   :demand
-  :config (load-theme 'doom-Iosvkem t))
+  :custom
+  (doom-Iosvkem-brighter-modeline t)
+  (doom-Iosvkem-padded-modeline 2)
+  :config
+  (load-theme 'doom-Iosvkem t))
 
 (use-package solaire-mode
   :if (display-graphic-p)
