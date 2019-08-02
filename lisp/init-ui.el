@@ -31,6 +31,7 @@
   ;; :custom-face
   ;; (treemacs-root-face ((t (:family "SF Pro Display"))))
   :config
+  (setq treemacs-width 30)
   (set-face-font 'treemacs-directory-face my/vfont)
   (set-face-font 'treemacs-file-face my/vfont)
   (set-face-font 'treemacs-fringe-indicator-face my/vfont)
@@ -52,6 +53,7 @@
   (set-face-font 'treemacs-root-unreadable-face my/vfont)
   (set-face-font 'treemacs-tags-face my/vfont)
   (set-face-font 'treemacs-term-node-face my/vfont)
+
   (use-package treemacs-projectile
     :after treemacs projectile)
   (use-package treemacs-magit
