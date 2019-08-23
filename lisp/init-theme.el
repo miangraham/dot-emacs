@@ -22,7 +22,7 @@
   :if (display-graphic-p)
   :config
   (set-face-font 'solaire-default-face "Fantasque Sans Mono")
-  (set-face-attribute 'solaire-default-face nil :height (if (string= (system-name) "nanachi") 140 200))
+  (set-face-attribute 'solaire-default-face nil :height (if (string= (system-name) "nanachi") 160 200))
 
   (setq solaire-mode-remap-alist
         '(

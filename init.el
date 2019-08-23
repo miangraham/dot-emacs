@@ -44,6 +44,7 @@
 (require 'init-java)
 (require 'init-javascript)
 (require 'init-purescript)
+(require 'init-python)
 (require 'init-rust)
 (require 'init-typescript)
 (require 'init-xml)
