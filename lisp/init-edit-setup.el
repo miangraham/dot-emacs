@@ -17,6 +17,9 @@
   :config
   (which-key-mode))
 
+(use-package helpful
+  :bind (("C-h h" . helpful-at-point)))
+
 (defun undosify ()
   (interactive)
   (goto-char (point-min))
