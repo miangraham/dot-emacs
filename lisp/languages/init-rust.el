@@ -3,7 +3,9 @@
   :hook (rust-mode . lsp)
   :config
   (setq-default rust-indent-offset 2
-                rust-format-on-save 't)
+                rust-format-on-save 't
+                ;; lsp-rust-server 'rust-analyzer
+                )
   )
 
 (use-package flycheck-rust
