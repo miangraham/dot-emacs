@@ -1,7 +1,8 @@
 (require 'package)
 
 (setq package-enable-at-startup nil
-      package-archives '(("melpa" . "https://www.mirrorservice.org/sites/melpa.org/packages/")
+      package-archives '(("melpa" . "https://melpa.org/packages/")
+;;      package-archives '(("melpa" . "https://www.mirrorservice.org/sites/melpa.org/packages/")
                          ("gnu" . "https://elpa.gnu.org/packages/"))
       package-pinned-packages '(("magit" . "melpa")
                                 ("yasnippet" . "melpa")

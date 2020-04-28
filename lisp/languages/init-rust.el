@@ -4,7 +4,8 @@
   :config
   (setq-default rust-indent-offset 2
                 rust-format-on-save 't
-                ;; lsp-rust-server 'rust-analyzer
+                lsp-rust-server 'rust-analyzer
+                ;; lsp-rust-analyzer-server-display-inlay-hints 't
                 )
   )
 
@@ -19,6 +20,12 @@
   (setq cargo-process--command-build "build --release")
   (setq cargo-process--command-run "run --release")
   )
+
+;; (use-package rustic
+;;   :config
+;;   (setq-default rustic-format-trigger 'on-save)
+;;   (setq-default rustic-lsp-server 'rust-analyzer)
+;;   )
 
 (use-package toml-mode)
 

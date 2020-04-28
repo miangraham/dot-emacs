@@ -15,7 +15,7 @@
  '(org-tree-slide-deactivate-message "")
  '(org-tree-slide-never-touch-face nil)
  '(package-selected-packages
-   '(lsp-mode company-lsp toml-mode flycheck-rust dhall-mode forge doom-modeline mozc org-bullets org-present epresent moom nocomments-mode tidal reason-mode ranger purescript-indentation purescript-mode shackle counsel-projectile counsel cider clojure-mode elixir-mode fireplace all-the-icons-ivy all-the-icons prettier-js go-mode fsharp-mode dumb-jump org-board groovy-mode highlight-indent-guides better-shell stopwatch mode-icons youtube-dl-mode inityaml lisp/init-yaml init-yaml init-ivy mu4e/mu4e mu4e json-mode ag nginx-mode move-dup ztree ws-butler wiki-summary totd sunshine spaceline php-mode org-projectile names kotlin-mode java-snippets iedit fullframe frame-cmds exec-path-from-shell esup elfeed-org editorconfig-core dtrt-indent dired-details dash-at-point calfw auto-complete anzu aggressive-indent ace-window ace-jump-mode))
+   '(lsp-ui cargo flycheck-rust rust-mode rustic lsp-mode company-lsp toml-mode dhall-mode forge doom-modeline mozc org-bullets org-present epresent moom nocomments-mode tidal reason-mode ranger purescript-indentation purescript-mode shackle counsel-projectile counsel cider clojure-mode elixir-mode fireplace all-the-icons-ivy all-the-icons prettier-js go-mode fsharp-mode dumb-jump org-board groovy-mode highlight-indent-guides better-shell stopwatch mode-icons youtube-dl-mode inityaml lisp/init-yaml init-yaml init-ivy mu4e/mu4e mu4e json-mode ag nginx-mode move-dup ztree ws-butler wiki-summary totd sunshine spaceline php-mode org-projectile names kotlin-mode java-snippets iedit fullframe frame-cmds exec-path-from-shell esup elfeed-org editorconfig-core dtrt-indent dired-details dash-at-point calfw auto-complete anzu aggressive-indent ace-window ace-jump-mode))
  '(paradox-execute-asynchronously t)
  '(paradox-github-token t)
  '(safe-local-variable-values
@@ -33,3 +33,9 @@
 ;; '(js2-function-call ((t (:foreground "#8CD0D3"))))
 ;; '(js2-object-property ((t (:foreground "#DCDCCC"))))
 ;; '(org-tree-slide-header-overlay-face ((t (:background "dark slate gray" :foreground "white" :weight bold)))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
