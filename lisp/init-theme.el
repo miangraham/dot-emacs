@@ -10,13 +10,15 @@
   (set-fontset-font t 'japanese-jisx0208 (font-spec :family "Noto Sans CJK JP Bold")))
 
 (use-package doom-themes
-  :if (display-graphic-p)
+  ;;  :if (display-graphic-p)
   :demand
   :custom
   (doom-Iosvkem-brighter-modeline t)
   (doom-Iosvkem-padded-modeline 2)
   :config
-  (load-theme 'doom-Iosvkem t))
+  (if (display-graphic-p)
+      (load-theme 'doom-Iosvkem t)
+    (load-theme 'doom-dracula t)))
 
 (use-package solaire-mode
   :if (display-graphic-p)
