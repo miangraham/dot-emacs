@@ -69,7 +69,18 @@
     (("C-c r r" . org-randomnote))
     :config
     (setq org-randomnote-candidates '("~/org/journal.org" "~/org/notes.org"))
-    ))
+    )
+
+  (use-package org-roam
+    :bind
+    (("C-c r i" . org-roam-insert)
+     ("C-c r b" . org-roam-buffer-toggle-display))
+    :init
+    (add-hook 'org-mode-hook 'org-roam-mode)
+    :config
+    (setq org-roam-directory "~/org/roam")
+    )
+  )
 
 ;; (org-babel-do-load-languages
 ;;  'org-babel-load-languages

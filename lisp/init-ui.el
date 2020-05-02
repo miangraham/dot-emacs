@@ -20,10 +20,6 @@
 (defun display-startup-echo-area-message ()
   (message nil))
 
-;; Package installation
-(use-package paradox
-  :bind ("C-c l" . paradox-list-packages))
-
 (defvar my/vfont "SF Pro Display")
 
 (use-package treemacs
