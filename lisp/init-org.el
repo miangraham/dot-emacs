@@ -1,4 +1,5 @@
 (use-package org
+  :demand
   :bind
   (("C-c a" . org-agenda)
    ("C-c c" . org-capture))
@@ -72,14 +73,21 @@
     )
 
   (use-package org-roam
+    ;; :hook
+    ;; (after-init . org-roam-mode)
+    :demand
     :bind
     (("C-c r i" . org-roam-insert)
-     ("C-c r b" . org-roam-buffer-toggle-display))
-    :init
-    (add-hook 'org-mode-hook 'org-roam-mode)
+     ("C-c r f" . org-roam-find-file)
+     ("C-c r b" . org-roam-buffer-toggle-display)
+     ("C-c r g" . org-roam-graph))
+
+    ;; :init
+    ;; (add-hook 'org-mode-hook 'org-roam-mode)
     :config
     (setq org-roam-directory "~/org/roam")
-    )
+    :init
+    (add-hook 'after-init-hook 'org-roam-mode))
   )
 
 ;; (org-babel-do-load-languages
