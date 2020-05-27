@@ -73,21 +73,23 @@
     )
 
   (use-package org-roam
-    ;; :hook
-    ;; (after-init . org-roam-mode)
     :demand
     :bind
     (("C-c r i" . org-roam-insert)
      ("C-c r f" . org-roam-find-file)
      ("C-c r b" . org-roam-buffer-toggle-display)
      ("C-c r g" . org-roam-graph))
-
-    ;; :init
-    ;; (add-hook 'org-mode-hook 'org-roam-mode)
     :config
     (setq org-roam-directory "~/org/roam")
     :init
     (add-hook 'after-init-hook 'org-roam-mode))
+
+  (use-package org-ref
+    :config
+    (setq reftex-default-bibliography '("~/org/bibliography/references.bib")
+          org-ref-default-bibliography '("~/org/bibliography/references.bib")
+          bibtex-completion-bibliography "~/org/bibliography/references.bib")
+    )
   )
 
 ;; (org-babel-do-load-languages
