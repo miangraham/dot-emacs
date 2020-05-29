@@ -1,5 +1,6 @@
 (use-package org
   :demand
+  :defer 1
   :bind
   (("C-c a" . org-agenda)
    ("C-c c" . org-capture))
@@ -7,17 +8,14 @@
   :defines
   (org-agenda-skip-scheduled-if-done
    org-agenda-span
-   org-capture-templates
-   org-habit-following-days
-   org-habit-graph-column
-   org-habit-show-habits-only-for-today)
+   org-capture-templates)
 
   :functions
   (org-load-modules-maybe
    org-agenda-quit)
 
   :config
-  (setq org-modules '(org-agenda org-capture org-habit ox-latex))
+  (setq org-modules '(org-agenda org-capture ox-latex))
   (org-load-modules-maybe t)
   (fullframe org-agenda-list org-agenda-quit)
   (setq org-default-notes-file "~/org/notes.org"
@@ -25,9 +23,6 @@
         org-agenda-span 8
         org-agenda-skip-scheduled-if-done t
         org-log-done 'time
-        org-habit-following-days 1
-        org-habit-graph-column 80
-        org-habit-show-habits-only-for-today nil
         org-tags-column -100
         org-hide-leading-stars t
         org-todo-keywords '((sequence "TODO" "DONE"))
@@ -72,18 +67,6 @@
     (setq org-randomnote-candidates '("~/org/journal.org" "~/org/notes.org"))
     )
 
-  (use-package org-roam
-    :demand
-    :bind
-    (("C-c r i" . org-roam-insert)
-     ("C-c r f" . org-roam-find-file)
-     ("C-c r b" . org-roam-buffer-toggle-display)
-     ("C-c r g" . org-roam-graph))
-    :config
-    (setq org-roam-directory "~/org/roam")
-    :init
-    (add-hook 'after-init-hook 'org-roam-mode))
-
   (use-package org-ref
     :config
     (setq reftex-default-bibliography '("~/org/bibliography/references.bib")
@@ -92,17 +75,17 @@
     )
   )
 
-;; (org-babel-do-load-languages
-;;  'org-babel-load-languages
-;;  '(
-;;    (sh . t)
-;;    (python . t)
-;;    (ditaa . t)
-;;    (dot . t)
-;;    (sqlite . t)
-;;    (ruby . t)
-;;    ))
-
-;; (add-to-list 'org-src-lang-modes '("js" . "js2"))
+(use-package org-roam
+  :after org
+  :bind
+  (("C-c r i" . org-roam-insert)
+   ("C-c r f" . org-roam-find-file)
+   ("C-c r b" . org-roam-buffer-toggle-display)
+   ("C-c r g" . org-roam-graph))
+  :diminish org-roam-mode
+  :config
+  (setq org-roam-directory "~/org/roam")
+  :init
+  (add-hook 'after-init-hook 'org-roam-mode))
 
 (provide 'init-org)
