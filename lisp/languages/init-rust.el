@@ -5,6 +5,11 @@
   (setq-default rust-indent-offset 2
                 rust-format-on-save 't
                 lsp-rust-server 'rust-analyzer
+                lsp-ui-sideline-enable nil
+                lsp-ui-peek-enable nil
+                lsp-ui-doc-enable nil
+                lsp-ui-imenu-enable nil
+
                 ;; lsp-rust-analyzer-server-display-inlay-hints 't
                 )
   )
