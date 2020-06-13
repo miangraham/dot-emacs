@@ -20,11 +20,14 @@
   (fullframe org-agenda-list org-agenda-quit)
   (setq org-default-notes-file "~/org/notes.org"
         org-agenda-files '("~/org")
-        org-agenda-span 8
         org-agenda-skip-scheduled-if-done t
-        org-log-done 'time
-        org-tags-column -100
+        org-agenda-span 8
         org-hide-leading-stars t
+        org-log-done 'time
+        org-outline-path-complete-in-steps nil
+        org-refile-targets '((org-agenda-files :maxlevel . 3))
+        org-refile-use-outline-path 'file
+        org-tags-column -100
         org-todo-keywords '((sequence "TODO" "DONE"))
         org-todo-keyword-faces '(("TODO" . 'org-todo)
                                  ("PROG" . "yellow")
@@ -46,9 +49,6 @@
                                  (file+datetree "~/org/journal.org")
                                  "* %?\nEntered on %U\n  %i\n  %a")
                                 ))
-  (setq org-refile-targets '((org-agenda-files :maxlevel . 3)))
-  (setq org-refile-use-outline-path 'file)
-  (setq org-outline-path-complete-in-steps nil)
 
   (use-package org-tree-slide
     :bind
@@ -85,7 +85,8 @@
   :diminish org-roam-mode
   :config
   (setq org-roam-directory "~/org/roam")
-  :init
-  (add-hook 'after-init-hook 'org-roam-mode))
+  (org-roam-mode +1))
+;; :init
+;; (add-hook 'after-init-hook 'org-roam-mode))
 
 (provide 'init-org)
