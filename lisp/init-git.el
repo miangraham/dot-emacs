@@ -12,8 +12,11 @@
     :functions magit-mode-quit-window
     :init
     (setq magit-auto-revert-mode nil)
+    :custom
+    (magit-merge-arguments '("--ff-only"))
     :config
     (use-package fullframe
-      :config (fullframe magit-status magit-mode-quit-window))))
+      :config
+      (fullframe magit-status magit-mode-quit-window))))
 
 (provide 'init-git)
