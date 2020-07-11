@@ -3,8 +3,8 @@
   (add-to-list 'load-path (expand-file-name "lisp/" user-emacs-directory))
   (add-to-list 'load-path (expand-file-name "lisp/languages/" user-emacs-directory))
   (add-to-list 'load-path (expand-file-name "site-lisp/" user-emacs-directory))
-  (let ((default-directory (if (file-directory-p "/usr/local/share/emacs/site-lisp/") "/usr/local/share/emacs/site-lisp/" "/usr/share/emacs/site-lisp/")))
-    (normal-top-level-add-subdirs-to-load-path))
+  ;;(let ((default-directory (if (file-directory-p "/usr/local/share/emacs/site-lisp/") "/usr/local/share/emacs/site-lisp/" "/usr/share/emacs/site-lisp/")))
+  ;;  (normal-top-level-add-subdirs-to-load-path))
   )
 
 (require 'init-startup-profile)
@@ -41,6 +41,7 @@
 ;; (require 'init-csharp)
 (require 'init-elisp)
 (require 'init-haskell)
+(require 'init-hcl)
 (require 'init-java)
 (require 'init-javascript)
 (require 'init-nix)

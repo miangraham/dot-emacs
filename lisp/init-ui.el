@@ -20,7 +20,8 @@
 (defun display-startup-echo-area-message ()
   (message nil))
 
-(defvar my/vfont "SF Pro Display")
+;; (defvar my/vfont "SF Pro Display")
+(defvar my/vfont "Fantasque Sans Mono")
 
 (use-package treemacs
   :bind ("C-c t" . treemacs)
