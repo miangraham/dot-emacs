@@ -17,7 +17,9 @@
   :config
   (setq org-modules '(org-agenda org-capture ox-latex))
   (org-load-modules-maybe t)
-  (fullframe org-agenda-list org-agenda-quit)
+  (use-package fullframe
+    :config
+    (fullframe org-agenda-list org-agenda-quit))
   (setq org-default-notes-file "~/org/notes.org"
         org-agenda-files '("~/org")
         org-agenda-skip-scheduled-if-done t

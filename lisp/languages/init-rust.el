@@ -19,12 +19,12 @@
   (add-hook 'rust-mode-hook #'flycheck-rust-setup)
   )
 
-(use-package cargo
-  :config
-  (add-hook 'rust-mode-hook #'cargo-minor-mode)
-  (setq cargo-process--command-build "build --release")
-  (setq cargo-process--command-run "run --release")
-  )
+;; (use-package cargo
+;;   :config
+;;   (add-hook 'rust-mode-hook #'cargo-minor-mode)
+;;   (setq cargo-process--command-build "build --release")
+;;   (setq cargo-process--command-run "run --release")
+;;   )
 
 ;; (use-package rustic
 ;;   :config

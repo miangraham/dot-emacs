@@ -16,7 +16,6 @@
 (load (expand-file-name "private-data.el" user-emacs-directory))
 
 (eval-and-compile
-  (require 'init-packages)
   (require 'use-package)
   (setq use-package-always-ensure t))
 
