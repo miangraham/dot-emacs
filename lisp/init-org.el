@@ -69,12 +69,11 @@
     (setq org-randomnote-candidates '("~/org/journal.org" "~/org/notes.org"))
     )
 
-  (use-package org-ref
-    :config
-    (setq reftex-default-bibliography '("~/org/bibliography/references.bib")
-          org-ref-default-bibliography '("~/org/bibliography/references.bib")
-          bibtex-completion-bibliography "~/org/bibliography/references.bib")
-    )
+  ;; (use-package org-ref
+  ;;   :config
+  ;;   (setq reftex-default-bibliography '("~/org/bibliography/references.bib")
+  ;;         org-ref-default-bibliography '("~/org/bibliography/references.bib")
+  ;;         bibtex-completion-bibliography "~/org/bibliography/references.bib"))
   )
 
 (use-package org-roam
