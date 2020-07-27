@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/skeeto/youtube-dl-emacs.git
+	branch = master
+	commit = af877b5bc4f01c04fccfa7d47a2c328926f20ef4
+	parent = 37916d4d0c9a8ed2076ff61d85b60fb309f423d0
+	method = merge
+	cmdver = 0.4.1
