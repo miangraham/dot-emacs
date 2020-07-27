@@ -5,16 +5,6 @@
                 js2-mode-show-parse-errors nil
                 js2-mode-show-strict-warnings nil)
 
-  (use-package prettier-js
-    :config
-    ;; (setq prettier-target-mode "js2-mode")
-    ;; (setq prettier-js-args '("--single-quote"
-    ;;                          "--tab-width" "2"
-    ;;                          "--bracket-spacing" "false"
-    ;;                          "--print-width" "100"))
-    ;; (add-hook 'js2-mode-hook 'prettier-js-mode)
-    )
-
   (use-package flycheck
     :config
     (defun use-eslint-from-node-modules ()
