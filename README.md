@@ -7,7 +7,7 @@ My emacs config. Used everywhere.
 - emacs v27+
 - [use-package](https://github.com/jwiegley/use-package) preinstalled for bootstrapping (installs other packages as needed)
 
-See my [nix config](https://github.com/miangraham/dot-nix) for an setup that preinstalls all packages.
+See my [nix config](https://github.com/miangraham/dot-nix) for an example setup that preinstalls all packages.
 
 ## Installation
 
