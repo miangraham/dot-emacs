@@ -9,7 +9,7 @@
     (setq rmh-elfeed-org-files (list "~/org/feeds.org"))
     (elfeed-org))
 
-  (setq-default elfeed-search-filter "@1-week-ago +unread -jp ")
+  (setq-default elfeed-search-filter "@1-week-ago--1-day-ago +unread -jp ")
 
   (setq youtube-dl-directory (if (file-directory-p "~/Downloads") "~/Downloads" "~/downloads")
         youtube-dl-arguments '("--no-mtime" "--all-subs" "--embed-subs")
