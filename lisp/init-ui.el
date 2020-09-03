@@ -1,5 +1,6 @@
 (setq cursor-type 'box
       inhibit-splash-screen t
+      initial-major-mode 'fundamental-mode
       initial-scratch-message nil
       mac-command-modifier 'meta
       scroll-bar-width 0

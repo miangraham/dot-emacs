@@ -48,15 +48,28 @@
   (define-key yas-minor-mode-map (kbd "TAB") nil)
   (define-key yas-minor-mode-map (kbd "C-c y") 'yas-expand))
 
-(use-package company
-  :diminish company-mode)
+;; (use-package company
+;;   :diminish company-mode)
 
 (use-package lsp-mode
   :commands lsp
-  :diminish company-mode
+  ;; :diminish company-mode
   :config
-  (require 'lsp-clients)
-  (setq lsp-prefer-flymake nil)
+  ;; (require 'lsp-clients)
+  ;; (setq lsp-prefer-flymake nil)
+  (setq lsp-diagnostics-provider :flycheck)
+  (setq lsp-completion-provider :none)
+  ;; (setq lsp-eldoc-enable-hover nil)
+  ;; (setq lsp-eldoc-render-all nil)
+  ;; (setq lsp-enable-imenu nil)
+  ;; (setq lsp-enable-xref nil)
+  (setq lsp-enable-indentation nil)
+  (setq lsp-modeline-code-actions-enable nil)
+  ;; (setq lsp-modeline-diagnostics-enable nil)
+  (setq lsp-before-save-edits nil)
+
+  ;; (setq lsp-signature-auto-activate nil)
+  ;; (setq lsp-eldoc-enable-hover nil)
   )
 
 ;; (use-package lsp-ui)
