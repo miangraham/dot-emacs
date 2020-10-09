@@ -79,4 +79,10 @@
 ;;     :config
 ;;     (push 'company-lsp company-backends)))
 
+(use-package direnv
+  :config
+  (direnv-mode)
+  :custom
+  (direnv-always-show-summary nil))
+
 (provide 'init-prog-setup)
