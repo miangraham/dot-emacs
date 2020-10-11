@@ -56,3 +56,5 @@
 (when (or (string= (system-name) "maho.local")
           (string= (system-name) "maho"))
   (require 'init-mail))
+
+(setq gc-cons-threshold (* 10 1000 1000))

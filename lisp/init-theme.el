@@ -1,26 +1,20 @@
-;; (use-package zenburn-theme
-;;   :if (display-graphic-p)
-;;   :demand
-;;   :config (load-theme 'zenburn t))
-
-(when (display-graphic-p)
-  (set-face-font 'default "Fantasque Sans Mono")
-  ;; (set-face-font 'solaire-default-face "Fantasque Sans Mono")
-  (set-frame-font "Fantasque Sans Mono")
-  (set-fontset-font t 'japanese-jisx0208 (font-spec :family "Noto Sans CJK JP Bold")))
-
 (use-package doom-themes
-  ;;  :if (display-graphic-p)
-  :demand
+  :defer 0
   :custom
   (doom-Iosvkem-brighter-modeline t)
   (doom-Iosvkem-padded-modeline 2)
   :config
+  (when (display-graphic-p)
+    (set-face-font 'default "Fantasque Sans Mono")
+    (set-frame-font "Fantasque Sans Mono")
+    (set-fontset-font t 'japanese-jisx0208 (font-spec :family "Noto Sans CJK JP Bold")))
+
   (if (display-graphic-p)
       (load-theme 'doom-Iosvkem t)
     (load-theme 'doom-dracula t)))
 
 (use-package solaire-mode
+  :defer 3
   :if (display-graphic-p)
   :config
   (set-face-font 'solaire-default-face "Fantasque Sans Mono")

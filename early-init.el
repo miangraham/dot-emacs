@@ -1,3 +1,5 @@
+(setq gc-cons-threshold (* 100 1000 1000))
+
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
                          ("gnu" . "https://elpa.gnu.org/packages/"))
       package-pinned-packages '(("magit" . "melpa")
