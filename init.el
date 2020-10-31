@@ -9,9 +9,6 @@
 
 (require 'init-startup-profile)
 
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-(load custom-file)
-
 ;; gitignored
 (load (expand-file-name "private-data.el" user-emacs-directory))
 
@@ -37,11 +34,9 @@
 ;; Coding
 (require 'init-edit-setup)
 (require 'init-prog-setup)
-;; (require 'init-csharp)
 (require 'init-elisp)
 (require 'init-haskell)
 (require 'init-hcl)
-(require 'init-java)
 (require 'init-javascript)
 (require 'init-nix)
 (require 'init-purescript)

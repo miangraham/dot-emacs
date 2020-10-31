@@ -26,8 +26,6 @@
 
 (use-package treemacs
   :bind ("C-c t" . treemacs)
-  ;; :custom-face
-  ;; (treemacs-root-face ((t (:family "SF Pro Display"))))
   :config
   (setq treemacs-width 30)
   (set-face-font 'treemacs-directory-face my/vfont)

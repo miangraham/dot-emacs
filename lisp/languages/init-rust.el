@@ -4,6 +4,7 @@
   :config
   (setq-default rust-indent-offset 2
                 rust-format-on-save 't
+                lsp-eldoc-enable-hover nil
                 lsp-rust-server 'rust-analyzer
                 lsp-ui-sideline-enable nil
                 lsp-ui-peek-enable nil

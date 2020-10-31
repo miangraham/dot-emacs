@@ -16,6 +16,8 @@
 (use-package solaire-mode
   :defer 3
   :if (display-graphic-p)
+  :custom
+  (solaire-mode-auto-swap-bg t)
   :config
   (set-face-font 'solaire-default-face "Fantasque Sans Mono")
   (set-face-attribute 'solaire-default-face nil :height (if (string= (system-name) "nanachi") 160 200))
@@ -40,9 +42,6 @@
            . solaire-mode-remap-modeline)
           ((highlight-indentation-face solaire-hl-line-face)
            featurep 'highlight-indentation)))
-  (solaire-mode-swap-bg)
   (solaire-global-mode +1))
-
-;; (setq ns-use-srgb-colorspace nil)
 
 (provide 'init-theme)

@@ -69,6 +69,12 @@
     (setq org-randomnote-candidates '("~/org/journal.org" "~/org/notes.org"))
     )
 
+  (use-package org-superstar
+    :config
+    (add-hook 'org-mode-hook
+              (lambda ()
+                (org-superstar-mode 1))))
+
   ;; (use-package org-ref
   ;;   :config
   ;;   (setq reftex-default-bibliography '("~/org/bibliography/references.bib")
