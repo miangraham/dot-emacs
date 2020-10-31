@@ -90,8 +90,11 @@
    ("C-c r b" . org-roam-buffer-toggle-display)
    ("C-c r g" . org-roam-graph))
   :diminish org-roam-mode
+  :custom
+  (org-roam-directory "~/org/roam")
+  (org-roam-db-location "~/org/roam/org-roam.db")
   :config
-  (setq org-roam-directory "~/org/roam")
+  ;; (setq org-roam-directory "~/org/roam")
   (org-roam-mode +1))
 ;; :init
 ;; (add-hook 'after-init-hook 'org-roam-mode))
