@@ -14,43 +14,44 @@
   (org-load-modules-maybe
    org-agenda-quit)
 
+  :custom
+  (org-modules '(org-agenda org-capture ox-latex))
+  (org-default-notes-file "~/org/notes.org")
+  (org-agenda-files '("~/org"))
+  (org-agenda-skip-scheduled-if-done t)
+  (org-agenda-span 8)
+  (org-hide-leading-stars t)
+  (org-log-done 'time)
+  (org-outline-path-complete-in-steps nil)
+  (org-refile-targets '((org-agenda-files :maxlevel . 3)))
+  (org-refile-use-outline-path 'file)
+  (org-tags-column -100)
+  (org-todo-keywords '((sequence "TODO" "DONE")))
+  (org-todo-keyword-faces '(("TODO" . 'org-todo)
+                            ("PROG" . "yellow")
+                            ("WAIT" . "yellow")
+                            ("DONE" . 'org-done)))
+  (org-capture-templates '(("t" "Task" entry
+                            (file "~/org/todo.org")
+                            "* TODO %^{Task}"
+                            :immediate-finish t)
+                           ("s" "Scheduled Task" entry
+                            (file "~/org/todo.org")
+                            "* TODO %^{Task}\n  SCHEDULED: %^t"
+                            :immediate-finish t)
+                           ("n" "Note" entry
+                            (file "~/org/notes.org")
+                            "* %^{Note}"
+                            :immediate-finish t)
+                           ("j" "Journal" entry
+                            (file+datetree "~/org/journal.org")
+                            "* %?\nEntered on %U\n  %i\n  %a")
+                           ))
+
   :config
-  (setq org-modules '(org-agenda org-capture ox-latex))
-  (org-load-modules-maybe t)
   (use-package fullframe
     :config
     (fullframe org-agenda-list org-agenda-quit))
-  (setq org-default-notes-file "~/org/notes.org"
-        org-agenda-files '("~/org")
-        org-agenda-skip-scheduled-if-done t
-        org-agenda-span 8
-        org-hide-leading-stars t
-        org-log-done 'time
-        org-outline-path-complete-in-steps nil
-        org-refile-targets '((org-agenda-files :maxlevel . 3))
-        org-refile-use-outline-path 'file
-        org-tags-column -100
-        org-todo-keywords '((sequence "TODO" "DONE"))
-        org-todo-keyword-faces '(("TODO" . 'org-todo)
-                                 ("PROG" . "yellow")
-                                 ("WAIT" . "yellow")
-                                 ("DONE" . 'org-done))
-        org-capture-templates '(("t" "Task" entry
-                                 (file "~/org/todo.org")
-                                 "* TODO %^{Task}"
-                                 :immediate-finish t)
-                                ("s" "Scheduled Task" entry
-                                 (file "~/org/todo.org")
-                                 "* TODO %^{Task}\n  SCHEDULED: %^t"
-                                 :immediate-finish t)
-                                ("n" "Note" entry
-                                 (file "~/org/notes.org")
-                                 "* %^{Note}"
-                                 :immediate-finish t)
-                                ("j" "Journal" entry
-                                 (file+datetree "~/org/journal.org")
-                                 "* %?\nEntered on %U\n  %i\n  %a")
-                                ))
 
   (use-package org-tree-slide
     :bind
@@ -94,9 +95,6 @@
   (org-roam-directory "~/org/roam")
   (org-roam-db-location "~/org/roam/org-roam.db")
   :config
-  ;; (setq org-roam-directory "~/org/roam")
   (org-roam-mode +1))
-;; :init
-;; (add-hook 'after-init-hook 'org-roam-mode))
 
 (provide 'init-org)

@@ -3,11 +3,13 @@
   :commands projectile-mode
   :defer 2
 
+  :custom
+  (projectile-completion-system 'default)
+  (projectile-enable-caching t)
+  (projectile-indexing-method 'native)
+
   :config
-  (setq projectile-completion-system 'ivy
-        projectile-enable-caching t
-        projectile-indexing-method 'native
-        projectile-mode-line '(:eval (format " P[%s]" (projectile-project-name))))
+  ;; (setq projectile-mode-line '(:eval (format " P[%s]" (projectile-project-name))))
 
   (add-to-list 'projectile-globally-ignored-files ".DS_Store")
   (add-to-list 'projectile-globally-ignored-files "*.cache")
@@ -24,7 +26,7 @@
   (add-hook 'find-file-hook
             (lambda ()
               (when (file-remote-p default-directory)
-                (setq-local projectile-mode-line "Projectile")
+                ;; (setq-local projectile-mode-line "Projectile")
                 (projectile-mode 0))))
 
   (projectile-mode)

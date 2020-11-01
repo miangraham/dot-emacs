@@ -53,10 +53,8 @@
 
 (use-package lsp-mode
   :commands lsp
-  ;; :diminish company-mode
   :config
   ;; (require 'lsp-clients)
-  ;; (setq lsp-prefer-flymake nil)
   (setq lsp-diagnostics-provider :flycheck)
   (setq lsp-completion-provider :none)
   ;; (setq lsp-eldoc-enable-hover nil)
