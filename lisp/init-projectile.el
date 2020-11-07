@@ -1,7 +1,8 @@
 (use-package projectile
+  :defer 2
   :bind-keymap ("C-c p" . projectile-command-map)
   :commands projectile-mode
-  :defer 2
+  :diminish projectile-mode
 
   :custom
   (projectile-completion-system 'default)

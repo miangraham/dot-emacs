@@ -14,7 +14,7 @@
     (load-theme 'doom-dracula t)))
 
 (use-package solaire-mode
-  :defer 3
+  :defer 0
   :if (display-graphic-p)
   :custom
   (solaire-mode-auto-swap-bg t)

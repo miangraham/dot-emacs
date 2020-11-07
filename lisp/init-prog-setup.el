@@ -53,21 +53,12 @@
 
 (use-package lsp-mode
   :commands lsp
-  :config
-  ;; (require 'lsp-clients)
-  (setq lsp-diagnostics-provider :flycheck)
-  (setq lsp-completion-provider :none)
-  ;; (setq lsp-eldoc-enable-hover nil)
-  ;; (setq lsp-eldoc-render-all nil)
-  ;; (setq lsp-enable-imenu nil)
-  ;; (setq lsp-enable-xref nil)
-  (setq lsp-enable-indentation nil)
-  (setq lsp-modeline-code-actions-enable nil)
-  ;; (setq lsp-modeline-diagnostics-enable nil)
-  (setq lsp-before-save-edits nil)
-
-  ;; (setq lsp-signature-auto-activate nil)
-  ;; (setq lsp-eldoc-enable-hover nil)
+  :custom
+  (lsp-diagnostics-provider :flycheck)
+  (lsp-completion-provider :none)
+  (lsp-enable-indentation nil)
+  (lsp-modeline-code-actions-enable nil)
+  (lsp-before-save-edits nil)
   )
 
 ;; (use-package lsp-ui)

@@ -55,4 +55,13 @@
   (use-package treemacs-magit
     :after treemacs magit))
 
+(use-package golden-ratio
+  :defer 1
+  :diminish golden-ratio-mode
+  :custom
+  (golden-ratio-auto-scale nil)
+  (golden-ratio-extra-commands '(ace-window))
+  :config
+  (golden-ratio-mode 1))
+
 (provide 'init-ui)
