@@ -17,7 +17,7 @@
   :custom
   (org-modules '(org-agenda org-capture ox-latex))
   (org-default-notes-file "~/org/notes.org")
-  (org-agenda-files '("~/org"))
+  (org-agenda-files '("~/org" "~/org/roam"))
   (org-agenda-skip-scheduled-if-done t)
   (org-agenda-span 8)
   (org-hide-leading-stars t)
