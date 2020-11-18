@@ -21,6 +21,11 @@
 (defun display-startup-echo-area-message ()
   (message nil))
 
+(use-package beacon
+  :diminish beacon-mode
+  :config
+  (beacon-mode 1))
+
 ;; (defvar my/vfont "SF Pro Display")
 (defvar my/vfont "Fantasque Sans Mono")
 
