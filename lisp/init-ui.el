@@ -12,7 +12,6 @@
 (when (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-(global-hl-line-mode t)
 
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (setq ns-use-proxy-icon nil)
@@ -21,6 +20,7 @@
 (defun display-startup-echo-area-message ()
   (message nil))
 
+;; (global-hl-line-mode t)
 (use-package beacon
   :diminish beacon-mode
   :config
