@@ -1,7 +1,10 @@
-(defvar my/vfont "Fantasque Sans Mono")
+(defvar my/vfont "Iosevka")
+;; (defvar my/vfont "iA Writer Duospace")
+;; (defvar my/vfont "Fantasque Sans Mono")
 
 (use-package unicode-fonts
   :defer 1
+  :if (display-graphic-p)
   :config
   (unicode-fonts-setup))
 
