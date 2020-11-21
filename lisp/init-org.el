@@ -71,6 +71,8 @@
     )
 
   (use-package org-superstar
+    :custom-face
+    (org-superstar-header-bullet ((t (:family "Terminus"))))
     :config
     (add-hook 'org-mode-hook
               (lambda ()
