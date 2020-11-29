@@ -1,12 +1,13 @@
-(defvar my/vfont "Iosevka")
+(defvar my/vfont "Sarasa Mono J")
+;; (defvar my/vfont "Iosevka")
 ;; (defvar my/vfont "iA Writer Duospace")
 ;; (defvar my/vfont "Fantasque Sans Mono")
 
-(use-package unicode-fonts
-  :defer 1
-  :if (display-graphic-p)
-  :config
-  (unicode-fonts-setup))
+;; (use-package unicode-fonts
+;;   :defer 1
+;;   :if (display-graphic-p)
+;;   :config
+;;   (unicode-fonts-setup))
 
 (use-package doom-themes
   :defer 0
@@ -17,7 +18,8 @@
   (when (display-graphic-p)
     (set-face-font 'default my/vfont)
     (set-frame-font my/vfont)
-    (set-fontset-font t 'japanese-jisx0208 (font-spec :family "Noto Sans CJK JP Bold")))
+    ;; (set-fontset-font t 'japanese-jisx0208 (font-spec :family "Noto Sans CJK JP Bold"))
+    )
 
   (if (display-graphic-p)
       (load-theme 'doom-Iosvkem t)
