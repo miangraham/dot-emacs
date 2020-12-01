@@ -1,6 +1,7 @@
 (use-package projectile
   :defer 2
   :bind-keymap ("C-c p" . projectile-command-map)
+  :bind ("C-c s" . projectile-ripgrep)
   :commands projectile-mode
   :diminish projectile-mode
 
