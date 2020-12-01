@@ -48,6 +48,7 @@
 
 ;; Other clients
 (require 'init-feeds)
+(require 'init-irc)
 (when (or (string= (system-name) "maho.local")
           (string= (system-name) "maho"))
   (require 'init-mail))

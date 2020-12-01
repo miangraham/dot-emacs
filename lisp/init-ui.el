@@ -66,6 +66,7 @@
   :custom
   (golden-ratio-auto-scale nil)
   (golden-ratio-extra-commands '(ace-window))
+  (golden-ratio-exclude-modes '(erc-mode))
   :config
   (golden-ratio-mode 1))
 
