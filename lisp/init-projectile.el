@@ -32,6 +32,7 @@
 
   (projectile-mode)
 
-  (use-package ag))
+  (use-package ag)
+  (use-package ripgrep))
 
 (provide 'init-projectile)
