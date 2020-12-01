@@ -18,6 +18,11 @@
 
 (require 'init-exec-path)
 
+(use-package no-littering
+  :demand t
+  :config
+  (setq custom-file (no-littering-expand-etc-file-name "custom.el")))
+
 ;; Visuals
 (require 'init-theme)
 (require 'init-ui)

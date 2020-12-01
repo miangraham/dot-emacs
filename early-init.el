@@ -10,4 +10,5 @@
 (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
-(setq byte-compile-warnings '(not obsolete))
+(setq byte-compile-warnings '(not obsolete)
+      load-prefer-newer t)

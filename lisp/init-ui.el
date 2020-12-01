@@ -4,7 +4,8 @@
       initial-scratch-message nil
       mac-command-modifier 'meta
       scroll-bar-width 0
-      ring-bell-function 'ignore)
+      ring-bell-function 'ignore
+      default-directory "~")
 
 (fset 'yes-or-no-p 'y-or-n-p)
 

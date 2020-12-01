@@ -8,6 +8,7 @@ forge-database.sqlite
 /.cache
 /elpa
 /eshell
+/etc
 /flycheck_init.el
 /kkcrc
 lisp/flycheck*

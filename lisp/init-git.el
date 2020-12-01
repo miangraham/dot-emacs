@@ -17,6 +17,9 @@
     :config
     (use-package fullframe
       :config
-      (fullframe magit-status magit-mode-quit-window))))
+      (fullframe magit-status magit-mode-quit-window)))
+
+  (use-package forge
+    :after magit))
 
 (provide 'init-git)

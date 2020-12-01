@@ -23,7 +23,10 @@
 
   (if (display-graphic-p)
       (load-theme 'doom-Iosvkem t)
-    (load-theme 'doom-dracula t)))
+    (load-theme 'doom-dracula t))
+
+  (unless (display-graphic-p (selected-frame))
+    (set-face-background 'default "unspecified-bg" (selected-frame))))
 
 (use-package solaire-mode
   :defer 0
