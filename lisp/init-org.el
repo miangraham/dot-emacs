@@ -54,6 +54,7 @@
     (fullframe org-agenda-list org-agenda-quit))
 
   (use-package org-tree-slide
+    :defer 5
     :bind
     (("C-c z" . org-tree-slide-mode)
      (:map org-tree-slide-mode-map
@@ -64,6 +65,7 @@
     )
 
   (use-package org-randomnote
+    :defer 5
     :bind
     (("C-c r r" . org-randomnote))
     :config
@@ -78,11 +80,14 @@
               (lambda ()
                 (org-superstar-mode 1))))
 
-  ;; (use-package org-ref
-  ;;   :config
-  ;;   (setq reftex-default-bibliography '("~/org/bibliography/references.bib")
-  ;;         org-ref-default-bibliography '("~/org/bibliography/references.bib")
-  ;;         bibtex-completion-bibliography "~/org/bibliography/references.bib"))
+  (use-package org-ref
+    ;; :defer 3
+    :config
+    (setq reftex-default-bibliography '("~/org/bibliography/zotero.bib")
+          org-ref-default-bibliography '("~/org/bibliography/zotero.bib")
+          bibtex-completion-bibliography "~/org/bibliography/zotero.bib")
+
+    (use-package ivy-bibtex))
   )
 
 (use-package org-roam
@@ -98,6 +103,10 @@
   (org-roam-db-location "~/org/roam/org-roam.db")
   :config
   (org-roam-mode +1))
+
+(use-package org-roam-bibtex
+  :after org-roam
+  :hook (org-roam-mode . org-roam-bibtex-mode))
 
 ;; (use-package org-roam-server
 ;;   :after org-roam
