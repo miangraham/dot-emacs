@@ -5,6 +5,7 @@
   :bind ("C-c n". elfeed)
   :config
   (use-package elfeed-org
+    :after org
     :config
     (setq rmh-elfeed-org-files (list "~/org/feeds.org"))
     (elfeed-org))
