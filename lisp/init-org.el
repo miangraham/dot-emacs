@@ -56,6 +56,8 @@
   (setq org-babel-key-prefix "\C-cb")
 
   :config
+  (org-load-modules-maybe 't)
+
   (use-package fullframe
     :config
     (fullframe org-agenda-list org-agenda-quit))
@@ -70,6 +72,8 @@
     :init
     (add-hook 'org-tree-slide-mode-hook 'org-bullets-mode)
     )
+
+  ;; (use-package org-tempo :demand t :ensure nil)
 
   (use-package org-randomnote
     :defer 5
