@@ -4,8 +4,10 @@
          ("C-M-<up>" . md-duplicate-up)
          ("C-M-<down>" . md-duplicate-down)))
 
-(require 'autorevert)
-(global-auto-revert-mode)
+(use-package autorevert
+  :ensure nil
+  :config
+  (global-auto-revert-mode))
 
 (use-package anzu
   :diminish anzu-mode

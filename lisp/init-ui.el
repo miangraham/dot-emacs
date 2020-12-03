@@ -21,11 +21,12 @@
 (defun display-startup-echo-area-message ()
   (message nil))
 
-;; (global-hl-line-mode t)
 (use-package beacon
   :diminish beacon-mode
   :config
-  (beacon-mode 1))
+  (beacon-mode 1)
+  ;; (global-hl-line-mode t)
+  )
 
 ;; (defvar my/vfont "SF Pro Display")
 (defvar my/vfont "Fantasque Sans Mono")

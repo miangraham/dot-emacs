@@ -1,6 +1,6 @@
 (use-package org
-  :demand
-  :defer 1
+  ;; :demand
+  ;; :defer 1
   :bind
   (("C-c a" . org-agenda)
    ("C-c c" . org-capture))
@@ -80,18 +80,28 @@
               (lambda ()
                 (org-superstar-mode 1))))
 
-  (use-package org-ref
-    ;; :defer 3
-    :config
-    (setq reftex-default-bibliography '("~/org/bibliography/zotero.bib")
-          org-ref-default-bibliography '("~/org/bibliography/zotero.bib")
-          bibtex-completion-bibliography "~/org/bibliography/zotero.bib")
+  ;; (use-package org-ref
+  ;;   ;; :defer 3
+  ;;   :config
+  ;;   (setq reftex-default-bibliography '("~/org/bibliography/zotero.bib")
+  ;;         org-ref-default-bibliography '("~/org/bibliography/zotero.bib")
+  ;;         bibtex-completion-bibliography "~/org/bibliography/zotero.bib")
 
-    (use-package ivy-bibtex))
+  ;;   (use-package ivy-bibtex))
   )
 
+(use-package ivy-bibtex :after org)
+
+(use-package org-ref
+  :after ivy-bibtex
+  :config
+  (setq reftex-default-bibliography '("~/org/bibliography/zotero.bib")
+        org-ref-default-bibliography '("~/org/bibliography/zotero.bib")
+        bibtex-completion-bibliography "~/org/bibliography/zotero.bib"))
+
 (use-package org-roam
-  :after org
+  :demand t
+  :after org-ref
   :bind
   (("C-c r i" . org-roam-insert)
    ("C-c r f" . org-roam-find-file)
@@ -105,20 +115,14 @@
   (org-roam-mode +1))
 
 (use-package org-roam-bibtex
+  :demand t
   :after org-roam
   :hook (org-roam-mode . org-roam-bibtex-mode))
 
-;; (use-package org-roam-server
-;;   :after org-roam
-;;   :config
-;;   (setq org-roam-server-host "127.0.0.1"
-;;         org-roam-server-port 8080
-;;         org-roam-server-export-inline-images t
-;;         org-roam-server-authenticate nil
-;;         org-roam-server-network-poll t
-;;         org-roam-server-network-arrows nil
-;;         org-roam-server-network-label-truncate t
-;;         org-roam-server-network-label-truncate-length 60
-;;         org-roam-server-network-label-wrap-length 20))
+(use-package bookmark
+  :ensure nil
+  :defer 1
+  :custom
+  (bookmark-save-flag nil))
 
 (provide 'init-org)
