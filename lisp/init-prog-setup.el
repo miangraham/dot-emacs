@@ -10,10 +10,21 @@
   :diminish editorconfig-mode
   :config (editorconfig-mode 1))
 
+(use-package direnv
+  :config
+  (direnv-mode)
+  :custom
+  (direnv-always-show-summary nil))
+
+(use-package rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode-enable))
+
+(use-package ws-butler
+  :diminish ws-butler-mode
+  :hook (prog-mode . ws-butler-mode))
+
 (use-package flycheck
-  :commands flycheck-mode
-  :init
-  (add-hook 'prog-mode-hook 'flycheck-mode)
+  :hook (prog-mode . flycheck-mode)
   :config
   (setq-default flycheck-emacs-lisp-load-path 'inherit
                 flycheck-disabled-checkers '(javascript-jshint
@@ -22,37 +33,18 @@
                                              emacs-lisp-checkdoc))
   (setq flycheck-idle-change-delay 5))
 
-(use-package rainbow-delimiters
-  :config (add-hook 'prog-mode-hook 'rainbow-delimiters-mode-enable))
-
-(use-package web-mode
-  :mode ("\\.html?\\'" . web-mode)
-  :config
-  (setq web-mode-css-indent-offset 2
-        web-mode-code-indent-offset 2
-        web-mode-markup-indent-offset 2))
-
-(use-package ws-butler
-  :commands ws-butler-mode
-  :diminish ws-butler-mode
-  :init
-  (add-hook 'prog-mode-hook 'ws-butler-mode))
-
 (use-package yasnippet
-  :commands yas-minor-mode-on
+  :hook (prog-mode . yas-minor-mode-on)
   :diminish yas-minor-mode
-  :init
-  (add-hook 'prog-mode-hook 'yas-minor-mode-on)
   :config
   (define-key yas-minor-mode-map (kbd "<tab>") nil)
   (define-key yas-minor-mode-map (kbd "TAB") nil)
   (define-key yas-minor-mode-map (kbd "C-c y") 'yas-expand))
 
-;; (use-package company
-;;   :diminish company-mode)
-
 (use-package lsp-mode
+  :after rust-mode
   :commands lsp
+  :hook (rust-mode . lsp)
   :custom
   (lsp-diagnostics-provider :flycheck)
   (lsp-completion-provider :none)
@@ -60,18 +52,5 @@
   (lsp-modeline-code-actions-enable nil)
   (lsp-before-save-edits nil)
   )
-
-;; (use-package lsp-ui)
-
-;;   :config
-;;   (use-package company-lsp
-;;     :config
-;;     (push 'company-lsp company-backends)))
-
-(use-package direnv
-  :config
-  (direnv-mode)
-  :custom
-  (direnv-always-show-summary nil))
 
 (provide 'init-prog-setup)

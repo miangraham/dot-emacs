@@ -1,6 +1,5 @@
 (use-package rust-mode
   :mode ("\\.rs\\'" . rust-mode)
-  :hook (rust-mode . lsp)
   :custom
   (rust-indent-offset 2)
   (rust-format-on-save nil)
@@ -27,10 +26,9 @@
   )
 
 (use-package flycheck-rust
-  :config
-  (add-hook 'rust-mode-hook #'flycheck-rust-setup)
-  )
+  :hook (rust-mode . flycheck-rust-setup))
 
-(use-package toml-mode)
+(use-package toml-mode
+  :mode ("\\.toml\\'" . toml-mode))
 
 (provide 'init-rust)

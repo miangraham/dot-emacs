@@ -24,6 +24,7 @@
 
   (add-to-list 'projectile-globally-ignored-directories "elpa")
   (add-to-list 'projectile-globally-ignored-directories "node_modules")
+  (add-to-list 'projectile-globally-ignored-directories "target")
 
   (add-hook 'find-file-hook
             (lambda ()
@@ -31,9 +32,9 @@
                 ;; (setq-local projectile-mode-line "Projectile")
                 (projectile-mode 0))))
 
-  (projectile-mode)
+  (projectile-mode))
 
-  (use-package ag)
-  (use-package ripgrep))
+(use-package ag :demand t :after projectile)
+(use-package ripgrep :demand t :after projectile)
 
 (provide 'init-projectile)
