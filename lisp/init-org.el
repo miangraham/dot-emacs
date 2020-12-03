@@ -1,6 +1,4 @@
 (use-package org
-  ;; :demand
-  ;; :defer 1
   :bind
   (("C-c a" . org-agenda)
    ("C-c c" . org-capture))
@@ -15,17 +13,23 @@
    org-agenda-quit)
 
   :custom
-  (org-modules '(org-agenda org-capture ox-latex))
+  (org-modules '(org-agenda org-capture org-tempo ox-latex))
   (org-default-notes-file "~/org/notes.org")
   (org-agenda-files '("~/org" "~/org/roam"))
   (org-agenda-skip-scheduled-if-done t)
   (org-agenda-span 8)
+  (org-catch-invisible-edits 'show)
+  (org-confirm-babel-evaluate nil)
+  (org-hide-emphasis-markers t)
   (org-hide-leading-stars t)
   (org-log-done 'time)
   (org-outline-path-complete-in-steps nil)
   (org-refile-targets '((org-agenda-files :maxlevel . 3)))
   (org-refile-use-outline-path 'file)
+  (org-src-preserve-indentation t)
+  (org-src-tab-acts-natively t)
   (org-tags-column -100)
+  (org-use-speed-commands t)
   (org-todo-keywords '((sequence "TODO" "DONE")))
   (org-todo-keyword-faces '(("TODO" . 'org-todo)
                             ("PROG" . "yellow")
@@ -47,6 +51,9 @@
                             (file+datetree "~/org/journal.org")
                             "* %?\nEntered on %U\n  %i\n  %a")
                            ))
+
+  :init
+  (setq org-babel-key-prefix "\C-cb")
 
   :config
   (use-package fullframe
@@ -90,14 +97,15 @@
   ;;   (use-package ivy-bibtex))
   )
 
-(use-package ivy-bibtex :after org)
+(use-package ivy-bibtex
+  :after org)
 
 (use-package org-ref
   :after ivy-bibtex
-  :config
-  (setq reftex-default-bibliography '("~/org/bibliography/zotero.bib")
-        org-ref-default-bibliography '("~/org/bibliography/zotero.bib")
-        bibtex-completion-bibliography "~/org/bibliography/zotero.bib"))
+  :custom
+  (reftex-default-bibliography '("~/org/bibliography/zotero.bib"))
+  (org-ref-default-bibliography '("~/org/bibliography/zotero.bib"))
+  (bibtex-completion-bibliography "~/org/bibliography/zotero.bib"))
 
 (use-package org-roam
   :demand t
