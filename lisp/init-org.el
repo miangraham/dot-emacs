@@ -3,6 +3,9 @@
   (("C-c a" . org-agenda)
    ("C-c c" . org-capture))
 
+  :hook
+  (elfeed-search-mode . org-load-modules-maybe)
+
   :defines
   (org-agenda-skip-scheduled-if-done
    org-agenda-span
@@ -107,6 +110,7 @@
 (use-package org-ref
   :after ivy-bibtex
   :custom
+  (org-ref-completion-library 'org-ref-ivy-cite)
   (reftex-default-bibliography '("~/org/bibliography/zotero.bib"))
   (org-ref-default-bibliography '("~/org/bibliography/zotero.bib"))
   (bibtex-completion-bibliography "~/org/bibliography/zotero.bib"))
