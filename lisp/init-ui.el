@@ -2,7 +2,6 @@
       inhibit-splash-screen t
       initial-major-mode 'fundamental-mode
       initial-scratch-message nil
-      mac-command-modifier 'meta
       scroll-bar-width 0
       ring-bell-function 'ignore
       default-directory "~")
@@ -14,8 +13,12 @@
 (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
-(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
-(setq ns-use-proxy-icon nil)
+(when (string= system-type "darwin")
+  (setq mac-command-modifier 'meta
+        ns-use-proxy-icon nil)
+  (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+  (when window-system
+    (toggle-frame-maximized)))
 
 ;; Mute startup message
 (defun display-startup-echo-area-message ()
