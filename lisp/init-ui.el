@@ -4,7 +4,7 @@
       initial-scratch-message nil
       scroll-bar-width 0
       ring-bell-function 'ignore
-      default-directory "~")
+      default-directory "~/")
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
