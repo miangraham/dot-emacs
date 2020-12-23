@@ -51,8 +51,7 @@
                             "* %^{Note}"
                             :immediate-finish t)
                            ("j" "Journal" entry
-                            (file+datetree "~/org/journal.org")
-                            "* %?\nEntered on %U\n  %i\n  %a")
+                            (file+olp+datetree "~/org/journal.org"))
                            ))
 
   :init
