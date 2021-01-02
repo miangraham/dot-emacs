@@ -125,7 +125,7 @@
   :diminish org-roam-mode
   :custom
   (org-roam-directory "~/org/roam")
-  (org-roam-db-location "~/org/roam/org-roam.db")
+  (org-roam-db-location (no-littering-expand-etc-file-name "org-roam.db"))
   :config
   (org-roam-mode +1))
 
