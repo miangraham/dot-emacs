@@ -91,17 +91,7 @@
     :config
     (add-hook 'org-mode-hook
               (lambda ()
-                (org-superstar-mode 1))))
-
-  ;; (use-package org-ref
-  ;;   ;; :defer 3
-  ;;   :config
-  ;;   (setq reftex-default-bibliography '("~/org/bibliography/zotero.bib")
-  ;;         org-ref-default-bibliography '("~/org/bibliography/zotero.bib")
-  ;;         bibtex-completion-bibliography "~/org/bibliography/zotero.bib")
-
-  ;;   (use-package ivy-bibtex))
-  )
+                (org-superstar-mode 1)))))
 
 (use-package ivy-bibtex
   :after org)
@@ -125,13 +115,14 @@
   :diminish org-roam-mode
   :custom
   (org-roam-directory "~/org/roam")
-  (org-roam-db-location (no-littering-expand-etc-file-name "org-roam.db"))
+  (org-roam-db-location (no-littering-expand-var-file-name "org-roam.db"))
   :config
   (org-roam-mode +1))
 
 (use-package org-roam-bibtex
   :demand t
   :after org-roam
+  :diminish org-roam-bibtex-mode
   :hook (org-roam-mode . org-roam-bibtex-mode))
 
 (use-package bookmark

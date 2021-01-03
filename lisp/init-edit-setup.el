@@ -28,7 +28,7 @@
   (while (search-forward "\r" nil t) (replace-match "")))
 
 (setq auto-save-default nil
-      backup-directory-alist `(("." . "~/.emacs.d/backup"))
+      backup-directory-alist `(("." . ,(expand-file-name "backup/" user-emacs-directory)))
       default-input-method 'japanese
       locale-coding-system 'utf-8
       mouse-drag-copy-region 't
