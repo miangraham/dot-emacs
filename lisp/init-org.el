@@ -1,4 +1,5 @@
 (use-package org
+  :ensure nil
   :bind
   (("C-c a" . org-agenda)
    ("C-c c" . org-capture))
@@ -34,10 +35,10 @@
   (org-tags-column -100)
   (org-use-speed-commands t)
   (org-todo-keywords '((sequence "TODO" "DONE")))
-  (org-todo-keyword-faces '(("TODO" . 'org-todo)
-                            ("PROG" . "yellow")
-                            ("WAIT" . "yellow")
-                            ("DONE" . 'org-done)))
+  ;; (org-todo-keyword-faces '(("TODO" . 'org-todo)
+  ;;                           ("PROG" . "yellow")
+  ;;                           ("WAIT" . "yellow")
+  ;;                           ("DONE" . 'org-done)))
   (org-capture-templates '(("t" "Task" entry
                             (file "~/org/todo.org")
                             "* TODO %^{Task}"

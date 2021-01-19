@@ -28,6 +28,9 @@
 (use-package flycheck-rust
   :hook (rust-mode . flycheck-rust-setup))
 
+(use-package ron-mode
+  :mode ("\\.ron\\'" . ron-mode))
+
 (use-package toml-mode
   :mode ("\\.toml\\'" . toml-mode))
 
