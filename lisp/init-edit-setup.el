@@ -1,8 +1,14 @@
-(use-package move-dup
-  :bind (("M-<up>" . md-move-lines-up)
-         ("M-<down>" . md-move-lines-down)
-         ("C-M-<up>" . md-duplicate-up)
-         ("C-M-<down>" . md-duplicate-down)))
+;; (use-package move-dup
+;;   :bind (("M-<up>" . md-move-lines-up)
+;;          ("M-<down>" . md-move-lines-down)
+;;          ("C-M-<up>" . md-duplicate-up)
+;;          ("C-M-<down>" . md-duplicate-down)))
+
+(use-package drag-stuff
+  :defer 2
+  :config
+  (drag-stuff-define-keys)
+  (drag-stuff-global-mode 1))
 
 (use-package autorevert
   :ensure nil
