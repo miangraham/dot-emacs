@@ -6,6 +6,7 @@
 
 (use-package drag-stuff
   :defer 2
+  :diminish drag-stuff-mode
   :config
   (drag-stuff-define-keys)
   (drag-stuff-global-mode 1))
