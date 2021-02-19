@@ -35,6 +35,7 @@
 (require 'init-narrowing)
 (require 'init-org)
 (require 'init-projectile)
+(require 'init-shackle)
 (require 'init-tramp)
 
 ;; Coding
