@@ -2,7 +2,9 @@
   :mode ("\\.rs\\'" . rust-mode)
   :custom
   (rust-indent-offset 2)
-  (rust-format-on-save nil)
+  (rust-format-on-save t)
+  (rust-format-show-buffer nil)
+  (rust-format-goto-problem nil)
   (lsp-rust-server 'rust-analyzer)
   (lsp-rust-analyzer-server-display-inlay-hints 't)
   (lsp-rust-analyzer-display-parameter-hints nil)
@@ -13,6 +15,7 @@
   (lsp-enable-imenu nil)
   (lsp-enable-xref t)
   (lsp-eldoc-enable-hover nil)
+  (lsp-signature-doc-lines 5)
   (lsp-modeline-code-actions-enable nil)
   (lsp-modeline-diagnostics-enable nil)
   ;; (lsp-eldoc-render-all t)
