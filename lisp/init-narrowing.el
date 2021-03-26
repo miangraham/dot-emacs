@@ -8,4 +8,7 @@
   :config
   (selectrum-prescient-mode +1))
 
+(use-package orderless
+  :custom (completion-styles '(orderless)))
+
 (provide 'init-narrowing)

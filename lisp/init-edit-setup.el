@@ -60,6 +60,7 @@
 (global-unset-key "\C-c\C-c")
 (global-unset-key (kbd "<S-backspace>"))
 (global-unset-key "\M-;")
+(global-unset-key "\C-xs")
 
 ;; Keys
 (global-set-key (kbd "<mouse-2>") 'mouse-yank-at-click)
@@ -68,6 +69,7 @@
 (global-set-key "\C-xk" 'kill-this-buffer)
 (global-set-key "\M-j" '(lambda () (interactive) (join-line -1)))
 (global-set-key (kbd "<C-M-backspace>") 'backward-kill-sexp)
+(global-set-key "\C-xs" 'save-buffer)
 
 ;; Global text scale
 (defun global-text-scale-increase ()
