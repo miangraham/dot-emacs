@@ -67,7 +67,7 @@
 (global-set-key "\C-x\C-k" 'kill-region)
 (global-set-key "\M-;" 'comment-or-uncomment-region)
 (global-set-key "\C-xk" 'kill-this-buffer)
-(global-set-key "\M-j" '(lambda () (interactive) (join-line -1)))
+(global-set-key "\M-j" (lambda () (interactive) (join-line -1)))
 (global-set-key (kbd "<C-M-backspace>") 'backward-kill-sexp)
 (global-set-key "\C-xs" 'save-buffer)
 
