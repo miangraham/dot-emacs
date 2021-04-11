@@ -25,7 +25,7 @@
   (message nil))
 
 (use-package beacon
-  :diminish beacon-mode
+  :diminish
   :config
   (beacon-mode 1)
   ;; (global-hl-line-mode t)
@@ -67,7 +67,7 @@
 
 (use-package golden-ratio
   :defer 1
-  :diminish golden-ratio-mode
+  :diminish
   :custom
   (golden-ratio-auto-scale nil)
   (golden-ratio-extra-commands '(ace-window))

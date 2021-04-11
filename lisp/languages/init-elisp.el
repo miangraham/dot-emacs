@@ -1,11 +1,11 @@
 (use-package aggressive-indent
   :commands aggressive-indent-mode
-  :diminish aggressive-indent-mode
+  :diminish
   :init (add-hook 'emacs-lisp-mode-hook 'aggressive-indent-mode))
 
 (use-package smartparens
   :commands smartparens-mode
-  :diminish smartparens-mode
+  :diminish
   :init
   (add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
   :config

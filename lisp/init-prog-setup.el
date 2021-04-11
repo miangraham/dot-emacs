@@ -7,7 +7,7 @@
               tags-file-name "TAGS")
 
 (use-package editorconfig
-  :diminish editorconfig-mode
+  :diminish
   :config (editorconfig-mode 1))
 
 (use-package direnv
@@ -20,7 +20,7 @@
   :hook (prog-mode . rainbow-delimiters-mode-enable))
 
 (use-package ws-butler
-  :diminish ws-butler-mode
+  :diminish
   :hook (prog-mode . ws-butler-mode))
 
 (use-package flycheck

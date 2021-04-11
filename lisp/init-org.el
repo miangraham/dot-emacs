@@ -34,6 +34,7 @@
   (org-src-tab-acts-natively t)
   (org-tags-column -100)
   (org-use-speed-commands t)
+  (fill-column 100)
   (org-todo-keywords '((sequence "TODO" "DONE")))
   ;; (org-todo-keyword-faces '(("TODO" . 'org-todo)
   ;;                           ("PROG" . "yellow")
@@ -113,7 +114,7 @@
    ("C-c r f" . org-roam-find-file)
    ("C-c r b" . org-roam-buffer-toggle-display)
    ("C-c r g" . org-roam-graph))
-  :diminish org-roam-mode
+  :diminish
   :custom
   (org-roam-directory "~/org/roam")
   (org-roam-db-location (no-littering-expand-var-file-name "org-roam.db"))
@@ -123,7 +124,7 @@
 (use-package org-roam-bibtex
   :demand t
   :after org-roam
-  :diminish org-roam-bibtex-mode
+  :diminish
   :hook (org-roam-mode . org-roam-bibtex-mode))
 
 (use-package bookmark

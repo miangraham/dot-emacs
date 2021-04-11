@@ -1,12 +1,6 @@
-;; (use-package move-dup
-;;   :bind (("M-<up>" . md-move-lines-up)
-;;          ("M-<down>" . md-move-lines-down)
-;;          ("C-M-<up>" . md-duplicate-up)
-;;          ("C-M-<down>" . md-duplicate-down)))
-
 (use-package drag-stuff
   :defer 2
-  :diminish drag-stuff-mode
+  :diminish
   :config
   (drag-stuff-define-keys)
   (drag-stuff-global-mode 1))
@@ -17,17 +11,31 @@
   (global-auto-revert-mode))
 
 (use-package anzu
-  :diminish anzu-mode
+  :diminish
   :config
   (global-anzu-mode))
 
 (use-package which-key
-  :diminish which-key-mode
+  :diminish
   :config
   (which-key-mode))
 
 (use-package helpful
   :bind (("C-h h" . helpful-at-point)))
+
+(use-package visual-fill-column
+  :hook (visual-line-mode . visual-fill-column-mode))
+
+(use-package adaptive-wrap
+  :hook (visual-line-mode . adaptive-wrap-prefix-mode))
+
+(use-package emacs
+  :ensure nil
+  :bind (("C-c v" . visual-line-mode)))
+
+(use-package writeroom-mode
+  :bind (("C-c w" . writeroom-mode))
+  :hook (writeroom-mode . visual-line-mode))
 
 (defun undosify ()
   (interactive)
@@ -89,6 +97,7 @@
 (global-unset-key (kbd "C-x C--"))
 (global-unset-key (kbd "C-x C-="))
 (global-unset-key (kbd "C-x C-+"))
+
 (use-package hydra
   :commands (hydra--call-interactively-remap-maybe
              hydra-default-pre
