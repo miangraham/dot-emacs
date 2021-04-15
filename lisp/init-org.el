@@ -127,6 +127,13 @@
   :diminish
   :hook (org-roam-mode . org-roam-bibtex-mode))
 
+(use-package ox-hugo
+  :after ox
+  :config
+  (defun org-hugo-export-all-in-file ()
+    (interactive)
+    (org-hugo-export-wim-to-md :all-subtrees nil nil :noerror)))
+
 (use-package bookmark
   :ensure nil
   :defer 1
