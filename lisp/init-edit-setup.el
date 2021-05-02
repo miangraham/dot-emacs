@@ -47,6 +47,7 @@
       default-input-method 'japanese
       locale-coding-system 'utf-8
       mouse-drag-copy-region 't
+      mouse-yank-at-point t
       select-active-regions nil
       select-enable-primary t
       select-enable-clipboard t
