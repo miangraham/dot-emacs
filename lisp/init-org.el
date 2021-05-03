@@ -1,3 +1,11 @@
+(defun my/new-post-file ()
+  (find-file (expand-file-name
+              (format-time-string "%Y-%m-%d--%H-%M-%S.org")
+              "~/cfp-test/posts")))
+
+(defun my/post-capture ()
+  nil)
+
 (use-package org
   :ensure nil
   :bind
@@ -54,6 +62,10 @@
                             :immediate-finish t)
                            ("j" "Journal" entry
                             (file+olp+datetree "~/org/journal.org"))
+                           ("p" "Post to Homepage" plain
+                            (function my/new-post-file)
+                            "#+TITLE: %^{PROMPT}\n#+DATE: %T\n#+MINI: t\n\n%?"
+                            :kill-buffer t)
                            ))
 
   :init
@@ -64,7 +76,8 @@
 
   (use-package fullframe
     :config
-    (fullframe org-agenda-list org-agenda-quit))
+    (fullframe org-agenda-list org-agenda-quit)
+    (fullframe org-capture my/post-capture))
 
   (use-package org-tree-slide
     :defer 5
