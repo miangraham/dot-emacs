@@ -44,6 +44,7 @@
 (require 'init-elisp)
 (require 'init-haskell)
 (require 'init-hcl)
+(require 'init-html)
 (require 'init-javascript)
 (require 'init-nix)
 (require 'init-purescript)
