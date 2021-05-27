@@ -1,7 +1,7 @@
 (defun my/new-post-file ()
   (find-file (expand-file-name
               (format-time-string "%Y-%m-%d--%H-%M-%S.org")
-              "~/cfp-test/posts")))
+              "~/ianworks/posts")))
 
 (defun my/post-capture ()
   nil)
