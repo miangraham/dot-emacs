@@ -147,20 +147,20 @@
     (interactive)
     (org-hugo-export-wim-to-md :all-subtrees nil nil :noerror)))
 
-(use-package ox-koma-letter
-  :after ox
-  :ensure nil
-  :config
-  (add-to-list 'org-latex-classes
-               '("my-letter"
-                 "\\documentclass\{scrlttr2\}
-     \\usepackage[english]{babel}
-     \\setkomavar{frombank}{(1234)\\,567\\,890}
-     \[DEFAULT-PACKAGES]
-     \[PACKAGES]
-     \[EXTRA]"))
+;; (use-package ox-koma-letter
+;;   :after ox
+;;   :ensure nil
+;;   :config
+;;   (add-to-list 'org-latex-classes
+;;                '("my-letter"
+;;                  "\\documentclass\{scrlttr2\}
+;;      \\usepackage[english]{babel}
+;;      \\setkomavar{frombank}{(1234)\\,567\\,890}
+;;      \[DEFAULT-PACKAGES]
+;;      \[PACKAGES]
+;;      \[EXTRA]"))
 
-  (setq org-koma-letter-default-class "my-letter"))
+;;   (setq org-koma-letter-default-class "my-letter"))
 
 (use-package bookmark
   :ensure nil
