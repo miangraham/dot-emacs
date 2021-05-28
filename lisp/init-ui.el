@@ -4,7 +4,8 @@
       initial-scratch-message nil
       scroll-bar-width 0
       ring-bell-function 'ignore
-      default-directory "~/")
+      default-directory "~/"
+      browse-url-browser-function 'browse-url-firefox)
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
