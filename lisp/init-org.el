@@ -146,9 +146,7 @@
     (interactive)
     (org-hugo-export-wim-to-md :all-subtrees nil nil :noerror)))
 
-(use-package org-contrib
-  :after ox
-  :config
+(defun setup-koma-letter ()
   (require 'ox-koma-letter)
   (add-to-list 'org-latex-classes
                '("my-letter"
@@ -159,6 +157,16 @@
      \[PACKAGES]
      \[EXTRA]"))
   (setq org-koma-letter-default-class "my-letter"))
+
+(if (string= system-type "darwin")
+    (use-package org-contrib
+      :after ox
+      :config
+      (setup-koma-letter))
+  (use-package ox-koma-letter
+    :after ox
+    :config
+    (setup-koma-letter)))
 
 (use-package bookmark
   :ensure nil
