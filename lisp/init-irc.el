@@ -4,7 +4,7 @@
   :ensure nil
   :custom
   (erc-modules '(button completion fill irccontrols list match menu move-to-prompt netsplit networks noncommands readonly ring stamp track))
-  (erc-track-exclude '("#haskell"))
+  (erc-track-exclude '("#haskell" "#libera" "#nixos"))
   (erc-track-exclude-types '("JOIN" "KICK" "NICK" "PART" "QUIT" "333" "353"))
   (erc-hide-list '("JOIN" "PART" "QUIT"))
   (erc-prompt-for-password nil)
