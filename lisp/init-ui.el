@@ -7,7 +7,7 @@
       scroll-bar-width 0
       ring-bell-function 'ignore
       default-directory "~/"
-      browse-url-browser-function 'browse-url-firefox)
+      browse-url-browser-function (if (string= system-type "darwin") 'browse-url-default-browser 'browse-url-firefox))
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
