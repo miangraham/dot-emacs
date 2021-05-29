@@ -1,3 +1,5 @@
+(require 'use-package)
+
 (use-package tramp
   :ensure nil
   :defer 2

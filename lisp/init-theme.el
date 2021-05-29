@@ -1,3 +1,5 @@
+(require 'use-package)
+
 (defvar my/vfont "Sarasa Mono J")
 ;; (defvar my/vfont "Iosevka")
 ;; (defvar my/vfont "iA Writer Duospace")

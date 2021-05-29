@@ -1,3 +1,5 @@
+(require 'use-package)
+
 (setq-default c-basic-indent 2
               c-basic-offset 2
               default-tab-width 2

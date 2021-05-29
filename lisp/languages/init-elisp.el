@@ -1,3 +1,5 @@
+(require 'use-package)
+
 (use-package aggressive-indent
   :commands aggressive-indent-mode
   :diminish
@@ -11,7 +13,9 @@
   :config
   (require 'smartparens-config))
 
-(diminish 'eldoc-mode)
+(use-package eldoc
+  :ensure nil
+  :diminish)
 
 (defun replace-last-sexp ()
   (interactive)

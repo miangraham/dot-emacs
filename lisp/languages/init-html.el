@@ -1,3 +1,5 @@
+(require 'use-package)
+
 (use-package web-mode
   :mode (("\\.html?\\'" . web-mode)
          ("\\.css?\\'" . web-mode))

@@ -1,3 +1,5 @@
+(require 'use-package)
+
 (use-package drag-stuff
   :defer 2
   :diminish

@@ -1,3 +1,5 @@
+(require 'use-package)
+
 ;; (eval-and-compile
 ;;   (require 'use-package))
 ;;   (add-to-list 'load-path (expand-file-name "site-lisp/mu4e" user-emacs-directory))

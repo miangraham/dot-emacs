@@ -1,3 +1,5 @@
+(require 'use-package)
+
 (defun goog(term)
   (interactive "sGoogle search: ")
   (browse-url

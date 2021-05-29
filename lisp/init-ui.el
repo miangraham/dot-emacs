@@ -1,3 +1,5 @@
+(require 'use-package)
+
 (setq cursor-type 'box
       inhibit-splash-screen t
       initial-major-mode 'fundamental-mode
@@ -68,7 +70,7 @@
 
 (use-package golden-ratio
   :defer 1
-  :diminish
+
   :custom
   (golden-ratio-auto-scale nil)
   (golden-ratio-extra-commands '(ace-window))

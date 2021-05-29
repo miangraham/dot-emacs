@@ -1,3 +1,4 @@
+(require 'use-package)
 (require 'youtube-dl)
 
 (use-package elfeed

@@ -1,3 +1,5 @@
+(require 'use-package)
+
 (defvar my/nick "libera")
 
 (use-package erc

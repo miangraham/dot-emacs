@@ -1,3 +1,5 @@
+(require 'use-package)
+
 (defun my/new-post-file ()
   (find-file (expand-file-name
               (format-time-string "%Y-%m-%d--%H-%M-%S.org")
@@ -89,8 +91,6 @@
     :init
     (add-hook 'org-tree-slide-mode-hook 'org-bullets-mode)
     )
-
-  ;; (use-package org-tempo :demand t :ensure nil)
 
   (use-package org-randomnote
     :defer 5

@@ -1,3 +1,5 @@
+(require 'use-package)
+
 (recentf-mode 1)
 
 (use-package selectrum

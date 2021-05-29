@@ -15,7 +15,8 @@
 (eval-and-compile
   (require 'use-package)
   ;; (custom-set-variables '(use-package-verbose t) '(use-package-minimum-reported-time 0.001))
-  (setq use-package-always-ensure t))
+  (when (string= system-type "darwin")
+    (setq use-package-always-ensure t)))
 
 (require 'init-exec-path)
 

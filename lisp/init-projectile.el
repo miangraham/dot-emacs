@@ -1,3 +1,5 @@
+(require 'use-package)
+
 (use-package projectile
   :defer 2
   :bind-keymap ("C-c p" . projectile-command-map)

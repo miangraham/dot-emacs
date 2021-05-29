@@ -1,3 +1,5 @@
+(require 'use-package)
+
 (setq vc-handled-backends (quote (Git SVN CVS Hg)))
 
 (when window-system

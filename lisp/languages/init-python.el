@@ -1,13 +1,15 @@
+(require 'use-package)
+
 (use-package python
   :ensure nil
-  :mode ("\\.py\\'" . python-mode)
-  :interpreter ("python" . python-mode)
+  :mode "\\.py\\'"
+  :interpreter "python"
+  :custom
+  (python-indent-offset 2)
   :config
   (add-hook 'python-mode-hook
             (lambda ()
               (setq indent-tabs-mode nil)
-              (setq tab-width 2)
-              (setq python-indent-offset 2)))
-  )
+              (setq tab-width 2))))
 
 (provide 'init-python)

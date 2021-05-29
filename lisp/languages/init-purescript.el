@@ -1,3 +1,5 @@
+(require 'use-package)
+
 (use-package purescript-mode
   :mode ("\\.purs?\\'" . purescript-mode)
   :functions turn-on-purescript-simple-indentation

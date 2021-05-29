@@ -1,3 +1,5 @@
+(require 'use-package)
+
 (use-package rust-mode
   :mode ("\\.rs\\'" . rust-mode)
   :custom

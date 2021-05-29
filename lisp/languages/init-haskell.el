@@ -1,3 +1,5 @@
+(require 'use-package)
+
 (use-package haskell-mode
   :mode ("\\.hs?\\'" . haskell-mode)
   :init
@@ -7,7 +9,7 @@
         haskell-interactive-popup-errors nil))
 
 (use-package dante
-  :ensure t
+  :disabled t
   :after haskell-mode
   :commands 'dante-mode
   :init

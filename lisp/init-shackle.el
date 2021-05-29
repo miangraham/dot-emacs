@@ -1,5 +1,6 @@
+(require 'use-package)
+
 (use-package shackle
-  :ensure
   :diminish
   :custom
   (shackle-rules '(("*Messages*" :select nil :other t :align bottom :size 0.2 :inhibit-window-quit nil)
