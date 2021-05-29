@@ -70,6 +70,7 @@
 
 (use-package golden-ratio
   :defer 1
+  :diminish
 
   :custom
   (golden-ratio-auto-scale nil)
