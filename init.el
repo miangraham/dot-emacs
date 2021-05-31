@@ -33,7 +33,7 @@
 (require 'init-ace)
 (require 'init-git)
 (require 'init-ledger)
-(require 'init-narrowing)
+(require 'init-completion)
 (require 'init-org)
 (require 'init-projectile)
 (require 'init-shackle)

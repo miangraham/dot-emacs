@@ -13,8 +13,6 @@
   (projectile-indexing-method 'native)
 
   :config
-  ;; (setq projectile-mode-line '(:eval (format " P[%s]" (projectile-project-name))))
-
   (add-to-list 'projectile-globally-ignored-files ".DS_Store")
   (add-to-list 'projectile-globally-ignored-files "*.cache")
   (add-to-list 'projectile-globally-ignored-files "*.class")
@@ -31,7 +29,6 @@
   (add-hook 'find-file-hook
             (lambda ()
               (when (file-remote-p default-directory)
-                ;; (setq-local projectile-mode-line "Projectile")
                 (projectile-mode 0))))
 
   (projectile-mode))
