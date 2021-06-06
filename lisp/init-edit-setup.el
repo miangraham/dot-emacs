@@ -39,6 +39,10 @@
   :bind (("C-c w" . writeroom-mode))
   :hook (writeroom-mode . visual-line-mode))
 
+(defun sort-symbols (reverse beg end)
+  (interactive "*P\nr")
+  (sort-regexp-fields reverse "\\(\\sw\\|\\s_\\)+" "\\&" beg end))
+
 (defun undosify ()
   (interactive)
   (goto-char (point-min))

@@ -5,12 +5,16 @@
 (use-package erc
   :ensure nil
   :custom
-  (erc-modules '(button completion fill irccontrols list match menu move-to-prompt netsplit networks noncommands readonly ring stamp track))
+  (erc-email-userid my/nick)
+  (erc-prompt-for-password nil)
+  (erc-fill-function 'erc-fill-static)
+  (erc-fill-static-center 15)
+  (erc-fill-column 160)
+  (erc-hide-list '("JOIN" "PART" "QUIT"))
   (erc-track-exclude '("#haskell" "#libera" "#nixos" "##programming"))
   (erc-track-exclude-types '("JOIN" "KICK" "NICK" "PART" "QUIT" "333" "353"))
-  (erc-hide-list '("JOIN" "PART" "QUIT"))
-  (erc-prompt-for-password nil)
-  (erc-email-userid my/nick)
+  (erc-track-shorten-cutoff 8)
+  (erc-track-shorten-start 3)
   :config
   (defun my/chat ()
     (interactive)
