@@ -3,6 +3,7 @@
 (defvar my/nick "libera")
 
 (use-package erc
+  :defer 3
   :ensure nil
   :custom
   (erc-email-userid my/nick)
@@ -11,10 +12,11 @@
   (erc-fill-static-center 15)
   (erc-fill-column 160)
   (erc-hide-list '("JOIN" "PART" "QUIT"))
-  (erc-track-exclude '("#haskell" "#libera" "#nixos" "##programming"))
+  (erc-track-exclude '("#haskell" "#libera" "##programming"))
   (erc-track-exclude-types '("JOIN" "KICK" "NICK" "PART" "QUIT" "333" "353"))
   (erc-track-shorten-cutoff 8)
   (erc-track-shorten-start 3)
+  (erc-ignore-list '("{^-^}!~graham@flexo.gsc.io"))
   :config
   (defun my/chat ()
     (interactive)
