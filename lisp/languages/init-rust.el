@@ -11,6 +11,7 @@
   (lsp-rust-analyzer-server-display-inlay-hints 't)
   (lsp-rust-analyzer-display-parameter-hints nil)
   (lsp-rust-analyzer-display-chaining-hints 't)
+  (lsp-rust-analyzer-proc-macro-enable 't)
   (lsp-rust-show-hover-context nil)
   ;; lsp-rust-analyzer-server-command
   (lsp-file-watch-threshold 10000)

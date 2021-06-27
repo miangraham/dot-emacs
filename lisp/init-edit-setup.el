@@ -39,6 +39,11 @@
   :bind (("C-c w" . writeroom-mode))
   :hook (writeroom-mode . visual-line-mode))
 
+(use-package highlight-indent-guides
+  :defer 3
+  :custom
+  (highlight-indent-guides-method 'bitmap))
+
 (defun sort-symbols (reverse beg end)
   (interactive "*P\nr")
   (sort-regexp-fields reverse "\\(\\sw\\|\\s_\\)+" "\\&" beg end))
