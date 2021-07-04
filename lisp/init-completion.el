@@ -1,7 +1,7 @@
 (require 'use-package)
 
 (use-package recentf
-  :ensure nil
+  :straight nil
   :custom
   (recentf-max-saved-items 50)
   :config

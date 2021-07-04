@@ -14,7 +14,7 @@
   (require 'smartparens-config))
 
 (use-package eldoc
-  :ensure nil
+  :straight nil
   :diminish)
 
 (defun replace-last-sexp ()

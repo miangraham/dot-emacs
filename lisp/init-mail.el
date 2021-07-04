@@ -15,7 +15,7 @@
 
 (use-package mu4e
   ;; :disabled 't
-  :ensure nil
+  :straight nil
   ;; :if (or (string= (system-name) "toki.local")
   ;;         (string= (system-name) "toki"))
   :if (display-graphic-p)

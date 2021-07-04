@@ -4,7 +4,7 @@
 
 (use-package erc
   :defer 3
-  :ensure nil
+  :straight nil
   :custom
   (erc-email-userid my/nick)
   (erc-prompt-for-password nil)

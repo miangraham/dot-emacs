@@ -8,7 +8,7 @@
   (drag-stuff-global-mode 1))
 
 (use-package autorevert
-  :ensure nil
+  :straight nil
   :config
   (global-auto-revert-mode))
 
@@ -32,7 +32,7 @@
   :hook (visual-line-mode . adaptive-wrap-prefix-mode))
 
 (use-package emacs
-  :ensure nil
+  :straight nil
   :bind (("C-c v" . visual-line-mode)))
 
 (use-package writeroom-mode

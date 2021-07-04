@@ -169,7 +169,7 @@
     (setup-koma-letter)))
 
 (use-package bookmark
-  :ensure nil
+  :straight nil
   :defer 1
   :custom
   (bookmark-save-flag nil))

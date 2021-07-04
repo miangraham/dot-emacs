@@ -1,7 +1,7 @@
 (require 'use-package)
 
 (use-package tramp
-  :ensure nil
+  :straight nil
   :defer 2
   :config
   (setq tramp-default-method "ssh"

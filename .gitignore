@@ -18,6 +18,7 @@ lisp/flycheck*
 projectile*
 /recentf
 /request
+/straight
 /tramp
 /transient
 /url

@@ -1,7 +1,7 @@
 (require 'use-package)
 
 (use-package python
-  :ensure nil
+  :straight nil
   :mode "\\.py\\'"
   :interpreter "python"
   :custom

@@ -1,19 +1,9 @@
-(setq gc-cons-threshold (* 100 1000 1000))
-(if (string= system-type "darwin")
-    (setq package-archives '(("melpa" . "https://melpa.org/packages/")
-                             ("gnu" . "https://elpa.gnu.org/packages/")
-                             ("nongnu" . "https://elpa.nongnu.org/nongnu/"))
-          package-pinned-packages '(("magit" . "melpa")
-                                    ("yasnippet" . "melpa")
-                                    ("minimap" . "melpa")
-                                    ("js2-mode" . "melpa")
-                                    ("org" . "gnu")
-                                    ("org-contrib" . "nongnu")))
-  (setq package-archives nil))
+(setq gc-cons-threshold (* 100 1000 1000)
+      package-enable-at-startup nil
+      package-load-list nil
+      byte-compile-warnings '(not obsolete)
+      load-prefer-newer t)
 
 (when (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-
-(setq byte-compile-warnings '(not obsolete)
-      load-prefer-newer t)
