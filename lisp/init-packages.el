@@ -1,5 +1,6 @@
 ;; Initialize straight.el
 (defvar bootstrap-version)
+(setq straight-check-for-modifications '(check-on-save find-when-checking))
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
       (bootstrap-version 5))
@@ -11,7 +12,6 @@
       (goto-char (point-max))
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
-(setq straight-check-for-modifications '(check-on-save find-when-checking))
 (when (string= system-type "darwin")
   (straight-use-package 'use-package)
   (straight-use-package 'diminish))
