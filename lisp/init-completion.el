@@ -30,7 +30,7 @@
   ("C-c f" . consult-recent-file))
 
 (use-package marginalia
-  :init
+  :config
   (marginalia-mode))
 
 (provide 'init-completion)

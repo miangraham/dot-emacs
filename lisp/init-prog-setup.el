@@ -9,7 +9,11 @@
               tags-file-name "TAGS")
 
 (use-package editorconfig
+  ;; warnings after straight migration, how much am I using this?
+  :disabled t
   :diminish
+  :custom
+  (editorconfig-exclude-modes '(fundamental-mode))
   :config (editorconfig-mode 1))
 
 (use-package direnv
